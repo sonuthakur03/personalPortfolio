@@ -153,7 +153,7 @@ main hr {
   background-color: blue;
   padding: 1.5rem;
   border-radius: 10px;
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 
@@ -169,9 +169,6 @@ main hr {
   margin: auto;
 }
 
-.sideBox .sideTitle img {
-  height: 60px;
-}
 
 .sideBox .sideDesc {
   font-size: 1.1rem;
@@ -310,12 +307,6 @@ footer .wrapper .section {
 
 .socials .handles .icons:hover {
   color: white;
-}
-
-.hidden {
-  display: none;
-  transition: opacity 3s ease-in-out;
-  opacity: 0;
 }
 
 @media screen and (max-width: 1024px) {
