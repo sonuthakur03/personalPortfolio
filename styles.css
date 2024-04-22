@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(0, 0, 33);
+  color: white;
+}
+header {
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(18, 18, 62);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  list-style: none;
+  margin: 0 23px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Poppins";
+}
+nav ul li a:hover {
+  font-size: 1.02rem;
+  color: rgb(153, 153, 226);
+  text-decoration: underline;
+}
+.left {
+  font-size: 1.8rem;
+  font-family: "Poppins";
+}
+.firstSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 130px 0;
+  height: 60vh;
+  font-family: "Poppins";
+}
+.firstSection > div {
+  width: 30%;
+}
+.leftSection {
+  font-size: 2.5rem;
+}
+
+.leftSection .btn {
+  padding: 10px;
+  background-color: #1e2167;
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Poppins";
+  margin: 30px 10px;
+  cursor: pointer;
+}
+
+.leftSection .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.rightSection img {
+  width: 80%;
+}
+.purple {
+  color: rgb(169, 103, 231);
+}
+.gray {
+  color: gray;
+}
+#element {
+  color: rgb(169, 103, 231);
+  font-style: italic;
+}
+
+.middleSection {
+  max-width: 80vw;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+}
+
+.middleSection .bg-2 img {
+  width: 80%;
+}
+
+.middleSection .descriptions {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 1.05rem;
+  color: gray;
+  font-family: "Poppins";
+}
+
+.desc {
+  transition: 0.3s;
+  text-align: left;
+}
+
+.middleSection .descriptions .desc:hover {
+  color: white;
+}
+
+.secondSection {
+  max-width: 80vw;
+  margin: 80px auto;
+}
+
+main hr {
+  border: 0;
+  background: #9c97f1;
+  height: 1px;
+  margin: 60px 84px;
+}
+
+.secondSection {
+  height: 90vh;
+}
+.secondSection h1 {
+  font-size: 1.9rem;
+}
+
+.secondSection .sideBox {
+  position: relative;
+  top: 30vh;
+  height: 20vh;
+  width: 100%;
+  background-color: blue;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+}
+
+.sideBox .sideTitle {
+  font-size: 1.8rem;
+  text-align: center;
+  padding-bottom: 20px;
+  font-family: "Poppins";
+  width: 33%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+.sideBox .sideTitle img {
+  height: 60px;
+}
+
+.sideBox .sideDesc {
+  font-size: 1.1rem;
+  padding: 0 10px;
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.cover {
+  display: flex;
+}
+
+.secondSection .box {
+  background: white;
+  width: 80vw;
+  height: 2px;
+  margin: 125px 0;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Poppins";
+}
+
+.secondSection .vertical {
+  height: 93px;
+  width: 1px;
+  background-color: white;
+  /* margin: 0 100px; */
+}
+.image-top {
+  width: 50px;
+  position: relative;
+  top: -55px;
+  left: -25px;
+}
+.vertical-title {
+  position: relative;
+  top: 45px;
+  width: 180px;
+  left: -75px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.vertical-desc {
+  position: relative;
+  top: 66px;
+  width: 150px;
+  color: gray;
+  font-size: 9px;
+  left: -60px;
+  transition: 1s;
+}
+
+.vertical-desc:hover {
+  color: white;
+}
+
+footer {
+  width: 100%;
+  background-color: #0e0e1a;
+  height: 300px;
+}
+
+footer .wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 23px;
+  padding:0 1rem;
+}
+
+footer .wrapper .section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.logo .logoText {
+  font-size: 2.2rem;
+  font-family: "Poppins";
+}
+
+.section .links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 33%;
+  text-align: center;
+}
+
+.section .links a {
+  color: gray;
+  text-decoration: none;
+  display: block;
+  margin: 1rem 0.5rem;
+  font-family: "Poppins";
+}
+
+.section .links a:hover {
+  text-decoration: underline;
+  color: #d1d1db;
+}
+
+.section .links p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  font-family: "Poppins";
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 20px;
+  font-family: "Poppins";
+}
+
+.socials .rights a {
+  color: white;
+  text-decoration: none;
+}
+
+.socials .handles {
+  display: flex;
+  width: 20%;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+}
+
+.socials .handles .icons {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.socials .handles .icons:hover {
+  color: white;
+}
+
+.hidden {
+  display: none;
+  transition: opacity 3s ease-in-out;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  nav .right {
+    display: none;
+  }
+
+  .firstSection {
+    flex-direction: column;
+    gap: 50px;
+    height: 70vh;
+  }
+
+  .rightSection img {
+    width: 35%;
+  }
+
+  .firstSection > div {
+    width: 80%;
+    text-align: center;
+  }
+
+  .middleSection {
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+    height: 1000px;
+  }
+
+  .middleSection .bg-2 img {
+    width: 60%;
+  }
+
+  .secondSection {
+    flex-direction: column;
+    height: 1050px;
+  }
+
+  .secondSection .sideBox {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    top: 0vh;
+    padding:2rem .5rem;
+  }
+
+  .sideBox .sideTitle {
+    width: 20vw;
+    flex-direction: column;
+  }
+
+  .sideBox .sideTitle,
+  .sideBox .sideDesc {
+    font-size: 15px;
+  }
+
+  .sideBox .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+  }
+
+  .secondSection .box {
+    width: 2px;
+    height: 80vh;
+    gap: 50px;
+    flex-direction: column;
+  }
+
+  .secondSection .vertical {
+    width: 93px;
+    height: 1px;
+  }
+
+  .image-top {
+    width: 50px;
+    position: relative;
+    top: -27px;
+    left: -25px;
+    background: black;
+    border-radius: 50%
+  }
+  .vertical-title {
+    position: relative;
+    top: -70px;
+    width: 180px;
+    left: 103px;
+    text-align: left;
+  }
+  .vertical-desc {
+    position: relative;
+    top: -65px;
+    width: 65vw;
+    left: 115px;
+    font-size: 12px;
+  }
+
+  footer{
+    height: 350px;
+  }
+
+  footer .section{
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .section .links{
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .section .links p{
+    font-size: 1rem;
+  }
+
+  .section .links a{
+    font-size: 0.8rem;
+  }
+
+  .socials{
+    font-size: .8rem;
+  }
+
+  .socials .handles .icons{
+    height: 1rem;
+    width: 1rem;
+  }
+}
