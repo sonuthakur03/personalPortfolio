@@ -363,27 +363,6 @@ footer .wrapper .section {
     height: 7vh;
   }
 
-  .sideBox .sideTitle {
-    width: 20vw;
-    flex-direction: column;
-  }
-
-  .sideBox .sideTitle,
-  .sideBox .sideDesc {
-    font-size: 10px;
-  }
-
-  .sideBox .sideDesc {
-    align-self: center;
-  }
-
-  .sideBox .cover {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-  }
 
   .secondSection .box {
     width: 2px;
