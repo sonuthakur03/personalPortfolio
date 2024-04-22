@@ -453,31 +453,43 @@ footer .wrapper .section {
   }
 }
 
-/* @media screen and (min-width: 769px) and (max-width: 1024px){
+ @media screen and (min-width: 1025px) and (max-width: 1200px){
   .firstSection {
-    flex-direction: column;
     gap: 50px;
-    height: 70vh;
+    height: 80vh;
   }
-
-  .rightSection img {
+   .rightSection img {
     width: 55%;
-  }
+  } 
 
   .firstSection > div {
-    width: 80%;
+    width: 50%;
     text-align: center;
   }
 
   .middleSection {
-    flex-direction: column;
     gap: 50px;
     text-align: center;
-    height: 1000px;
+    height: 500px;
   }
 
   .middleSection .bg-2 img {
-    width: 60%;
+    width: 70%;
   }
 
-}  */
+  .middleSection .descriptions {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .sideBox .sideTitle{
+    font-size: 1.25rem;
+  }
+  .sideBox .sideDesc {
+    font-size: 1rem;
+  }
+
+  footer{
+    margin-top: 250px;
+  }
+}
