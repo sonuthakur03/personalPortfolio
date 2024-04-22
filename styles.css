@@ -330,7 +330,7 @@ footer .wrapper .section {
   }
 
   .rightSection img {
-    width: 35%;
+    width: 55%;
   }
 
   .firstSection > div {
@@ -355,11 +355,12 @@ footer .wrapper .section {
   }
 
   .secondSection .sideBox {
-    display: flex;
+    display: none;
     flex-direction: row;
     position: static;
     top: 0vh;
     padding:2rem .5rem;
+    height: 15vh;
   }
 
   .sideBox .sideTitle {
@@ -369,7 +370,11 @@ footer .wrapper .section {
 
   .sideBox .sideTitle,
   .sideBox .sideDesc {
-    font-size: 15px;
+    font-size: 10px;
+  }
+  
+  .sideBox .sideDesc{
+      align-self: center;
   }
 
   .sideBox .cover {
@@ -417,6 +422,7 @@ footer .wrapper .section {
 
   footer{
     height: 350px;
+    margin-top: 350px;
   }
 
   footer .section{
