@@ -151,27 +151,27 @@ main hr {
   height: 20vh;
   width: 100%;
   background-color: blue;
-  padding: 1.5rem;
+  padding: 0.3rem 1.5rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .sideBox .sideTitle {
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   text-align: center;
   padding-bottom: 20px;
   font-family: "Poppins";
-  width: 33%;
+  width: 75%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: auto;
+  margin: 15px auto;
 }
 
 
 .sideBox .sideDesc {
-  font-size: 1.1rem;
+  font-size: 0.7rem;
   padding: 0 10px;
   font-family: "Poppins";
   text-align: center;
@@ -347,11 +347,6 @@ footer .wrapper .section {
 
   .secondSection .sideBox {
     display: none;
-    flex-direction: row;
-    position: static;
-    top: 0vh;
-    padding: 2rem 0.5rem;
-    height: 7vh;
   }
 
 
