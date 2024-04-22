@@ -239,7 +239,7 @@ footer .wrapper {
   display: flex;
   flex-direction: column;
   margin: 23px;
-  padding:0 1rem;
+  padding: 0 1rem;
 }
 
 footer .wrapper .section {
@@ -318,7 +318,7 @@ footer .wrapper .section {
   opacity: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   nav .right {
     display: none;
   }
@@ -326,11 +326,11 @@ footer .wrapper .section {
   .firstSection {
     flex-direction: column;
     gap: 50px;
-    height: 70vh;
+    height: 81vh;
   }
 
   .rightSection img {
-    width: 55%;
+    width: 45%;
   }
 
   .firstSection > div {
@@ -359,8 +359,8 @@ footer .wrapper .section {
     flex-direction: row;
     position: static;
     top: 0vh;
-    padding:2rem .5rem;
-    height: 15vh;
+    padding: 2rem 0.5rem;
+    height: 7vh;
   }
 
   .sideBox .sideTitle {
@@ -372,9 +372,9 @@ footer .wrapper .section {
   .sideBox .sideDesc {
     font-size: 10px;
   }
-  
-  .sideBox .sideDesc{
-      align-self: center;
+
+  .sideBox .sideDesc {
+    align-self: center;
   }
 
   .sideBox .cover {
@@ -403,7 +403,7 @@ footer .wrapper .section {
     top: -27px;
     left: -25px;
     background: black;
-    border-radius: 50%
+    border-radius: 50%;
   }
   .vertical-title {
     position: relative;
@@ -420,35 +420,64 @@ footer .wrapper .section {
     font-size: 12px;
   }
 
-  footer{
+  footer {
     height: 350px;
-    margin-top: 350px;
+    /* margin-top: 350px; */
   }
 
-  footer .section{
+  footer .section {
     flex-direction: column;
     gap: 25px;
   }
 
-  .section .links{
+  .section .links {
     width: 100%;
     font-size: 1rem;
   }
 
-  .section .links p{
+  .section .links p {
     font-size: 1rem;
   }
 
-  .section .links a{
+  .section .links a {
     font-size: 0.8rem;
   }
 
-  .socials{
-    font-size: .8rem;
+  .socials {
+    font-size: 0.8rem;
   }
 
-  .socials .handles .icons{
+  .socials .handles .icons {
     height: 1rem;
     width: 1rem;
   }
 }
+
+/* @media screen and (min-width: 769px) and (max-width: 1024px){
+  .firstSection {
+    flex-direction: column;
+    gap: 50px;
+    height: 70vh;
+  }
+
+  .rightSection img {
+    width: 55%;
+  }
+
+  .firstSection > div {
+    width: 80%;
+    text-align: center;
+  }
+
+  .middleSection {
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+    height: 1000px;
+  }
+
+  .middleSection .bg-2 img {
+    width: 60%;
+  }
+
+}  */
