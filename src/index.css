@@ -4,28 +4,46 @@
 @tailwind utilities;
 
 @layer base {
-  /* Default Light Mode Tokens */
   :root {
-    --background: #f8fafc; /* Clean light slate */
-    --foreground: #0d0d0d; /* Near black from palette */
-    --primary: #006680; /* High-contrast variant of React Blue */
+    --background: #ffffff;
+    --foreground: #09090b;
+    --surface: #ffffff;
+    --elevated: #f4f4f5;
+    --primary: #0284c7;
     --primary-foreground: #ffffff;
-    --secondary: #d4bf00; /* High-contrast variant of JS Yellow */
-    --secondary-foreground: #0d0d0d;
-    --tertiary: #e2e8f0; /* Soft gray for light cards */
-    --border: #cbd5e1;
+    --secondary: #d97706;
+    --secondary-foreground: #ffffff;
+    --tertiary: #e4e4e7;
+    --border: #e4e4e7;
+    --subtle: #d4d4d8;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717b;
+    --edge: #e4e4e7;
+
+    /* PullCord positions (matching abdulrehmanwaseem.me) */
+    --pullcord-top: 0px;
+    --pullcord-right: 3.5rem;
+    --pullcord-z: 45;
+    --pullcord-ink: rgba(100, 100, 100, 0.75);
   }
 
-  /* Dark Mode Tokens (Using exact palette colors) */
   .dark {
-    --background: #0d0d0d; /* Main dark background */
-    --foreground: #ffffff; /* Light text */
-    --primary: #61dafb; /* Brilliant React Blue */
-    --primary-foreground: #0d0d0d;
-    --secondary: #f7df1e; /* Brilliant JS Yellow */
-    --secondary-foreground: #0d0d0d;
-    --tertiary: #222222; /* Dark Gray for cards */
-    --border: #333333; /* Muted border line */
+    --background: #000000;
+    --foreground: #f4f4f5;
+    --surface: #09090b;
+    --elevated: #121215;
+    --primary: #38bdf8;
+    --primary-foreground: #000000;
+    --secondary: #f59e0b;
+    --secondary-foreground: #000000;
+    --tertiary: #18181b;
+    --border: #27272a;
+    --subtle: #3f3f46;
+    --muted: #18181b;
+    --muted-foreground: #a1a1aa;
+    --edge: #27272a;
+
+    --pullcord-ink: rgba(180, 180, 180, 0.75);
   }
 }
 
@@ -34,6 +52,265 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground transition-colors duration-300 font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
   }
 }
+
+/* Custom Utilities for Technical Polish */
+.grid-blueprint {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .grid-blueprint {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Pull Cord Hint Annotation (abdulrehmanwaseem.me) */
+.cord-hint {
+  top: calc(var(--pullcord-top, 0px) + 168px);
+  right: calc(var(--pullcord-right, 3.5rem) + 48px);
+  z-index: calc(var(--pullcord-z, 45) - 1);
+  color: #71717b;
+  white-space: nowrap;
+  pointer-events: none;
+  align-items: flex-end;
+  gap: 8px;
+  animation: 0.6s 1.2s both cord-hint-in;
+  display: flex;
+  position: fixed;
+}
+
+.dark .cord-hint {
+  color: #a1a1aa;
+}
+
+.cord-hint-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  text-align: right;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.cord-hint-arrow {
+  transform-origin: 50%;
+  flex: none;
+  transform: rotate(14deg);
+}
+
+@keyframes cord-hint-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cord-hint {
+    animation: none;
+  }
+}
+
+@media not all and (min-width: 48rem) {
+  .cord-hint {
+    display: none;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--subtle);
+}
+
+/* Aakarsh DevHQ inspired animations */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes skillWave {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes floatProfile {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotateBorder {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes shimmerText {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes sweepLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* ========================================================================= */
+/* GETLAYERS.AI CINEMATIC ANIMATIONS & GLASSMORPHIC DESIGN SYSTEM            */
+/* ========================================================================= */
+
+@keyframes getlayersFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes getlayersFloatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(-0.8deg);
+  }
+}
+
+@keyframes getlayersShine {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes getlayersAmbientGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.1) translate(10px, -10px);
+  }
+}
+
+.getlayers-glass {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.light .getlayers-glass {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.animate-getlayers-float {
+  animation: getlayersFloat 4.5s ease-in-out infinite;
+}
+
+.animate-getlayers-float-reverse {
+  animation: getlayersFloatReverse 5.2s ease-in-out infinite;
+}
+
+.animate-getlayers-glow {
+  animation: getlayersAmbientGlow 8s ease-in-out infinite;
+}
+
+/* Warm Amber / Solar Gold Ambient Lighting (Replacing generic blue highlights) */
+@keyframes solarPulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.08);
+  }
+}
+
+.animate-solar-pulse {
+  animation: solarPulse 6.5s ease-in-out infinite;
+}
+
+.getlayers-gold-glass {
+  background: rgba(18, 17, 23, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(251, 191, 36, 0.18);
+}
+
+/* Smooth fade-in utility used by FloatingDock and other animated elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+/* GPU acceleration hint for heavily animated elements */
+.will-animate {
+  will-change: transform, opacity;
+}
+

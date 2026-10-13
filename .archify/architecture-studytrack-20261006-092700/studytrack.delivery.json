@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "d90eac53-b763-4e07-8dea-2b6b88162d1d",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-studytrack-20261006-092700\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-studytrack-20261006-092700\\studytrack.html",
+  "specification": {
+    "sha256": "1752714c027245e9bc5a9a9c5b7c3cd2ecf19591bd3e6c645aedbe803a535596",
+    "bytes": 3921
+  },
+  "artifact": {
+    "sha256": "ffaa2de41d7efdd2f5fd31b26e9e0eb0a7e3b204c78b20a02d951a550ee511b7",
+    "bytes": 766152
+  }
+}

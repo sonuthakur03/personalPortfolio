@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Project LOOP — AI Feedback Intelligence Architecture",
+    "subtitle": "Gemini AI SDK, Multi-turn Chat, ACID Transactions & Security Perimeter",
+    "output": "project-loop.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "client", "type": "frontend", "label": "Client Dashboard", "sublabel": "React + Vite UI", "pos": [40, 280], "size": [130, 60] },
+    { "id": "auth", "type": "security", "label": "Auth & RBAC", "sublabel": "JWT & Member Invites", "pos": [240, 130], "size": [130, 60], "tag": "Zero Trust" },
+    { "id": "gateway", "type": "security", "label": "Security Perimeter", "sublabel": "Rate Limit + Helmet + XSS", "pos": [240, 280], "size": [130, 60], "tag": "Hardened" },
+    { "id": "gemini_sdk", "type": "external", "label": "Google Gemini SDK", "sublabel": "Sentiment & Theme LLM", "pos": [450, 130], "size": [140, 60], "tag": "Ask LOOP AI" },
+    { "id": "voc_engine", "type": "backend", "label": "VOC Report Engine", "sublabel": "Risk Matrix & Evidence", "pos": [680, 130], "size": [140, 60] },
+    { "id": "api", "type": "backend", "label": "Express API Core", "sublabel": "Node.js REST Services", "pos": [450, 280], "size": [140, 60] },
+    { "id": "db", "type": "database", "label": "Transactional DB", "sublabel": "MongoDB Replica Set", "pos": [680, 280], "size": [140, 60], "tag": "ACID Compliant" },
+    { "id": "csv_importer", "type": "backend", "label": "CSV Bulk Importer", "sublabel": "Streaming Batch Parser", "pos": [450, 430], "size": [140, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Production Application Boundary", "wraps": ["gateway", "api", "auth", "csv_importer", "voc_engine", "db"] },
+    { "kind": "security-group", "label": "API Security & Transaction Boundary", "wraps": ["gateway", "api", "db"] }
+  ],
+  "connections": [
+    { "id": "client-to-gateway", "from": "client", "to": "gateway", "label": "HTTPS REST", "variant": "emphasis" },
+    { "id": "gateway-to-auth", "from": "gateway", "to": "auth", "label": "validate JWT", "variant": "security", "fromSide": "top", "toSide": "bottom" },
+    { "id": "gateway-to-api", "from": "gateway", "to": "api", "label": "sanitized req", "variant": "default" },
+    { "id": "api-to-gemini", "from": "api", "to": "gemini_sdk", "label": "Ask LOOP / Classify", "variant": "emphasis", "fromSide": "top", "toSide": "bottom" },
+    { "id": "gemini-to-voc", "from": "gemini_sdk", "to": "voc_engine", "label": "sentiment scores", "fromSide": "right", "toSide": "left" },
+    { "id": "voc-to-db", "from": "voc_engine", "to": "db", "label": "store VOC report", "fromSide": "bottom", "toSide": "top" },
+    { "id": "api-to-db", "from": "api", "to": "db", "label": "ACID session", "fromSide": "right", "toSide": "left", "variant": "default" },
+    { "id": "api-to-csv", "from": "api", "to": "csv_importer", "label": "bulk feed", "fromSide": "bottom", "toSide": "top" },
+    { "id": "csv-to-db", "from": "csv_importer", "to": "db", "label": "batch insert", "fromSide": "right", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Security & SDLC Perimeter", "items": ["BugV CTF mindset: Rate limiting, XSS sanitation, and HTTP security headers (Helmet)", "JWT-based session authentication and role-based access control for team member invites"] },
+    { "dot": "cyan", "title": "AI Counterpart Architecture", "items": ["Google Gemini AI SDK integration for multi-turn conversational intelligence ('Ask LOOP')", "Automated sentiment scoring, theme classification, and Voice of Customer (VOC) risk matrix generation"] },
+    { "dot": "emerald", "title": "System Design & Data Integrity", "items": ["ACID-compliant transactional MongoDB operations guaranteeing data consistency across multi-document writes", "Streaming CSV bulk feedback importer to ingest large enterprise datasets without OOM failures"] }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "TravelNP — Travel Planning & Hotel Self-Listing Architecture",
+    "subtitle": "Dual-Persona Flow, Geo-Proximity Discovery, Hotel Self-Registration & Guide Booking",
+    "output": "travelnp.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "traveler_ui", "type": "frontend", "label": "Traveler Discovery App", "sublabel": "Explore Hotels, Guides & Spots", "pos": [40, 140], "size": [160, 60] },
+    { "id": "hotel_ui", "type": "frontend", "label": "Hotel Partner Portal", "sublabel": "Self-Registration & Listings", "pos": [40, 400], "size": [160, 60] },
+    { "id": "auth", "type": "security", "label": "Auth & KYC Guard", "sublabel": "Traveler & Hotel Auth", "pos": [270, 270], "size": [150, 60], "tag": "KYC Verified" },
+    { "id": "cdn", "type": "cloud", "label": "Cloud Asset CDN", "sublabel": "Property & Attraction Photos", "pos": [270, 400], "size": [150, 60] },
+    { "id": "geo_engine", "type": "backend", "label": "Geo-Proximity Engine", "sublabel": "Nearby Attractions & Guides", "pos": [550, 140], "size": [150, 60], "tag": "Spatial" },
+    { "id": "catalog_svc", "type": "backend", "label": "Property Catalog Core", "sublabel": "Hotels, Amenities & Pricing", "pos": [550, 270], "size": [150, 60] },
+    { "id": "booking_svc", "type": "backend", "label": "Booking & Guide Engine", "sublabel": "Reservations & Scheduling", "pos": [550, 400], "size": [150, 60] },
+    { "id": "db", "type": "database", "label": "Platform Datastore", "sublabel": "Hotels, Users, Guides & Bids", "pos": [840, 270], "size": [150, 60], "tag": "Relational/Doc" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "TravelNP Platform Infrastructure", "wraps": ["auth", "cdn", "geo_engine", "catalog_svc", "booking_svc", "db"] },
+    { "kind": "security-group", "label": "Hotel Partner & Listing Management Perimeter", "wraps": ["auth", "catalog_svc", "booking_svc", "db"] }
+  ],
+  "connections": [
+    { "id": "traveler-to-geo", "from": "traveler_ui", "to": "geo_engine", "label": "explore nearby spots", "variant": "emphasis" },
+    { "id": "traveler-to-auth", "from": "traveler_ui", "to": "auth", "label": "traveler login", "variant": "security" },
+    { "id": "hotel-to-auth", "from": "hotel_ui", "to": "auth", "label": "hotel onboarding", "variant": "security" },
+    { "id": "hotel-to-cdn", "from": "hotel_ui", "to": "cdn", "label": "upload property media", "variant": "dashed" },
+    { "id": "auth-to-catalog", "from": "auth", "to": "catalog_svc", "label": "verify listing", "variant": "security" },
+    { "id": "geo-to-catalog", "from": "geo_engine", "to": "catalog_svc", "label": "resolve hotel listings", "fromSide": "bottom", "toSide": "top" },
+    { "id": "catalog-to-booking", "from": "catalog_svc", "to": "booking_svc", "label": "initiate booking", "fromSide": "bottom", "toSide": "top" },
+    { "id": "cdn-to-catalog", "from": "cdn", "to": "catalog_svc", "label": "attach media assets" },
+    { "id": "geo-to-db", "from": "geo_engine", "to": "db", "label": "spatial lookup", "fromSide": "right", "toSide": "top" },
+    { "id": "catalog-to-db", "from": "catalog_svc", "to": "db", "label": "store listings", "variant": "default" },
+    { "id": "booking-to-db", "from": "booking_svc", "to": "db", "label": "save booking", "fromSide": "right", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Dual-Persona Discovery Flow", "items": ["Travelers discover curated travel spots, local tourist guides, and hotels in close geographic proximity to famous landmarks", "Interactive Figma prototype links screens to simulate genuine navigation, filtering, and booking transitions"] },
+    { "dot": "emerald", "title": "Hotel Self-Service Onboarding", "items": ["Hotel proprietors independently register, submit verification documentation, and self-manage rooms, amenities, and seasonal pricing", "Automated media pipeline processes property imagery for high-speed CDN delivery across responsive viewports"] },
+    { "dot": "rose", "title": "Geo-Spatial & Guide Scheduling", "items": ["Spatial indexing calculates distance radii from accommodations to top natural and cultural attractions", "Direct guide booking system allows tourists to reserve verified regional travel guides alongside hotel reservations"] }
+  ]
+}

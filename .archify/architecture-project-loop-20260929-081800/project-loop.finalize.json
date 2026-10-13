@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-09-29T02:33:25.080Z",
+  "specification": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\candidate.json",
+    "sha256": "994337c797bdd4afc9d010718080a68d2c01b2ea69266b05f377e1b00ed5e0b4",
+    "bytes": 3934
+  },
+  "artifact": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+    "sha256": "07c78766dd8a764aa53296f1fee21403135dae6248fc12d4f2a5fb7e46ab1815",
+    "bytes": 763611
+  },
+  "stages": {
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\codes\\PersonalPortfolio\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "architecture",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\candidate.json",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "994337c797bdd4afc9d010718080a68d2c01b2ea69266b05f377e1b00ed5e0b4",
+          "bytes": 3934
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 572,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\codes\\PersonalPortfolio\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "architecture",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\candidate.json",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "30b1b834-9bf2-4363-bc44-5bd5c06057c1",
+        "ok": true,
+        "command": "deliver",
+        "type": "architecture",
+        "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\candidate.json",
+        "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "specification": {
+          "sha256": "994337c797bdd4afc9d010718080a68d2c01b2ea69266b05f377e1b00ed5e0b4",
+          "bytes": 3934
+        },
+        "artifact": {
+          "sha256": "07c78766dd8a764aa53296f1fee21403135dae6248fc12d4f2a5fb7e46ab1815",
+          "bytes": 763611
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 185,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\codes\\PersonalPortfolio\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "check",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "artifact": {
+          "sha256": "07c78766dd8a764aa53296f1fee21403135dae6248fc12d4f2a5fb7e46ab1815",
+          "bytes": 763611
+        },
+        "checks": [
+          {
+            "name": "single_svg",
+            "ok": true,
+            "details": [
+              "found 1 <svg> block(s)"
+            ]
+          },
+          {
+            "name": "finite_svg",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "orthogonal_arrows",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "label_route_clearance",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_crossings",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_corridors",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "container_border_runs",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "route_rhythm",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "legend_clearance",
+            "ok": true,
+            "details": []
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "metrics": {
+            "properCrossings": 0,
+            "resolvedCrossovers": 0,
+            "ambiguousCorridors": 0,
+            "arrowheadCollisions": 0,
+            "containerBorderRuns": 0,
+            "labelRouteClearanceIssues": 0,
+            "labelCanvasOverflowIssues": 0,
+            "minLabelRouteClearance": 40.9,
+            "desktopReadabilityIssues": 0,
+            "viewportHeightIssues": 0,
+            "minProjectedNodeTextPx": 8,
+            "maxBends": 1,
+            "routesOverSuggestedBends": 0,
+            "maxStretch": 1,
+            "routesOverSuggestedStretch": 0,
+            "minSegmentPx": 70,
+            "minInteriorSegmentPx": null,
+            "shortSegmentCount": 0,
+            "shortEndpointSegmentCount": 0,
+            "shortInteriorSegmentCount": 0,
+            "microSegmentCount": 0
+          },
+          "suggestedLimits": {
+            "bendsPerRelationship": 2,
+            "stretch": 1.35,
+            "segmentPx": 16,
+            "microSegmentPx": 8
+          },
+          "routeReview": {
+            "crossings": [],
+            "detours": []
+          },
+          "leadingSpace": {
+            "measured": true,
+            "emptyTopPx": 100,
+            "emptyTopRatio": 0.173,
+            "occupiedTop": 100,
+            "viewBoxTop": 0,
+            "canvasHeight": 578,
+            "typicalNodeHeight": 60,
+            "reviewSuggested": false
+          },
+          "desktopReadability": {
+            "budgetBasis": "legacy-930",
+            "readerContract": "declared-wide-v1",
+            "availableDiagramWidth": 930,
+            "actualBudgetPx": 930,
+            "limit": "legacy",
+            "requestedTargetPx": 7.5,
+            "requestedTargetMet": true,
+            "hardFloorPx": 6,
+            "hardFloorMet": true,
+            "minimumOwner": {
+              "kind": "edge",
+              "id": "client-to-gateway",
+              "from": "client",
+              "to": "gateway"
+            },
+            "minimumSourceTextPx": 8,
+            "minimumProjectedTextPx": 8,
+            "semanticTextCount": 27
+          },
+          "issues": []
+        },
+        "provenance": "current",
+        "deliveryReceiptId": "30b1b834-9bf2-4363-bc44-5bd5c06057c1"
+      }
+    },
+    "browser-check": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 18,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "E:\\codes\\PersonalPortfolio\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "browser-check",
+        "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "--json",
+        "--require-provenance"
+      ],
+      "execution": "in-process",
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "browser-check",
+        "evidenceKind": "automated-browser",
+        "status": "fail",
+        "visualReview": "not-requested",
+        "provenance": "current",
+        "deliveryReceiptId": "30b1b834-9bf2-4363-bc44-5bd5c06057c1",
+        "artifact": {
+          "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+          "sha256": "07c78766dd8a764aa53296f1fee21403135dae6248fc12d4f2a5fb7e46ab1815",
+          "bytes": 763611
+        },
+        "state": {
+          "detail": "read",
+          "motion": "still"
+        },
+        "chrome": {
+          "status": "not-checked",
+          "executable": null
+        },
+        "diagnostics": [
+          {
+            "code": "viewer/evidence-path-conflict",
+            "severity": "error",
+            "message": "browser-check will not replace the existing unowned evidence path \"E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json\".",
+            "subject": {
+              "artifact": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+              "evidencePath": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json"
+            },
+            "evidence": {
+              "reason": {
+                "code": "ownership-artifact-mismatch"
+              }
+            },
+            "supportedFixes": [
+              "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
+            ]
+          }
+        ],
+        "containment": {
+          "status": "fail",
+          "policy": "fit-or-reader-declared-readable-vertical-scroll",
+          "viewports": []
+        },
+        "themeStates": {
+          "status": "fail",
+          "viewports": []
+        },
+        "readability": {
+          "status": "fail",
+          "minimumProjectedNodeTextPx": 6,
+          "viewports": []
+        },
+        "viewerChrome": {
+          "status": "fail",
+          "viewports": []
+        },
+        "captures": {
+          "status": "not-requested",
+          "screenshots": [],
+          "contactSheet": null
+        },
+        "sidecars": {
+          "receipt": "project-loop.browser-check.json",
+          "files": []
+        },
+        "error": "browser-check will not replace the existing unowned evidence path \"E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json\"."
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "viewer/evidence-path-conflict",
+      "severity": "error",
+      "message": "browser-check will not replace the existing unowned evidence path \"E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json\".",
+      "subject": {
+        "artifact": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.html",
+        "evidencePath": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json"
+      },
+      "evidence": {
+        "reason": {
+          "code": "ownership-artifact-mismatch"
+        }
+      },
+      "supportedFixes": [
+        "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.finalize.json",
+    "summaryReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.finalize-summary.json",
+    "browserCheckReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-project-loop-20260929-081800\\project-loop.browser-check.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "browser-check",
+  "finishedAt": "2026-09-29T02:33:26.335Z",
+  "durationMs": 1255,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-09-29T02:33:04.814Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}

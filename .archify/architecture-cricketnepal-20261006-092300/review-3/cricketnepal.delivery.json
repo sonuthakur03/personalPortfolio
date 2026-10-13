@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "77e8b2d4-76e4-4e8a-9fa4-551ffb73cb5e",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\review-3\\cricketnepal.html",
+  "specification": {
+    "sha256": "41e924e37373ac1cb449236c3ab4020cb8f7a7f6c9e825c94282c0c78dbb2a69",
+    "bytes": 4532
+  },
+  "artifact": {
+    "sha256": "f78415eea65d8c07e2b8756154ec7e00bc358f9019f5323b5e38e0feeb013cae",
+    "bytes": 769421
+  }
+}

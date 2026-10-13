@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "6c2438ba-d3d7-4f87-96dd-cdd871a9c68e",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-travelnp-20261006-093900\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-travelnp-20261006-093900\\travelnp.html",
+  "specification": {
+    "sha256": "a83ec31ff8174a028a20338c5dd05d213458f4165fc1cf980770be24dc75f900",
+    "bytes": 4345
+  },
+  "artifact": {
+    "sha256": "0e7f84109f2f25d43c052de09658eceee81ace3cef3d73d84dcfcee37936a733",
+    "bytes": 767098
+  }
+}

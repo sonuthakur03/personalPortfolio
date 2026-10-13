@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\candidate.json",
+    "sha256": "ec8e24ea9328d40091ec677cec3329ea2ebfde13caa5f6a214efe939f2e534ff",
+    "bytes": 4443
+  },
+  "artifact": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\publiccare.html",
+    "sha256": "9eaba0b6c285c8b8fb2427effa6a76e7da99b5f71fb45384553402c03cb8213d",
+    "bytes": 770160
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\publiccare.finalize.json",
+    "summaryReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\publiccare.finalize-summary.json",
+    "browserCheckReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\publiccare.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-06T03:38:38.127Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2274,
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "auth-to-api",
+            "from": "auth",
+            "to": "api",
+            "label": "authorized req",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "api-to-escalation",
+            "from": "api",
+            "to": "escalation_engine",
+            "label": "verify cluster",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.191
+        },
+        {
+          "relationship": {
+            "id": "escalation-to-db",
+            "from": "escalation_engine",
+            "to": "db",
+            "label": "update priority",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "auth → api needs 3 bends: move node auth or api so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "api → escalation_engine needs 3 bends: move node api or escalation_engine so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "escalation_engine → db needs 3 bends: move node escalation_engine or db so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

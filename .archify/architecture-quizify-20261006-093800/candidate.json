@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Quizify — Dynamic Trivia Engine & Client Architecture",
+    "subtitle": "Open Trivia DB Integration, Session Token Management, HTML Sanitization & LocalStorage",
+    "output": "quizify.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "ui", "type": "frontend", "label": "Quiz View & Controls", "sublabel": "Category & Difficulty UI", "pos": [40, 280], "size": [140, 60] },
+    { "id": "decoder", "type": "security", "label": "HTML Entity Decoder", "sublabel": "XSS & String Sanitizer", "pos": [280, 140], "size": [140, 60], "tag": "Sanitization" },
+    { "id": "state_mgr", "type": "frontend", "label": "Quiz State Machine", "sublabel": "Timer, Scores & Index", "pos": [280, 280], "size": [140, 60] },
+    { "id": "storage", "type": "database", "label": "LocalStorage Store", "sublabel": "High Scores & History", "pos": [280, 420], "size": [140, 60], "tag": "Offline Cache" },
+    { "id": "opentdb_api", "type": "external", "label": "Open Trivia DB", "sublabel": "Trivia Question Repository", "pos": [520, 140], "size": [140, 60] },
+    { "id": "token_service", "type": "backend", "label": "Session Token Guard", "sublabel": "Zero Duplicate Validator", "pos": [520, 280], "size": [140, 60], "tag": "Session Guard" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Browser Client Sandbox", "wraps": ["ui", "decoder", "state_mgr", "storage"] },
+    { "kind": "security-group", "label": "Question Transformation & State Core", "wraps": ["decoder", "state_mgr", "storage"] }
+  ],
+  "connections": [
+    { "id": "ui-to-state", "from": "ui", "to": "state_mgr", "label": "dispatch answers", "variant": "emphasis" },
+    { "id": "state-to-token", "from": "state_mgr", "to": "token_service", "label": "request token", "variant": "security" },
+    { "id": "token-to-api", "from": "token_service", "to": "opentdb_api", "label": "fetch questions", "fromSide": "top", "toSide": "bottom" },
+    { "id": "api-to-decoder", "from": "opentdb_api", "to": "decoder", "label": "raw trivia payload", "fromSide": "left", "toSide": "right" },
+    { "id": "decoder-to-state", "from": "decoder", "to": "state_mgr", "label": "sanitized questions", "fromSide": "bottom", "toSide": "top" },
+    { "id": "state-to-storage", "from": "state_mgr", "to": "storage", "label": "commit score", "fromSide": "bottom", "toSide": "top" },
+    { "id": "storage-to-ui", "from": "storage", "to": "ui", "label": "load history", "fromSide": "left", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Dynamic External API Integration", "items": ["Integrates with Open Trivia Database API supporting dynamic difficulty levels (easy, medium, hard) and varied category filters", "Session token management ensures questions are never repeated within an active user session"] },
+    { "dot": "rose", "title": "Security & String Sanitization", "items": ["OpenTDB returns raw HTML entity encoded text (e.g. &quot;, &#039;); decoder passes strings through safe DOM parsing without dangerouslySetInnerHTML", "Prevents potential client-side script injection vectors while preserving special characters and punctuation"] },
+    { "dot": "emerald", "title": "Deterministic Client Persistence", "items": ["LocalStorage state persistence enables offline game history, high-score tracking, and category performance analytics", "State machine isolates question index increments, answer timers, and instant score evaluation"] }
+  ]
+}

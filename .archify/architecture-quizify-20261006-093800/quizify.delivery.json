@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "110a8113-ba52-47e5-83a2-8e1a3d14c7e8",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-quizify-20261006-093800\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-quizify-20261006-093800\\quizify.html",
+  "specification": {
+    "sha256": "738da931315a846d5920333af6d2d23ccb21f2daf0d4fd325d879b66bab80035",
+    "bytes": 3511
+  },
+  "artifact": {
+    "sha256": "faab5fc1fcca3ab75af32179395eb1d8eedda5cc6ce3fdec603711aef3b3ea11",
+    "bytes": 759570
+  }
+}

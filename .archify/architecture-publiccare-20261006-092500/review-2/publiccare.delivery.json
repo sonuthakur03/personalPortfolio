@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "9173a0cb-32cd-46d1-8e3d-13793292845f",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-publiccare-20261006-092500\\review-2\\publiccare.html",
+  "specification": {
+    "sha256": "2834c1d69236b8f8d11a84b60b65b01ad87ec573066b0a000333159930fd92f6",
+    "bytes": 4443
+  },
+  "artifact": {
+    "sha256": "0962e72b82ab5d18ee66b082a80f910a279adcd8e108e5ab8b3643d425148e67",
+    "bytes": 770038
+  }
+}

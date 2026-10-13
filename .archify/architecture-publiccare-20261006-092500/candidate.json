@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PublicCare — Civic Issue Escalation & Real-Time Tendering Architecture",
+    "subtitle": "GPS Geofencing, Automated Priority Escalation, WebSockets & Contractor Bidding",
+    "output": "publiccare.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "citizen_app", "type": "frontend", "label": "Citizen Mobile / Web", "sublabel": "GPS Report & Verification", "pos": [40, 140], "size": [165, 60] },
+    { "id": "municipal_app", "type": "frontend", "label": "Municipal & Vendor UI", "sublabel": "Tender & Resolution Portal", "pos": [40, 380], "size": [165, 60] },
+    { "id": "media_storage", "type": "cloud", "label": "Evidence Store", "sublabel": "Cloudinary Photo Proof", "pos": [280, 140], "size": [140, 60] },
+    { "id": "auth", "type": "security", "label": "JWT & RBAC Perimeter", "sublabel": "Citizens, Staff, Contractors", "pos": [280, 380], "size": [140, 60], "tag": "Hardened" },
+    { "id": "api", "type": "backend", "label": "Express API Core", "sublabel": "Complaint & Tender Services", "pos": [500, 260], "size": [140, 60] },
+    { "id": "ws_server", "type": "backend", "label": "WebSocket Server", "sublabel": "Live Socket.io Broadcasts", "pos": [500, 440], "size": [140, 60], "tag": "Real-Time" },
+    { "id": "escalation_engine", "type": "backend", "label": "Priority Escalation", "sublabel": "GPS Clustering & Verifications", "pos": [740, 140], "size": [150, 60], "tag": "Automated" },
+    { "id": "tender_module", "type": "backend", "label": "Tendering Module", "sublabel": "Contractor Bids & Tenders", "pos": [740, 380], "size": [150, 60] },
+    { "id": "db", "type": "database", "label": "MongoDB Geospatial DB", "sublabel": "GeoJSON Coordinates & State", "pos": [1000, 260], "size": [150, 60], "tag": "2dsphere Index" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "PublicCare Application Infrastructure", "wraps": ["auth", "api", "ws_server", "escalation_engine", "tender_module", "db"] },
+    { "kind": "security-group", "label": "Civic Data & Tendering Security Perimeter", "wraps": ["auth", "api", "tender_module", "db"] }
+  ],
+  "connections": [
+    { "id": "citizen-to-media", "from": "citizen_app", "to": "media_storage", "label": "upload photos", "variant": "dashed" },
+    { "id": "citizen-to-api", "from": "citizen_app", "to": "api", "label": "submit GPS issue", "variant": "emphasis" },
+    { "id": "municipal-to-auth", "from": "municipal_app", "to": "auth", "label": "login & verify", "variant": "security" },
+    { "id": "municipal-to-api", "from": "municipal_app", "to": "api", "label": "manage tenders" },
+    { "id": "municipal-to-ws", "from": "municipal_app", "to": "ws_server", "label": "listen updates", "variant": "emphasis" },
+    { "id": "auth-to-api", "from": "auth", "to": "api", "label": "authorized req", "variant": "security" },
+    { "id": "api-to-ws", "from": "api", "to": "ws_server", "label": "trigger broadcast", "fromSide": "bottom", "toSide": "top" },
+    { "id": "api-to-escalation", "from": "api", "to": "escalation_engine", "label": "verify cluster" },
+    { "id": "api-to-tender", "from": "api", "to": "tender_module", "label": "assign tender" },
+    { "id": "escalation-to-db", "from": "escalation_engine", "to": "db", "label": "update priority" },
+    { "id": "tender-to-db", "from": "tender_module", "to": "db", "label": "store bids" },
+    { "id": "api-to-db", "from": "api", "to": "db", "label": "query issues", "variant": "default" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Civic Verification & GPS Clustering", "items": ["Civic issues pinned with exact GPS coordinates and photo evidence to eliminate duplicate and spam reports", "Automated priority escalation dynamically raises urgency when multiple nearby citizens verify the same civic problem"] },
+    { "dot": "emerald", "title": "Integrated Contractor Tendering", "items": ["Municipal authorities transition critical issues into public tenders open to verified private contractors", "End-to-end status tracking from open bid to contractor assignment and final municipal sign-off"] },
+    { "dot": "rose", "title": "Real-Time WebSocket & Security", "items": ["WebSocket connections push instant updates to municipal dashboards when issue priority escalates or bids arrive", "Security hardening pass implemented during hackathon: rate limiting, role isolation, and sanitized inputs"] }
+  ]
+}

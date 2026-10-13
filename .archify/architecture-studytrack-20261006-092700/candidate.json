@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "StudyTrack Nepal — Automated Progress Tracking & Digest Architecture",
+    "subtitle": "MERN Stack, Streak Engine, Scheduled Node-Cron & Automated Email Reminders",
+    "output": "studytrack.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "admin", "type": "frontend", "label": "Admin Dashboard", "sublabel": "Curriculum Management", "pos": [40, 140], "size": [140, 60] },
+    { "id": "client", "type": "frontend", "label": "Student Web App", "sublabel": "Progress & Streak UI", "pos": [40, 300], "size": [140, 60] },
+    { "id": "auth", "type": "security", "label": "JWT Auth Service", "sublabel": "Session & Role Guard", "pos": [260, 140], "size": [140, 60], "tag": "RBAC" },
+    { "id": "api", "type": "backend", "label": "Express API Core", "sublabel": "Study Log Controller", "pos": [260, 300], "size": [140, 60] },
+    { "id": "streak_engine", "type": "backend", "label": "Streak Engine", "sublabel": "Daily Activity Evaluator", "pos": [500, 140], "size": [140, 60], "tag": "Automated" },
+    { "id": "cron_scheduler", "type": "backend", "label": "Cron Scheduler", "sublabel": "Node-Cron Background Job", "pos": [500, 300], "size": [140, 60] },
+    { "id": "mailer", "type": "backend", "label": "Nodemailer Worker", "sublabel": "Digest Template Engine", "pos": [500, 440], "size": [140, 60] },
+    { "id": "db", "type": "database", "label": "MongoDB Store", "sublabel": "Users, Streaks & Logs", "pos": [740, 220], "size": [140, 60] },
+    { "id": "smtp", "type": "external", "label": "SMTP Mail Gateway", "sublabel": "Outgoing Email Transport", "pos": [740, 440], "size": [140, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "StudyTrack Cloud Infrastructure", "wraps": ["auth", "api", "streak_engine", "cron_scheduler", "mailer", "db"] },
+    { "kind": "security-group", "label": "Application & Data Security Boundary", "wraps": ["auth", "api", "db"] }
+  ],
+  "connections": [
+    { "id": "admin-to-auth", "from": "admin", "to": "auth", "label": "admin login", "variant": "security" },
+    { "id": "client-to-auth", "from": "client", "to": "auth", "label": "user login", "variant": "security" },
+    { "id": "client-to-api", "from": "client", "to": "api", "label": "log study hours", "variant": "emphasis" },
+    { "id": "auth-to-api", "from": "auth", "to": "api", "label": "token verified" },
+    { "id": "api-to-streak", "from": "api", "to": "streak_engine", "label": "evaluate streak" },
+    { "id": "api-to-db", "from": "api", "to": "db", "label": "save progress", "variant": "default" },
+    { "id": "streak-to-db", "from": "streak_engine", "to": "db", "label": "update streak count" },
+    { "id": "cron-to-db", "from": "cron_scheduler", "to": "db", "label": "query pending digests" },
+    { "id": "cron-to-mailer", "from": "cron_scheduler", "to": "mailer", "label": "trigger batch emails", "fromSide": "bottom", "toSide": "top" },
+    { "id": "mailer-to-smtp", "from": "mailer", "to": "smtp", "label": "dispatch reminders", "fromSide": "right", "toSide": "left" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Automated Streak Engine", "items": ["Evaluates daily user study logs to maintain active learning streaks and award milestones", "Resets or freezes streaks based on grace-period logic and localized timezone boundaries"] },
+    { "dot": "cyan", "title": "Scheduled Email Pipeline", "items": ["Background node-cron jobs schedule daily study reminders and weekly progress summaries", "Nodemailer worker renders dynamic responsive HTML email digests without blocking API threads"] },
+    { "dot": "rose", "title": "RBAC & Administrative Control", "items": ["JWT authentication separates regular student learning portals from elevated administrative controls", "Admins manage learning curricula, monitor engagement analytics, and configure reminder intervals"] }
+  ]
+}

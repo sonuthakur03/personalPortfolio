@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\candidate.json",
+    "sha256": "41e924e37373ac1cb449236c3ab4020cb8f7a7f6c9e825c94282c0c78dbb2a69",
+    "bytes": 4532
+  },
+  "artifact": {
+    "path": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\review-3\\cricketnepal.html",
+    "sha256": "f78415eea65d8c07e2b8756154ec7e00bc358f9019f5323b5e38e0feeb013cae",
+    "bytes": 769421
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\review-3\\cricketnepal.finalize.json",
+    "summaryReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\review-3\\cricketnepal.finalize-summary.json",
+    "browserCheckReceipt": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-cricketnepal-20261006-092300\\review-3\\cricketnepal.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-06T03:38:38.127Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2857
+}

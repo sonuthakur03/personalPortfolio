@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "CricketNepal — Multi-Role eCommerce & Payment Engine Architecture",
+    "subtitle": "Server-Side Stock Reservation, 3-Gateway Payment Router & RBAC Hierarchy",
+    "output": "cricketnepal.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "cdn", "type": "cloud", "label": "Cloudinary CDN", "sublabel": "Optimized Media Storage", "pos": [40, 110], "size": [130, 60] },
+    { "id": "client", "type": "frontend", "label": "Multi-Role Client", "sublabel": "Buyer / Seller / Admin UI", "pos": [40, 260], "size": [130, 60] },
+    { "id": "auth", "type": "security", "label": "JWT & RBAC Guard", "sublabel": "Role-Based Token Validator", "pos": [240, 110], "size": [140, 60], "tag": "RBAC Secured" },
+    { "id": "api", "type": "backend", "label": "Express API Gateway", "sublabel": "Order & Inventory Controller", "pos": [240, 260], "size": [140, 60] },
+    { "id": "stock_engine", "type": "backend", "label": "Stock Reservation", "sublabel": "Concurrency Lock Manager", "pos": [520, 110], "size": [140, 60], "tag": "Zero Oversell" },
+    { "id": "db", "type": "database", "label": "MongoDB Cluster", "sublabel": "Orders, Users & Catalog", "pos": [520, 260], "size": [140, 60], "tag": "ACID Sessions" },
+    { "id": "payment_router", "type": "backend", "label": "Payment Router", "sublabel": "Multi-Gateway Adapter", "pos": [520, 420], "size": [140, 60] },
+    { "id": "khalti", "type": "external", "label": "Khalti Gateway", "sublabel": "EPAY V2 REST SDK", "pos": [780, 280], "size": [130, 56] },
+    { "id": "esewa", "type": "external", "label": "eSewa Gateway", "sublabel": "Digital Wallet Merchant", "pos": [780, 380], "size": [130, 56] },
+    { "id": "stripe", "type": "external", "label": "Stripe Payments", "sublabel": "Global Card / Webhooks", "pos": [780, 480], "size": [130, 56] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "CricketNepal Production Core (Vercel & Render)", "wraps": ["auth", "api", "stock_engine", "db", "payment_router"] },
+    { "kind": "security-group", "label": "Transactional Order & Stock Lock Perimeter", "wraps": ["api", "stock_engine", "db"] }
+  ],
+  "connections": [
+    { "id": "client-to-cdn", "from": "client", "to": "cdn", "label": "image uploads", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "client-to-api", "from": "client", "to": "api", "label": "HTTPS REST", "variant": "emphasis" },
+    { "id": "api-to-auth", "from": "api", "to": "auth", "label": "verify role", "variant": "security", "fromSide": "top", "toSide": "bottom" },
+    { "id": "api-to-stock", "from": "api", "to": "stock_engine", "label": "reserve inventory", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "id": "stock-to-db", "from": "stock_engine", "to": "db", "label": "atomic decrement", "fromSide": "bottom", "toSide": "top" },
+    { "id": "api-to-db", "from": "api", "to": "db", "label": "create pending order", "variant": "default" },
+    { "id": "api-to-payment", "from": "api", "to": "payment_router", "label": "dispatch checkout", "fromSide": "bottom", "toSide": "left" },
+    { "id": "payment-to-khalti", "from": "payment_router", "to": "khalti", "label": "Khalti EPAY" },
+    { "id": "payment-to-esewa", "from": "payment_router", "to": "esewa", "label": "eSewa EPAY" },
+    { "id": "payment-to-stripe", "from": "payment_router", "to": "stripe", "label": "Stripe Checkout" },
+    { "id": "payment-to-db", "from": "payment_router", "to": "db", "label": "confirm & release lock", "fromSide": "top", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Concurrency & Stock Integrity", "items": ["Server-side temporary stock reservation ensures high-demand cricket gear cannot be oversold during concurrent checkout flows", "Atomic inventory decrements backed by MongoDB transactions with automated lock expiry timeout"] },
+    { "dot": "cyan", "title": "Triple Payment Gateway Engine", "items": ["Unified payment adapter routing domestic transactions to Khalti and eSewa while handling international cards via Stripe", "Idempotent webhook signature verification to safeguard against replay attacks and false payment confirmations"] },
+    { "dot": "rose", "title": "RBAC & Storage Perimeter", "items": ["JWT-authenticated multi-role hierarchy isolating Buyer, Seller, and Platform Administrator capabilities", "Direct authenticated client upload flow to Cloudinary CDN for product catalogs and verification docs"] }
+  ]
+}
