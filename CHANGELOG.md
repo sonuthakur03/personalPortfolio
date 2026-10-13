@@ -7,7 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.9.22] - 2026-10-11
+## [0.9.23] - 2026-10-13
+
+### Added & Redesigned
+- **Hero Section Overhaul (`HeroSection.tsx`)**:
+  - Redesigned with guidance from `/frontend-design`, `/gsap-plugins`, `/motion-patterns`, and `/ui-ux-pro-max`.
+  - **Kinetic SplitText (`SplitText.tsx`)**: Character-by-character staggered typography for `"Full Stack Developer."` with GPU-accelerated spring physics and subtle initial blur dissipation.
+  - **ReactBits-Style Magnetic Interaction (`Magnetic.tsx`)**: Wrapped all primary and secondary CTAs as well as brand logo in spring-physics cursor attraction.
+  - **Credential Floating Pills (`AntigravityCharacter.tsx`)**: Integrated floating micro-cards (`BCA Rank 1 · TU Topper` and `BugV CTF 3rd · AppSec`) with 3D translation layers flanking the subject.
+  - **Ambient Spotlight & Parallax Watermark**: Interactive radial spotlight aura behind the floating cutout and mouse parallax on the giant ghosted `"SONU"` backdrop wordmark.
+  - **Availability Badge**: Pulsing emerald indicator with `Available for High-Impact Roles`.
+- **Repository Integration & Push**:
+  - Connected and synchronized with `https://github.com/sonuthakur03/personalPortfolio.git`.
+  - Resolved merge conflicts, preserved custom domain (`CNAME: sonuthakur03.com.np`), cleaned legacy 2024 static files, and cleanly pushed the modern portfolio.
+
+---
+
 
 ### Added & Enhanced
 - **Floating Technology Orbs in Character Palms (`AntigravityCharacter.tsx`)**:
