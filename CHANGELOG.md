@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.27] - 2026-10-15
+
+### Changed & Refined
+- **Streamlined Hero Layout (`HeroSection.tsx`)**:
+  - Removed top "Available for High-Impact Roles" pill badge for an unencumbered, high-impact headline presentation.
+  - Removed bottom tech and achievement pill tags ("BCA Rank 1 · TU", "BugV CTF 3rd", etc.) to let the primary value proposition and call-to-action buttons breathe with maximum negative space.
+- **Enhanced Dark Mode Typography (`HeroSection.tsx`)**:
+  - Increased background display wordmark opacity in dark mode (`dark:text-white/[0.22]`) to provide distinct, elegant visibility on dark backgrounds while maintaining perfect contrast against foreground text.
+
+---
+
 ## [0.9.26] - 2026-10-15
 
 ### Added & Refined

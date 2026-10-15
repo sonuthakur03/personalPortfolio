@@ -1,8 +1,8 @@
 // src/components/hero/HeroSection.tsx
 // Antigravity Hero Section:
-// - Massive "SONU" backdrop sitting grounded flush on the bottom of the screen
-// - Completely clean background (no dots, no grid lines, pure ambient atmosphere)
-// - Kinetic SplitText headline, magnetic interactive CTA buttons, zero emojis
+// - Massive "SONU" backdrop sitting grounded flush on the bottom of the screen with enhanced dark mode visibility
+// - Clean typography-led layout (no badge clutter, zero emojis)
+// - Kinetic SplitText headline and magnetic interactive CTA buttons
 
 import React from 'react';
 import { motion } from 'motion/react';
@@ -55,17 +55,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       aria-label="Sonu Thakur - Full-Stack Developer Portfolio"
       className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background text-foreground transition-colors duration-500 px-6 sm:px-10 md:px-12 lg:px-16 py-5 sm:py-6 select-none"
     >
-      {/* 1. SOFT AMBIENT GLOW BACKDROP (NO DOTS, NO GRIDS) */}
+      {/* 1. SOFT AMBIENT GLOW BACKDROP */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[350px] sm:h-[480px] rounded-full bg-gradient-to-br from-cyan-500/10 via-purple-500/5 to-transparent dark:from-cyan-500/15 dark:via-purple-500/10 dark:to-transparent blur-3xl" />
       </div>
 
-      {/* 2. GROUNDED "SONU" WORDMARK (SITTING FLUSH ON THE BOTTOM OF THE SCREEN) */}
+      {/* 2. GROUNDED "SONU" WORDMARK (SITTING FLUSH ON THE BOTTOM OF THE SCREEN, BRIGHTER IN DARK MODE) */}
       <div
         className="absolute inset-x-0 bottom-0 flex items-end justify-center pointer-events-none select-none z-0 overflow-hidden leading-none"
         aria-hidden="true"
       >
-        <span className="font-sans font-black text-[27vw] sm:text-[29vw] md:text-[31vw] lg:text-[32vw] leading-[0.76] tracking-tighter text-neutral-900/[0.16] dark:text-white/[0.09] transition-colors select-none text-center translate-y-[2%]">
+        <span className="font-sans font-black text-[27vw] sm:text-[29vw] md:text-[31vw] lg:text-[32vw] leading-[0.76] tracking-tighter text-neutral-900/[0.16] dark:text-white/[0.22] transition-colors select-none text-center translate-y-[2%]">
           SONU
         </span>
       </div>
@@ -123,31 +123,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* 4. HERO MAIN STAGE */}
       <div className="relative z-20 flex flex-1 items-center w-full max-w-7xl mx-auto py-8 sm:py-12 pointer-events-auto">
-        <div className="w-full max-w-2xl lg:max-w-3xl space-y-4 sm:space-y-6 text-left">
-
-          {/* Availability Badge (Clean, Zero Emoji) */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-neutral-900/5 dark:bg-white/10 border border-neutral-900/10 dark:border-white/15 backdrop-blur-md"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            <span className="text-[11px] font-mono font-semibold tracking-wide uppercase text-foreground/80">
-              Available for High-Impact Roles
-            </span>
-          </motion.div>
+        <div className="w-full max-w-2xl lg:max-w-3xl space-y-5 sm:space-y-6 text-left">
 
           {/* Kinetic SplitText Main Headline */}
           <h1 className="font-sans font-extrabold tracking-tight text-foreground leading-[0.92] select-none text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-[5.4rem] xl:text-[6.4rem]">
             <div className="block text-slate-900 dark:text-white">
-              <SplitText text="Full Stack" delay={0.2} stagger={0.035} />
+              <SplitText text="Full Stack" delay={0.15} stagger={0.035} />
             </div>
             <div className="block text-slate-900 dark:text-white mt-1">
-              <SplitText text="Developer." delay={0.48} stagger={0.035} />
+              <SplitText text="Developer." delay={0.42} stagger={0.035} />
             </div>
           </h1>
 
@@ -155,34 +139,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 font-normal max-w-xl font-sans leading-relaxed"
           >
             Engineering intelligent, secure web applications with MERN, applied AI pipelines (Gemini SDK), and competitive security rigor.
           </motion.p>
 
-          {/* Key Engineering Proofs & Tech Chips (Zero Emojis) */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
-            className="flex flex-wrap items-center gap-2 pt-1"
-          >
-            {['BCA Rank 1 · TU', 'BugV CTF 3rd', 'MERN Stack', 'Next.js 15', 'Applied AI (Gemini)', 'AppSec & CTF', 'ACID Systems'].map((chip) => (
-              <span
-                key={chip}
-                className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-foreground/80 bg-neutral-900/[0.04] dark:bg-white/[0.06] border border-neutral-900/[0.08] dark:border-white/[0.1] backdrop-blur-sm"
-              >
-                {chip}
-              </span>
-            ))}
-          </motion.div>
-
           {/* Magnetic CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4 font-sans"
           >
             <Magnetic strength={0.35}>
