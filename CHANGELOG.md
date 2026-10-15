@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.28] - 2026-10-15
+
+### Added & Refined
+- **Elevated Backdrop Typography (`HeroSection.tsx`)**:
+  - Lifted the giant **`SONU`** background wordmark slightly up (`bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10`) and eliminated clipping offset (`translate-y-0`), allowing the full letters to float comfortably above the screen bezel.
+- **Author Identity & High-Value Credential Presentation (`HeroSection.tsx`)**:
+  - Integrated an editorial identity kicker introducing **`Sonu Thakur / Full-Stack Engineer & Applied AI Builder`** with an animated pulsing indicator.
+  - Rewrote the core value proposition to crisply articulate domain mastery across scalable MERN systems, ACID-compliant backends, and applied AI pipelines (Gemini SDK).
+  - Designed an architectural, high-value credential highlight strip with luminous status accents and hairline dividers spotlighting **`Tribhuvan University Topper (BCA Rank 1 · CGPA 3.63)`**, **`BugV CTF 3rd Place (AppSec & Defense)`**, and **`Production Full-Stack (MERN + Applied AI)`** without using pills or emojis.
+- **Refined CTA Aesthetics**:
+  - Upgraded tactile contrast and backdrop blur on secondary and primary interactive buttons.
+
+---
+
 ## [0.9.27] - 2026-10-15
 
 ### Changed & Refined

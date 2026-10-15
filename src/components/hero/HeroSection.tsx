@@ -60,12 +60,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[350px] sm:h-[480px] rounded-full bg-gradient-to-br from-cyan-500/10 via-purple-500/5 to-transparent dark:from-cyan-500/15 dark:via-purple-500/10 dark:to-transparent blur-3xl" />
       </div>
 
-      {/* 2. GROUNDED "SONU" WORDMARK (SITTING FLUSH ON THE BOTTOM OF THE SCREEN, BRIGHTER IN DARK MODE) */}
+      {/* 2. ELEVATED "SONU" WORDMARK (LIFTED SLIGHTLY UP FOR BREATHING ROOM, ZERO CLIPPING) */}
       <div
-        className="absolute inset-x-0 bottom-0 flex items-end justify-center pointer-events-none select-none z-0 overflow-hidden leading-none"
+        className="absolute inset-x-0 bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 flex items-end justify-center pointer-events-none select-none z-0 overflow-hidden leading-none"
         aria-hidden="true"
       >
-        <span className="font-sans font-black text-[27vw] sm:text-[29vw] md:text-[31vw] lg:text-[32vw] leading-[0.76] tracking-tighter text-neutral-900/[0.16] dark:text-white/[0.22] transition-colors select-none text-center translate-y-[2%]">
+        <span className="font-sans font-black text-[27vw] sm:text-[29vw] md:text-[31vw] lg:text-[32vw] leading-[0.76] tracking-tighter text-neutral-900/[0.16] dark:text-white/[0.22] transition-colors select-none text-center">
           SONU
         </span>
       </div>
@@ -125,6 +125,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative z-20 flex flex-1 items-center w-full max-w-7xl mx-auto py-8 sm:py-12 pointer-events-auto">
         <div className="w-full max-w-2xl lg:max-w-3xl space-y-5 sm:space-y-6 text-left">
 
+          {/* Identity Eyebrow (Editorial, Zero Emoji) */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="flex items-center gap-2.5 text-xs sm:text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-bold text-slate-900 dark:text-white uppercase tracking-widest text-[11px] sm:text-xs">
+              Sonu Thakur
+            </span>
+            <span className="text-slate-400 dark:text-slate-600 font-sans">/</span>
+            <span className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300">
+              Full-Stack Engineer & Applied AI Builder
+            </span>
+          </motion.div>
+
           {/* Kinetic SplitText Main Headline */}
           <h1 className="font-sans font-extrabold tracking-tight text-foreground leading-[0.92] select-none text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-[5.4rem] xl:text-[6.4rem]">
             <div className="block text-slate-900 dark:text-white">
@@ -135,28 +152,76 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </h1>
 
-          {/* Tagline */}
+          {/* Value-Driven Bio */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 font-normal max-w-xl font-sans leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 font-normal max-w-2xl font-sans leading-relaxed"
           >
-            Engineering intelligent, secure web applications with MERN, applied AI pipelines (Gemini SDK), and competitive security rigor.
+            Architecting intelligent, secure web applications. Specialized in scalable MERN architectures, ACID-compliant transactional backends, and applied AI pipelines with the Gemini SDK.
           </motion.p>
+
+          {/* High-Value Credential Highlights (No Pills, Zero Emojis) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.72 }}
+            className="pt-1 flex flex-wrap items-center gap-x-6 gap-y-3"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+              <div className="flex flex-col">
+                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
+                  Tribhuvan University Topper
+                </span>
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  BCA Rank 1 · CGPA 3.63
+                </span>
+              </div>
+            </div>
+
+            <div className="hidden sm:block w-px h-7 bg-slate-300 dark:bg-neutral-800" />
+
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
+              <div className="flex flex-col">
+                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
+                  BugV CTF 3rd Place
+                </span>
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  Application Security & Defense
+                </span>
+              </div>
+            </div>
+
+            <div className="hidden sm:block w-px h-7 bg-slate-300 dark:bg-neutral-800" />
+
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+              <div className="flex flex-col">
+                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
+                  Production Full-Stack
+                </span>
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                  MERN + Applied AI (Gemini)
+                </span>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Magnetic CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.85 }}
             className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4 font-sans"
           >
             <Magnetic strength={0.35}>
               <a
                 href="#projects"
                 onClick={handleScrollTo('projects', 650)}
-                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-900 dark:text-white bg-slate-900/5 dark:bg-white/10 hover:bg-slate-900/10 dark:hover:bg-white/20 border border-slate-900/20 dark:border-white/20 shadow-sm transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-900 dark:text-white bg-slate-900/[0.04] dark:bg-white/[0.08] hover:bg-slate-900/[0.08] dark:hover:bg-white/[0.14] border border-slate-900/15 dark:border-white/20 shadow-sm transition-all duration-200 cursor-pointer backdrop-blur-sm"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -167,7 +232,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 type="button"
                 onClick={handleContact}
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-black dark:hover:bg-zinc-200 shadow-md transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-950 hover:bg-black dark:hover:bg-neutral-100 shadow-md transition-all duration-200 cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-amber-400 dark:text-amber-500" />
                 <span>Get in touch</span>
