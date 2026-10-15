@@ -1,15 +1,13 @@
 // src/components/hero/HeroSection.tsx
-// Redesigned Antigravity Hero Section using:
-// - /frontend-design: Distinctive typography, intentional spacing, zero cookie-cutter clutter
-// - /gsap-plugins & /motion-patterns: Token-based spring physics, staggered entry sequences
-// - /ui-ux-pro-max: High contrast (cream #f7f6f2 / obsidian #09090b), accessible tap targets, keyboard navigable
-// - ReactBits inspirations: Magnetic interactive buttons, kinetic SplitText, spotlight aura, floating credential pills
+// Redesigned Antigravity Hero Section:
+// - Removed character to let the monumental "SONU" backdrop dominate the hero space
+// - Enlarged background "SONU" typography with smooth 2-axis mouse parallax
+// - Kinetic SplitText title, magnetic interactive CTA buttons, and high-contrast ambient canvas
 
 import React, { useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { AntigravityCanvas } from './AntigravityCanvas';
-import { AntigravityCharacter } from './AntigravityCharacter';
 import { Magnetic } from '../common/Magnetic';
 import { SplitText } from '../common/SplitText';
 import { sounds } from '../../utils/soundEffects';
@@ -25,18 +23,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   // Mouse coordinates for hero parallax
   const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
   const smoothMouseX = useSpring(mouseX, springs.gentle);
+  const smoothMouseY = useSpring(mouseY, springs.gentle);
 
   // Parallax on the giant ghosted backdrop wordmark
-  const backdropX = useTransform(smoothMouseX, [-0.5, 0.5], [20, -20]);
+  const backdropX = useTransform(smoothMouseX, [-0.5, 0.5], [26, -26]);
+  const backdropY = useTransform(smoothMouseY, [-0.5, 0.5], [16, -16]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX / window.innerWidth - 0.5);
+      mouseY.set(e.clientY / window.innerHeight - 0.5);
     };
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX]);
+  }, [mouseX, mouseY]);
 
   const handleScrollTo = (id: string, soundFreq = 650) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -77,15 +80,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* 1. ANTIGRAVITY AMBIENT CANVAS */}
       <AntigravityCanvas />
 
-      {/* 2. GHOSTED SONU BACKDROP WORDMARK WITH MOUSE PARALLAX */}
+      {/* 2. ENLARGED GHOSTED "SONU" BACKDROP WORDMARK WITH 2-AXIS PARALLAX */}
       <motion.div
-        style={{ x: backdropX }}
-        initial={{ opacity: 0, scale: 0.96 }}
+        style={{ x: backdropX, y: backdropY }}
+        initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-10 overflow-hidden"
       >
-        <span className="font-sans font-black text-[23vw] sm:text-[26vw] leading-none tracking-tighter text-neutral-900/[0.22] dark:text-white/[0.14] transition-colors select-none">
+        <span className="font-sans font-black text-[30vw] sm:text-[32vw] md:text-[34vw] lg:text-[35vw] leading-none tracking-tighter text-neutral-900/[0.22] dark:text-white/[0.15] transition-colors select-none text-center">
           SONU
         </span>
       </motion.div>
@@ -142,106 +145,91 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </motion.header>
 
       {/* 4. HERO MAIN STAGE */}
-      <div className="relative z-20 flex flex-1 items-center justify-center w-full max-w-7xl mx-auto py-4 sm:py-6 pointer-events-auto">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+      <div className="relative z-20 flex flex-1 items-center w-full max-w-7xl mx-auto py-6 sm:py-10 pointer-events-auto">
+        <div className="w-full max-w-2xl lg:max-w-3xl space-y-4 sm:space-y-6 text-left">
 
-          {/* LEFT: Kinetic Typography & Actions */}
-          <div className="lg:col-span-6 text-left space-y-4 sm:space-y-6">
-
-            {/* Availability Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-neutral-900/5 dark:bg-white/10 border border-neutral-900/10 dark:border-white/15 backdrop-blur-md"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-[11px] font-mono font-semibold tracking-wide uppercase text-foreground/80">
-                Available for High-Impact Roles
-              </span>
-            </motion.div>
-
-            {/* Kinetic SplitText Main Headline */}
-            <h1 className="font-sans font-extrabold tracking-tight text-foreground leading-[0.92] select-none text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-[5.2rem] xl:text-[6.2rem]">
-              <div className="block text-slate-900 dark:text-white">
-                <SplitText text="Full Stack" delay={0.2} stagger={0.035} />
-              </div>
-              <div className="block text-slate-900 dark:text-white mt-1">
-                <SplitText text="Developer." delay={0.48} stagger={0.035} />
-              </div>
-            </h1>
-
-            {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal max-w-lg font-sans leading-relaxed"
-            >
-              Engineering intelligent, secure web applications with MERN, applied AI pipelines (Gemini SDK), and competitive security rigor.
-            </motion.p>
-
-            {/* Tech Chips Micro-Ribbon */}
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.85 }}
-              className="flex flex-wrap items-center gap-2 pt-1"
-            >
-              {['MERN Stack', 'Next.js 15', 'Applied AI (Gemini)', 'AppSec & CTF', 'ACID Systems'].map((chip) => (
-                <span
-                  key={chip}
-                  className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-foreground/75 bg-neutral-900/[0.04] dark:bg-white/[0.06] border border-neutral-900/[0.08] dark:border-white/[0.1]"
-                >
-                  {chip}
-                </span>
-              ))}
-            </motion.div>
-
-            {/* Magnetic CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-              className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4 font-sans"
-            >
-              <Magnetic strength={0.35}>
-                <a
-                  href="#projects"
-                  onClick={handleScrollTo('projects', 650)}
-                  className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-900 dark:text-white bg-slate-900/5 dark:bg-white/10 hover:bg-slate-900/10 dark:hover:bg-white/20 border border-slate-900/20 dark:border-white/20 shadow-sm transition-all duration-200 cursor-pointer"
-                >
-                  <span>Explore My Work</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Magnetic>
-
-              <Magnetic strength={0.35}>
-                <button
-                  type="button"
-                  onClick={handleContact}
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-black dark:hover:bg-zinc-200 shadow-md transition-all duration-200 cursor-pointer"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 dark:text-amber-500" />
-                  <span>Get in touch</span>
-                </button>
-              </Magnetic>
-            </motion.div>
-          </div>
-
-          {/* RIGHT: Enhanced Antigravity Character */}
+          {/* Availability Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className="lg:col-span-6 flex justify-center items-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-neutral-900/5 dark:bg-white/10 border border-neutral-900/10 dark:border-white/15 backdrop-blur-md"
           >
-            <AntigravityCharacter />
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="text-[11px] font-mono font-semibold tracking-wide uppercase text-foreground/80">
+              Available for High-Impact Roles
+            </span>
           </motion.div>
 
+          {/* Kinetic SplitText Main Headline */}
+          <h1 className="font-sans font-extrabold tracking-tight text-foreground leading-[0.92] select-none text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-[5.4rem] xl:text-[6.4rem]">
+            <div className="block text-slate-900 dark:text-white">
+              <SplitText text="Full Stack" delay={0.2} stagger={0.035} />
+            </div>
+            <div className="block text-slate-900 dark:text-white mt-1">
+              <SplitText text="Developer." delay={0.48} stagger={0.035} />
+            </div>
+          </h1>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 font-normal max-w-xl font-sans leading-relaxed"
+          >
+            Engineering intelligent, secure web applications with MERN, applied AI pipelines (Gemini SDK), and competitive security rigor.
+          </motion.p>
+
+          {/* Key Engineering Proofs & Tech Chips */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.85 }}
+            className="flex flex-wrap items-center gap-2 pt-1"
+          >
+            {['BCA Rank 1 · TU', 'BugV CTF 3rd', 'MERN Stack', 'Next.js 15', 'Applied AI (Gemini)', 'AppSec & CTF', 'ACID Systems'].map((chip) => (
+              <span
+                key={chip}
+                className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-foreground/80 bg-neutral-900/[0.04] dark:bg-white/[0.06] border border-neutral-900/[0.08] dark:border-white/[0.1] backdrop-blur-sm"
+              >
+                {chip}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Magnetic CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4 font-sans"
+          >
+            <Magnetic strength={0.35}>
+              <a
+                href="#projects"
+                onClick={handleScrollTo('projects', 650)}
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-900 dark:text-white bg-slate-900/5 dark:bg-white/10 hover:bg-slate-900/10 dark:hover:bg-white/20 border border-slate-900/20 dark:border-white/20 shadow-sm transition-all duration-200 cursor-pointer"
+              >
+                <span>Explore My Work</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Magnetic>
+
+            <Magnetic strength={0.35}>
+              <button
+                type="button"
+                onClick={handleContact}
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-black dark:hover:bg-zinc-200 shadow-md transition-all duration-200 cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-400 dark:text-amber-500" />
+                <span>Get in touch</span>
+              </button>
+            </Magnetic>
+          </motion.div>
         </div>
       </div>
 

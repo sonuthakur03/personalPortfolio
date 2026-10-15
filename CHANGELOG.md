@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.24] - 2026-10-15
+
+### Changed & Refined
+- **Hero Section Minimalist Typography Focus (`HeroSection.tsx`)**:
+  - Removed the 3D character cutout (`AntigravityCharacter`) to eliminate visual clutter and achieve an unobstructed, editorial visual balance.
+  - Enlarged the ghosted background **`SONU`** display wordmark from `26vw` to `35vw` (`text-[30vw] sm:text-[32vw] md:text-[34vw] lg:text-[35vw]`), establishing it as the majestic typographic centerpiece of the hero section.
+  - Enhanced 2-axis mouse parallax physics (`backdropX` and `backdropY`), allowing the backdrop wordmark to float responsively in the antigravity canvas environment.
+  - Expanded the foreground engineering copy and tech micro-ribbon into an expansive, bold left-anchored layout.
+
+---
+
 ## [0.9.23] - 2026-10-13
 
 ### Added & Redesigned
