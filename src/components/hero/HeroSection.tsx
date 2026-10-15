@@ -1,17 +1,16 @@
 // src/components/hero/HeroSection.tsx
 // Redesigned Antigravity Hero Section:
-// - Removed character to let the monumental "SONU" backdrop dominate the hero space
-// - Enlarged background "SONU" typography with smooth 2-axis mouse parallax
-// - Kinetic SplitText title, magnetic interactive CTA buttons, and high-contrast ambient canvas
+// - Fixed, static "SONU" background wordmark positioned higher up in the hero section (no movement/parallax)
+// - Connecting dots background canvas without grid lines
+// - Kinetic SplitText title and magnetic interactive CTA buttons
 
-import React, { useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { AntigravityCanvas } from './AntigravityCanvas';
 import { Magnetic } from '../common/Magnetic';
 import { SplitText } from '../common/SplitText';
 import { sounds } from '../../utils/soundEffects';
-import { springs } from '../../lib/motion-tokens';
 
 interface HeroSectionProps {
   onOpenCommandPalette?: () => void;
@@ -21,26 +20,6 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenContact,
 }) => {
-  // Mouse coordinates for hero parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const smoothMouseX = useSpring(mouseX, springs.gentle);
-  const smoothMouseY = useSpring(mouseY, springs.gentle);
-
-  // Parallax on the giant ghosted backdrop wordmark
-  const backdropX = useTransform(smoothMouseX, [-0.5, 0.5], [26, -26]);
-  const backdropY = useTransform(smoothMouseY, [-0.5, 0.5], [16, -16]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX / window.innerWidth - 0.5);
-      mouseY.set(e.clientY / window.innerHeight - 0.5);
-    };
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
   const handleScrollTo = (id: string, soundFreq = 650) => (e: React.MouseEvent) => {
     e.preventDefault();
     sounds.playClick(soundFreq);
@@ -77,21 +56,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       aria-label="Sonu Thakur - Full-Stack Developer Portfolio"
       className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden text-foreground transition-colors duration-500 px-6 sm:px-10 md:px-12 lg:px-16 py-5 sm:py-6 select-none"
     >
-      {/* 1. ANTIGRAVITY AMBIENT CANVAS */}
+      {/* 1. CONNECTING DOTS AMBIENT CANVAS (NO GRID LINES) */}
       <AntigravityCanvas />
 
-      {/* 2. ENLARGED GHOSTED "SONU" BACKDROP WORDMARK WITH 2-AXIS PARALLAX */}
-      <motion.div
-        style={{ x: backdropX, y: backdropY }}
-        initial={{ opacity: 0, scale: 0.94 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-10 overflow-hidden"
+      {/* 2. FIXED ENLARGED "SONU" BACKDROP WORDMARK (HIGHER UP, COMPLETELY STATIC) */}
+      <div
+        className="absolute inset-x-0 top-[35%] -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-10 overflow-hidden"
+        aria-hidden="true"
       >
-        <span className="font-sans font-black text-[30vw] sm:text-[32vw] md:text-[34vw] lg:text-[35vw] leading-none tracking-tighter text-neutral-900/[0.22] dark:text-white/[0.15] transition-colors select-none text-center">
+        <span className="font-sans font-black text-[30vw] sm:text-[33vw] md:text-[35vw] lg:text-[36vw] leading-none tracking-tighter text-neutral-900/[0.22] dark:text-white/[0.15] transition-colors select-none text-center">
           SONU
         </span>
-      </motion.div>
+      </div>
 
       {/* 3. TOP NAVBAR */}
       <motion.header

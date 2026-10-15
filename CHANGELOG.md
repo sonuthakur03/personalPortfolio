@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.25] - 2026-10-15
+
+### Added & Refined
+- **Fixed & Elevated Backdrop Typography (`HeroSection.tsx`)**:
+  - Elevated the background **`SONU`** wordmark to `top-[35%]` to frame the upper hero stage.
+  - Removed all cursor parallax and translation transforms, locking the wordmark completely fixed and static in place.
+- **Connecting Dots Network Canvas (`AntigravityCanvas.tsx`)**:
+  - Removed background grid lines entirely.
+  - Implemented an interactive connecting dots constellation network with proximity line links between floating nodes and reactive cursor tethering.
+- **Automated GitHub Pages Deployment Workflow (`.github/workflows/deploy.yml`)**:
+  - Added official GitHub Actions workflow to build the production Vite bundle and deploy `dist/` directly to GitHub Pages, resolving the issue where the hosted domain (`sonuthakur03.com.np`) was serving raw uncompiled TypeScript source files.
+
+---
+
 ## [0.9.24] - 2026-10-15
 
 ### Changed & Refined
