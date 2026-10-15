@@ -1,13 +1,12 @@
 // src/components/hero/HeroSection.tsx
-// Redesigned Antigravity Hero Section:
-// - Fixed, static "SONU" background wordmark positioned higher up in the hero section (no movement/parallax)
-// - Connecting dots background canvas without grid lines
-// - Kinetic SplitText title and magnetic interactive CTA buttons
+// Antigravity Hero Section:
+// - Massive "SONU" backdrop sitting grounded flush on the bottom of the screen
+// - Completely clean background (no dots, no grid lines, pure ambient atmosphere)
+// - Kinetic SplitText headline, magnetic interactive CTA buttons, zero emojis
 
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { AntigravityCanvas } from './AntigravityCanvas';
 import { Magnetic } from '../common/Magnetic';
 import { SplitText } from '../common/SplitText';
 import { sounds } from '../../utils/soundEffects';
@@ -54,17 +53,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       id="hero"
       aria-label="Sonu Thakur - Full-Stack Developer Portfolio"
-      className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden text-foreground transition-colors duration-500 px-6 sm:px-10 md:px-12 lg:px-16 py-5 sm:py-6 select-none"
+      className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-background text-foreground transition-colors duration-500 px-6 sm:px-10 md:px-12 lg:px-16 py-5 sm:py-6 select-none"
     >
-      {/* 1. CONNECTING DOTS AMBIENT CANVAS (NO GRID LINES) */}
-      <AntigravityCanvas />
+      {/* 1. SOFT AMBIENT GLOW BACKDROP (NO DOTS, NO GRIDS) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[850px] h-[350px] sm:h-[480px] rounded-full bg-gradient-to-br from-cyan-500/10 via-purple-500/5 to-transparent dark:from-cyan-500/15 dark:via-purple-500/10 dark:to-transparent blur-3xl" />
+      </div>
 
-      {/* 2. FIXED ENLARGED "SONU" BACKDROP WORDMARK (HIGHER UP, COMPLETELY STATIC) */}
+      {/* 2. GROUNDED "SONU" WORDMARK (SITTING FLUSH ON THE BOTTOM OF THE SCREEN) */}
       <div
-        className="absolute inset-x-0 top-[35%] -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-10 overflow-hidden"
+        className="absolute inset-x-0 bottom-0 flex items-end justify-center pointer-events-none select-none z-0 overflow-hidden leading-none"
         aria-hidden="true"
       >
-        <span className="font-sans font-black text-[30vw] sm:text-[33vw] md:text-[35vw] lg:text-[36vw] leading-none tracking-tighter text-neutral-900/[0.22] dark:text-white/[0.15] transition-colors select-none text-center">
+        <span className="font-sans font-black text-[27vw] sm:text-[29vw] md:text-[31vw] lg:text-[32vw] leading-[0.76] tracking-tighter text-neutral-900/[0.16] dark:text-white/[0.09] transition-colors select-none text-center translate-y-[2%]">
           SONU
         </span>
       </div>
@@ -121,10 +122,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </motion.header>
 
       {/* 4. HERO MAIN STAGE */}
-      <div className="relative z-20 flex flex-1 items-center w-full max-w-7xl mx-auto py-6 sm:py-10 pointer-events-auto">
+      <div className="relative z-20 flex flex-1 items-center w-full max-w-7xl mx-auto py-8 sm:py-12 pointer-events-auto">
         <div className="w-full max-w-2xl lg:max-w-3xl space-y-4 sm:space-y-6 text-left">
 
-          {/* Availability Badge */}
+          {/* Availability Badge (Clean, Zero Emoji) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             Engineering intelligent, secure web applications with MERN, applied AI pipelines (Gemini SDK), and competitive security rigor.
           </motion.p>
 
-          {/* Key Engineering Proofs & Tech Chips */}
+          {/* Key Engineering Proofs & Tech Chips (Zero Emojis) */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -209,22 +210,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </div>
 
-      {/* 5. MINIMALIST SCROLL INDICATOR */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.6 }}
-        className="relative z-20 flex justify-center pb-2 pointer-events-none"
-      >
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-1.5 text-foreground/40"
-        >
-          <div className="w-[1px] h-7 bg-gradient-to-b from-transparent via-current to-transparent" />
-          <span className="text-[9px] font-mono uppercase tracking-[0.25em]">scroll</span>
-        </motion.div>
-      </motion.div>
+      {/* 5. MINIMALIST SCROLL FOOTER */}
+      <div className="relative z-20 flex justify-end pr-2 pb-1 pointer-events-none">
+        <span className="text-[9px] font-mono uppercase tracking-[0.25em] text-foreground/35">
+          Scroll to explore
+        </span>
+      </div>
     </section>
   );
 };

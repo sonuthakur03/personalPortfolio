@@ -11,7 +11,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       'Solo capture-the-flag security tournament; solved web exploitation, reverse engineering, and forensic challenges using offensive workflows and AI-assisted tooling.',
     category: 'security-ctf',
-    badge: '🏆 CTF 3rd Place',
+    badge: 'CTF 3rd Place',
     isDraft: false,
     isHidden: false,
   },
@@ -24,7 +24,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       '3-day team hackathon; architected and pitched PublicCare, a civic complaint and tendering platform with automated GPS clustering and real-time WebSockets.',
     category: 'hackathon',
-    badge: '🚀 Hackathon Finalist',
+    badge: 'Hackathon Finalist',
     isDraft: false,
     isHidden: false,
   },
@@ -37,7 +37,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       'Consistent academic topper pursuing Bachelor of Computer Application; Rank 1 in every internal and board examination to date with focus on web dev, databases, and DSA.',
     category: 'academic',
-    badge: '🎓 University Rank 1',
+    badge: 'University Rank 1',
     isDraft: false,
     isHidden: false,
   },
@@ -50,7 +50,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       'Recent hackathon victory project (pre-configured in draft mode; toggle to published in /admin whenever ready to announce).',
     category: 'hackathon',
-    badge: '🏆 Hackathon Winner',
+    badge: 'Hackathon Winner',
     isDraft: true,
     isHidden: true,
   },
@@ -63,7 +63,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       'Comprehensive 30-hour training in Figma design systems, wireframing, high-fidelity screen-to-screen prototyping, and user journey optimization.',
     category: 'training',
-    badge: '🎨 Certified UI/UX',
+    badge: 'Certified UI/UX',
     isDraft: false,
     isHidden: false,
   },
@@ -76,7 +76,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     description:
       'Hands-on 30-hour training focusing on Python backend development, Django ORM, REST APIs, and database migrations.',
     category: 'training',
-    badge: '🐍 Django Certified',
+    badge: 'Django Certified',
     isDraft: false,
     isHidden: false,
   },

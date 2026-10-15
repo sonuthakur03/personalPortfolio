@@ -35,7 +35,7 @@ const createInitialAchievementState = (): Partial<Achievement> => ({
   rankOrAward: 'Winner / 1st Place',
   description: '',
   category: 'hackathon',
-  badge: '🏆 Hackathon Winner',
+  badge: 'Hackathon Winner',
   isDraft: true,
   isHidden: true,
 });
@@ -746,7 +746,7 @@ const AdminPage: React.FC = () => {
 
             <div className="p-4 rounded-lg bg-elevated/40 border border-border space-y-3">
               <div className="font-mono text-xs font-semibold text-foreground">
-                📦 Backup & JSON Export
+                Backup & JSON Export
               </div>
               <p className="text-xs text-muted-foreground font-sans">
                 Export all custom projects, achievements, and drafts as a portable JSON file.
@@ -762,7 +762,7 @@ const AdminPage: React.FC = () => {
 
             <div className="p-4 rounded-lg bg-accent-rose/5 border border-accent-rose/30 space-y-3">
               <div className="font-mono text-xs font-semibold text-accent-rose">
-                ⚠️ Reset to Code Base Defaults
+                Reset to Code Base Defaults
               </div>
               <p className="text-xs text-muted-foreground font-sans">
                 Clears all local browser overrides and resets the portfolio to the original code data stored in `src/data/`.

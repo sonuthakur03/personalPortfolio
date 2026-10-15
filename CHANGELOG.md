@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.26] - 2026-10-15
+
+### Added & Refined
+- **Grounded Bottom Backdrop Typography (`HeroSection.tsx`)**:
+  - Re-anchored the giant **`SONU`** display wordmark flush against the bottom edge of the hero viewport (`bottom-0` with `leading-[0.76]`), creating a bold typographic foundation across the screen floor.
+- **Clean Ambient Atmosphere (Zero Dots / Grid Noise)**:
+  - Removed dots canvas background in favor of an ultra-clean, minimalist ambient gradient vignette.
+  - Removed `ConstellationCanvas` from `HomePage.tsx` for a distraction-free, high-end editorial feel.
+- **Zero-Emoji Architecture Across All Files**:
+  - Audited and eliminated all emojis across `achievementsData.ts`, `JourneyTimeline.tsx`, `Footer.tsx`, `CaseStudyModal.tsx`, `AdminPage.tsx`, and `Sonu3DWorkstation.tsx`.
+  - Replaced all visual markers with professional Lucide SVG icons (`Shield`, `Lightbulb`, `CheckCircle`, `MapPin`, etc.) in strict compliance with UI/UX Pro Max standards.
+
+---
+
 ## [0.9.25] - 2026-10-15
 
 ### Added & Refined

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Footer } from '../components/common/Footer';
 import { CommandPalette } from '../components/common/CommandPalette';
 import { ScrollProgressBar } from '../components/common/ScrollProgressBar';
-import { ConstellationCanvas } from '../components/common/ConstellationCanvas';
 import { FloatingDock } from '../components/common/FloatingDock';
 import { ContactModal } from '../components/common/ContactModal';
 import { LanguagePreloader } from '../components/common/LanguagePreloader';
@@ -40,9 +39,6 @@ const HomePage: React.FC = () => {
 
       {/* 1. Scroll Progress Bar (aakarsh-devhq inspiration) */}
       <ScrollProgressBar />
-
-      {/* 2. Interactive Constellation Canvas Backdrop (redoyanulhaque / aakarsh-devhq) */}
-      <ConstellationCanvas />
 
       {/* Main Sections */}
       <main>

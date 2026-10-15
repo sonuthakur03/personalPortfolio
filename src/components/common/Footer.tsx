@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Shield, Code2 } from 'lucide-react';
+import { Mail, Shield, Code2, MapPin } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import { usePortfolioContent } from '../../context/PortfolioContentContext';
 import { Link } from 'react-router-dom';
@@ -91,8 +91,9 @@ export const Footer: React.FC = () => {
                 <Mail className="w-3.5 h-3.5" />
                 <span>{profile.email}</span>
               </a>
-              <div className="text-[11px] text-muted-foreground pt-1">
-                📍 {profile.location}
+              <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground pt-1">
+                <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                <span>{profile.location}</span>
               </div>
             </div>
           </div>

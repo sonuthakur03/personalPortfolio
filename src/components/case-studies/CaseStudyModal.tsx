@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Maximize2, Minimize2, ExternalLink, Shield, Layers, Cpu, CheckCircle, Laptop } from 'lucide-react';
+import { X, Maximize2, Minimize2, ExternalLink, Shield, Layers, Cpu, CheckCircle, Laptop, Lightbulb } from 'lucide-react';
 import { GithubIcon } from '../common/BrandIcons';
 import type { ProjectCaseStudy } from '../../types/projects';
 
@@ -203,7 +203,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[11px] font-mono text-primary bg-primary/10 px-2.5 py-0.5 rounded border border-primary/20">
-                    ✦ Production UI
+                    Production UI
                   </span>
                   {project.liveUrl && (
                     <a
@@ -279,8 +279,9 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                     {project.architectureDiagram.subtitle}
                   </p>
                 </div>
-                <div className="text-[11px] font-mono text-accent-emerald bg-accent-emerald/10 px-2 py-0.5 rounded border border-accent-emerald/20">
-                  ✓ Verified via Headless Browser Gate
+                <div className="text-[11px] font-mono text-accent-emerald bg-accent-emerald/10 px-2 py-0.5 rounded border border-accent-emerald/20 flex items-center gap-1.5">
+                  <CheckCircle className="w-3 h-3 text-accent-emerald shrink-0" />
+                  <span>Verified via Headless Browser Gate</span>
                 </div>
               </div>
 
@@ -318,8 +319,9 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           {activeTab === 'security' && (
             <div className="space-y-4">
               <div className="p-4 rounded-lg bg-accent-emerald/5 border border-accent-emerald/20 text-xs font-mono text-foreground leading-relaxed">
-                <strong className="text-accent-emerald font-semibold block mb-1">
-                  🛡️ Defense in Depth & CTF Methodology
+                <strong className="text-accent-emerald font-semibold flex items-center gap-1.5 mb-1">
+                  <Shield className="w-4 h-4 text-accent-emerald shrink-0" />
+                  <span>Defense in Depth & CTF Methodology</span>
                 </strong>
                 Each project undergoes security threat modeling derived from hands-on BugV CTF offensive testing principles: strict input sanitization, rate limiting, and zero-trust perimeter validation.
               </div>
@@ -331,7 +333,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                     className="p-4 rounded-lg bg-elevated/50 border border-subtle space-y-2 font-mono text-xs"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-display font-bold text-foreground text-sm">
+                       <span className="font-display font-bold text-foreground text-sm">
                         {sec.title}
                       </span>
                       <span className="px-2 py-0.5 rounded bg-accent-emerald/10 text-accent-emerald text-[11px]">
@@ -348,8 +350,9 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                     </div>
 
                     {sec.ctfTakeaway && (
-                      <div className="text-accent-cyan text-[11px] pt-1 border-t border-border/40">
-                        💡 <strong>CTF Insight:</strong> {sec.ctfTakeaway}
+                      <div className="text-accent-cyan text-[11px] pt-1 border-t border-border/40 flex items-center gap-1.5">
+                        <Lightbulb className="w-3.5 h-3.5 text-accent-cyan shrink-0" />
+                        <span><strong>CTF Insight:</strong> {sec.ctfTakeaway}</span>
                       </div>
                     )}
                   </div>

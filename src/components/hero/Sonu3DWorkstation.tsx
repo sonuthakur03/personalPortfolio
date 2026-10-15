@@ -17,11 +17,11 @@ interface Sonu3DWorkstationProps {
 }
 
 const STATUS_MESSAGES = [
-  "Building full-stack MERN & AI apps ⚡",
-  "Refining ACID transaction integrity 🛡️",
-  "Tracking your cursor in 3D WebGL ✨",
-  "Coffee fueled & ready to deploy ☕",
-  "Click me to say hello! 🖐️",
+  "Building full-stack MERN & AI apps",
+  "Refining ACID transaction integrity",
+  "Tracking your cursor in 3D WebGL",
+  "Coffee fueled & ready to deploy",
+  "Click me to say hello",
 ];
 
 export const Sonu3DWorkstation: React.FC<Sonu3DWorkstationProps> = ({ className = '' }) => {
@@ -572,7 +572,7 @@ export const Sonu3DWorkstation: React.FC<Sonu3DWorkstationProps> = ({ className 
 
         <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-mono text-muted-foreground/80 bg-surface/60 dark:bg-neutral-900/60 backdrop-blur-md border border-border/60">
           <Coffee className="w-3 h-3 text-amber-400" />
-          <span>Click to wave 🖐️</span>
+          <span>Click to wave</span>
         </div>
       </div>
 
@@ -586,7 +586,7 @@ export const Sonu3DWorkstation: React.FC<Sonu3DWorkstationProps> = ({ className 
           className="absolute z-40 pointer-events-none text-purple-400 flex items-center gap-1 font-mono text-xs font-bold"
         >
           <Sparkles className="w-4 h-4 text-cyan-400" />
-          <span>Hello! ✨</span>
+          <span>Hello</span>
         </motion.div>
       )}
     </div>
