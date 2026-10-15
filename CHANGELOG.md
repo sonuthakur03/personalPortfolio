@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.29] - 2026-10-15
+
+### Added & Redesigned
+- **Hero Section Minimalist Precision (`HeroSection.tsx`)**:
+  - Removed the horizontal 3-column credentials strip from the hero stage per user feedback, leaving the hero section pristine, uncrowded, and focused on the primary typography, bio, and magnetic actions.
+- **Complete Projects Section Overhaul (`ProjectsSection.tsx`)**:
+  - Replaced the constrained 2-column IDE file-explorer layout with an expansive, visually engaging engineering showcase.
+  - **Flagship Spotlight Widescreen Showcases**: Spotlighted the top 2 flagship engineering platforms (**Project LOOP** & **CricketNepal**) across full 12-column showcase layouts with browser mockup frames, simulated URL bars, and high-res screenshot previews.
+  - **Balanced 2-Column Systems Grid**: Positioned complementary engineering systems (**PublicCare**, **StudyTrack Nepal**, **Quizify**, and **TravelNP**) in a responsive, modern card grid with live status telemetry badges.
+  - **Interactive Category Filtering**: Implemented instantaneous domain filtering (`All Systems`, `Applied AI & Cloud`, `Full-Stack MERN`, `Civic & Interactive`) with animated count badges.
+  - **Direct Multi-Action Bar**: Integrated instant access to source code on GitHub (`GithubIcon`), live deployments (`ArrowUpRight`), and deep-dive Archify architectural blueprints (`Layers`).
+  - Maintained zero-emoji policy, strict TypeScript compliance, and fluid responsive styling.
+
+---
+
 ## [0.9.28] - 2026-10-15
 
 ### Added & Refined

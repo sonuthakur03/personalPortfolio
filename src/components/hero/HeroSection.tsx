@@ -162,59 +162,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             Architecting intelligent, secure web applications. Specialized in scalable MERN architectures, ACID-compliant transactional backends, and applied AI pipelines with the Gemini SDK.
           </motion.p>
 
-          {/* High-Value Credential Highlights (No Pills, Zero Emojis) */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.72 }}
-            className="pt-1 flex flex-wrap items-center gap-x-6 gap-y-3"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
-              <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
-                  Tribhuvan University Topper
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                  BCA Rank 1 · CGPA 3.63
-                </span>
-              </div>
-            </div>
-
-            <div className="hidden sm:block w-px h-7 bg-slate-300 dark:bg-neutral-800" />
-
-            <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
-              <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
-                  BugV CTF 3rd Place
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                  Application Security & Defense
-                </span>
-              </div>
-            </div>
-
-            <div className="hidden sm:block w-px h-7 bg-slate-300 dark:bg-neutral-800" />
-
-            <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
-              <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-semibold tracking-tight text-slate-900 dark:text-white">
-                  Production Full-Stack
-                </span>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                  MERN + Applied AI (Gemini)
-                </span>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Magnetic CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
+            transition={{ duration: 0.6, delay: 0.75 }}
             className="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4 font-sans"
           >
             <Magnetic strength={0.35}>
