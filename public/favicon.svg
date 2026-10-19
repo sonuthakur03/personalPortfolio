@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Pop Brutalist Hard Shadow -->
+  <rect x="6" y="6" width="54" height="54" rx="13" fill="#111111" />
+
+  <!-- Badge Body with Diagonal Split Background -->
+  <g>
+    <clipPath id="squircle">
+      <rect x="2" y="2" width="54" height="54" rx="13" />
+    </clipPath>
+    <g clip-path="url(#squircle)">
+      <!-- Top-Left Electric Yellow -->
+      <rect x="2" y="2" width="54" height="54" fill="#FFE14D" />
+      <!-- Bottom-Right Hot Pink -->
+      <polygon points="58,2 58,58 2,58" fill="#FF6FB5" />
+      <!-- Retro Halftone Dots -->
+      <circle cx="14" cy="14" r="1.5" fill="#111111" opacity="0.2" />
+      <circle cx="22" cy="10" r="1.5" fill="#111111" opacity="0.2" />
+      <circle cx="10" cy="22" r="1.5" fill="#111111" opacity="0.2" />
+      <circle cx="48" cy="46" r="1.5" fill="#111111" opacity="0.2" />
+    </g>
+  </g>
+
+  <!-- Heavy Brutalist Stroke -->
+  <rect x="2" y="2" width="54" height="54" rx="13" stroke="#111111" stroke-width="3.5" />
+
+  <!-- 'ST' Monogram with Hard Pop Shadow -->
+  <text x="32" y="41" font-family="'Archivo Black', 'Arial Black', sans-serif" font-weight="900" font-size="28" text-anchor="middle" fill="#111111" letter-spacing="-1">ST</text>
+  <text x="29" y="38" font-family="'Archivo Black', 'Arial Black', sans-serif" font-weight="900" font-size="28" text-anchor="middle" fill="#FFFFFF" stroke="#111111" stroke-width="3" stroke-linejoin="round" letter-spacing="-1">ST</text>
+  <text x="29" y="38" font-family="'Archivo Black', 'Arial Black', sans-serif" font-weight="900" font-size="28" text-anchor="middle" fill="#FFFFFF" letter-spacing="-1">ST</text>
+</svg>

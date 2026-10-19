@@ -1,7 +1,14 @@
 // src/components/skills/SkillsSection.tsx
+// Pop Brutalist Skills & Technical Stack Showcase:
+// - Collectible Pop Brutalist Sticker Pack aesthetic
+// - Thick 3px black borders, hard offset shadows, alternating playful tilts
+// - Pop Brutalist filter pills with instant category switching
+// - Devicon integration with high-contrast sticker badges
+// - Strictly typed, zero emojis, responsive across all viewports
+
 import React, { useState } from 'react';
 import { flatSkillsData, type SkillCategoryType } from '../../data/skillsData';
-import { Cpu, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 import { sounds } from '../../utils/soundEffects';
 import { ScrollReveal } from '../common/ScrollReveal';
 
@@ -17,7 +24,26 @@ const FILTER_OPTIONS: FilterOption[] = [
   { key: 'backend', label: 'Backend' },
   { key: 'databases', label: 'Databases' },
   { key: 'ai-security', label: 'AI & Security' },
-  { key: 'tools', label: 'Tools & DevOps' },
+  { key: 'ai-tools', label: 'AI Dev Tools' },
+  { key: 'tools', label: 'Tools & Hosting' },
+  { key: 'fundamentals', label: 'CS Fundamentals' },
+];
+
+// Alternating rotation tilts for playful sticker feel
+const tilts = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3', '-rotate-3', 'rotate-1'];
+
+// Diverse Pop Brutalist liquid filling gradients for each skill card
+const waveGradients = [
+  'from-[#FF6FB5]/95 via-[#FF8A65]/95 to-[#FFE14D]', // Pink / Coral / Yellow
+  'from-[#7C9BFF]/95 via-[#A78BFA]/95 to-[#FF6FB5]', // Soft Blue / Violet / Pink
+  'from-[#7DFFA6]/95 via-[#38BDF8]/95 to-[#7C9BFF]', // Mint / Sky / Cobalt
+  'from-[#FFE14D]/95 via-[#FFB38A]/95 to-[#FF6FB5]', // Pop Yellow / Peach / Punch
+  'from-[#38BDF8]/95 via-[#7DFFA6]/95 to-[#FFE14D]', // Cyan / Lime / Lemon
+  'from-[#C084FC]/95 via-[#F472B6]/95 to-[#FB7185]', // Lavender / Orchid / Rose
+  'from-[#34D399]/95 via-[#60A5FA]/95 to-[#A78BFA]', // Emerald / Blue / Iris
+  'from-[#FB923C]/95 via-[#F43F5E]/95 to-[#C084FC]', // Amber / Crimson / Purple
+  'from-[#F43F5E]/95 via-[#FB923C]/95 to-[#FFE14D]', // Cherry / Tangerine / Gold
+  'from-[#2DD4BF]/95 via-[#38BDF8]/95 to-[#818CF8]', // Teal / Ice / Periwinkle
 ];
 
 export const SkillsSection: React.FC = () => {
@@ -34,32 +60,42 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 sm:py-32 relative overflow-hidden bg-background">
-      {/* Background ambient radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] bg-accent-purple/5 blur-[160px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+    <section
+      id="skills"
+      aria-label="Technical Skills and Arsenal"
+      className="py-20 sm:py-28 relative bg-[#F8F6F0] dark:bg-[#0D0E12] text-[#111111] dark:text-[#F4F4F5] border-b-[3px] border-[#111111] overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 space-y-10">
+        {/* ================================================================= */}
+        {/* SECTION HEADER                                                    */}
+        {/* ================================================================= */}
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-purple/10 border border-accent-purple/20 text-xs font-mono text-accent-purple tracking-widest uppercase mb-4 shadow-sm">
-              <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Technical Arsenal &amp; Core Stack</span>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b-[3px] border-[#111111]">
+            <div className="space-y-3 max-w-xl">
+              <div className="self-start inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#7DFFA6] text-[#111111] border-[3px] border-[#111111] shadow-brutal font-spaceMono text-xs font-bold uppercase -rotate-2">
+                <Cpu className="w-3.5 h-3.5" />
+                <span>04 // Technical Arsenal</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white leading-[0.95]">
+                Skills &amp; Stack
+              </h2>
+              <p className="text-base font-archivo font-semibold text-[#111111]/80 dark:text-white/80">
+                Production-grade technologies across full-stack engineering, applied AI, and application security.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-foreground tracking-tight">
-              Technical Skills &amp;{' '}
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                Core Competencies
-              </span>
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-muted-foreground font-sans max-w-2xl mx-auto">
-              Production-grade technologies across full-stack engineering, AI systems, and application security.
-            </p>
+
+            <div className="self-start sm:self-end">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#181A20] text-[#111111] dark:text-white border-[3px] border-[#111111] shadow-brutal font-spaceMono text-xs font-bold">
+                <span>{flatSkillsData.length} Verified Tech Competencies</span>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* Skill Filter Pill Tabs (Aakarsh DevHQ Signature Pill Filter) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+        {/* ================================================================= */}
+        {/* POP BRUTALIST FILTER PILLS                                        */}
+        {/* ================================================================= */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
           {FILTER_OPTIONS.map((filter) => {
             const isActive = activeFilter === filter.key;
             const count =
@@ -72,19 +108,16 @@ export const SkillsSection: React.FC = () => {
                 key={filter.key}
                 type="button"
                 onClick={() => handleFilterClick(filter.key)}
-                className={`relative px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium font-sans transition-all duration-300 overflow-hidden select-none flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2 border-[3px] border-[#111111] font-spaceMono text-xs sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-2 ${
                   isActive
-                    ? 'text-white border border-purple-500 bg-purple-600/30 shadow-[0_0_20px_rgba(168,85,247,0.4),inset_0_0_10px_rgba(168,85,247,0.2)] scale-105'
-                    : 'text-muted-foreground border border-border bg-surface hover:text-foreground hover:border-purple-500/40 hover:bg-elevated hover:-translate-y-0.5'
+                    ? 'bg-[#FF6FB5] text-[#111111] shadow-brutal -translate-x-0.5 -translate-y-0.5'
+                    : 'bg-white dark:bg-[#181A20] text-[#111111] dark:text-white hover:bg-[#FFE14D] dark:hover:bg-[#FFE14D] hover:text-[#111111] dark:hover:text-[#111111]'
                 }`}
               >
-                {isActive && (
-                  <span className="absolute inset-0 bg-gradient-to-r from-purple-600/40 to-indigo-600/40 -z-10" />
-                )}
                 <span>{filter.label}</span>
                 <span
-                  className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-muted text-muted-foreground'
+                  className={`text-[10px] px-1.5 py-0.5 border border-[#111111] font-bold ${
+                    isActive ? 'bg-[#111111] text-white' : 'bg-neutral-100 dark:bg-black text-[#111111] dark:text-white'
                   }`}
                 >
                   {count}
@@ -94,78 +127,63 @@ export const SkillsSection: React.FC = () => {
           })}
         </div>
 
-        {/* Responsive Skill Cards Grid (Aakarsh DevHQ Signature Wave Cards) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-4.5 max-w-7xl mx-auto">
-          {filteredSkills.map((skill) => (
-            <div
-              key={skill.id}
-              onMouseEnter={() => sounds.playHover(720)}
-              className="group relative h-[135px] sm:h-[142px] rounded-2xl bg-surface/80 backdrop-blur-md border border-border hover:border-purple-500/80 flex flex-col items-center justify-center p-3 sm:p-4 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08),0_0_25px_rgba(168,85,247,0.2)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_25px_rgba(168,85,247,0.25)] overflow-hidden cursor-default"
-            >
-              {/* Signature Liquid Wave Effect on Hover */}
+        {/* ================================================================= */}
+        {/* POP BRUTALIST STICKER PACK GRID                                   */}
+        {/* ================================================================= */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
+          {filteredSkills.map((skill, idx) => {
+            const tilt = tilts[idx % tilts.length];
+            const waveGradient = waveGradients[idx % waveGradients.length];
+
+            return (
               <div
-                className="absolute left-1/2 -translate-x-1/2 w-[240%] h-[240%] top-[155px] group-hover:top-[-45%] bg-gradient-to-b from-purple-600/90 to-indigo-900/95 transition-all duration-500 ease-out pointer-events-none -z-10 group-hover:animate-[skillWave_6s_linear_infinite]"
-                style={{
-                  borderRadius: '45% 55% 40% 60% / 55% 60% 35% 45%',
-                }}
-              />
-
-              {/* Cyan Status Dot for Core CV Highlights */}
-              {skill.highlight && (
-                <span
-                  className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)] z-20"
-                  title="Core CV Specialization"
-                />
-              )}
-
-              {/* Brand Icon */}
-              <div className="relative z-10 text-3xl sm:text-4xl mb-2 transition-transform duration-300 group-hover:scale-115 group-hover:drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
-                <i className={`${skill.iconClass} text-3xl sm:text-4xl`} />
-              </div>
-
-              {/* Skill Name */}
-              <span className="relative z-10 text-xs sm:text-sm font-bold text-foreground tracking-tight text-center group-hover:text-white group-hover:drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] transition-all duration-300 line-clamp-1 px-1">
-                {skill.name}
-              </span>
-
-              {/* Level indicator pill */}
-              {skill.level && (
-                <span className="relative z-10 text-[10px] font-mono text-muted-foreground group-hover:text-purple-200 mt-1 transition-colors duration-300 px-2 py-0.5 rounded-full bg-elevated/80 group-hover:bg-black/40 border border-border/40 group-hover:border-purple-400/30">
-                  {skill.level}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Stack Summary Bar */}
-        <div className="mt-14 sm:mt-16 text-center flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground/80 bg-white/[0.02] px-4 py-2 rounded-full border border-white/5">
-            <Sparkles className="w-3.5 h-3.5 text-accent-cyan shrink-0" />
-            <span>
-              Total of {flatSkillsData.length} production technologies verified across Full-Stack, Applied AI, and AppSec
-            </span>
-          </div>
-
-          {/* Key CV Highlights Pill Row */}
-          <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl">
-            {[
-              'MERN Architecture',
-              'Google Gemini AI SDK',
-              'BugV CTF 3rd Place',
-              'Khalti / eSewa / Stripe Gateways',
-              'ACID Multi-Doc Transactions',
-              'Tribhuvan University BCA Rank 1',
-            ].map((badge) => (
-              <span
-                key={badge}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono bg-white/[0.03] border border-white/10 text-gray-300"
+                key={skill.id}
+                onMouseEnter={() => sounds.playHover(720)}
+                className={`pop-card group relative h-[148px] sm:h-[156px] p-2.5 sm:p-3 flex flex-col items-center justify-between text-center bg-white dark:bg-[#181A20] ${tilt} hover:rotate-0 hover:-translate-y-2 hover:shadow-brutal-lg transition-all duration-300 cursor-default select-none overflow-hidden`}
               >
-                <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                <span>{badge}</span>
-              </span>
-            ))}
-          </div>
+                {/* Signature Liquid Wave Effect on Hover with Unique Gradient per Card */}
+                <div
+                  className={`absolute left-1/2 -translate-x-1/2 w-[240%] h-[240%] top-[195px] group-hover:top-[-45%] bg-gradient-to-b ${waveGradient} transition-all duration-500 ease-out pointer-events-none -z-10 group-hover:animate-[skillWave_6s_linear_infinite]`}
+                  style={{
+                    borderRadius: '45% 55% 40% 60% / 55% 60% 35% 45%',
+                  }}
+                />
+
+                {/* Highlight Badge */}
+                {skill.highlight && (
+                  <span
+                    className="absolute top-1.5 right-1.5 px-1.5 py-0.5 bg-[#FF6FB5] text-[#111111] border border-[#111111] font-spaceMono text-[8.5px] font-black z-20"
+                    title="Core CV Focus"
+                  >
+                    ✦ CORE
+                  </span>
+                )}
+
+                {/* Brand Icon */}
+                <div className="relative z-10 text-3xl sm:text-4xl mt-1 text-[#111111] dark:text-white group-hover:text-[#111111] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+                  <i className={skill.iconClass} />
+                </div>
+
+                {/* Name & Level (100% visible before hover in both light & dark mode) */}
+                <div className="relative z-10 w-full space-y-1 flex flex-col items-center justify-center">
+                  <span
+                    className="font-archivoBlack text-[10.5px] sm:text-[11.5px] uppercase tracking-tight leading-tight line-clamp-2 block text-[#111111] dark:text-white group-hover:text-[#111111] transition-colors duration-200 px-0.5"
+                    title={skill.name}
+                  >
+                    {skill.name}
+                  </span>
+                  {skill.level && (
+                    <span
+                      className="inline-block max-w-[98%] truncate px-1.5 py-0.5 bg-neutral-100 dark:bg-black/60 group-hover:bg-white/95 border border-[#111111] dark:border-neutral-700 group-hover:border-[#111111] font-spaceMono text-[8.5px] sm:text-[9.5px] font-bold text-[#111111] dark:text-neutral-200 group-hover:text-[#111111] transition-colors duration-200"
+                      title={skill.level}
+                    >
+                      {skill.level}
+                    </span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

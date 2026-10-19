@@ -276,7 +276,7 @@ const AdminPage: React.FC = () => {
             onClick={() => setActiveTab('sync')}
             className={`px-3.5 py-2 rounded-lg transition-colors flex items-center gap-2 ${
               activeTab === 'sync'
-                ? 'bg-accent-cyan text-black font-semibold'
+                ? 'bg-primary text-primary-foreground font-semibold'
                 : 'bg-surface border border-border text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -753,7 +753,7 @@ const AdminPage: React.FC = () => {
               </p>
               <button
                 onClick={downloadJSON}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent-cyan text-black font-mono text-xs font-semibold hover:opacity-90"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-mono text-xs font-semibold hover:opacity-90"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download Portfolio Backup JSON</span>

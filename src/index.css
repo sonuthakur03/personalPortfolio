@@ -9,7 +9,7 @@
     --foreground: #09090b;
     --surface: #ffffff;
     --elevated: #f4f4f5;
-    --primary: #0284c7;
+    --primary: #2563eb;
     --primary-foreground: #ffffff;
     --secondary: #d97706;
     --secondary-foreground: #ffffff;
@@ -32,8 +32,8 @@
     --foreground: #f4f4f5;
     --surface: #09090b;
     --elevated: #121215;
-    --primary: #38bdf8;
-    --primary-foreground: #000000;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
     --secondary: #f59e0b;
     --secondary-foreground: #000000;
     --tertiary: #18181b;
@@ -58,6 +58,128 @@
   h1, h2, h3, h4 {
     @apply font-display tracking-tight;
   }
+}
+
+/* ========================================================================= */
+/* POP BRUTALIST DESIGN SYSTEM (B · Pop Brutalist)                          */
+/* ========================================================================= */
+
+.pop-pill {
+  padding: 10px 18px;
+  background: #FFFFFF;
+  color: #111111;
+  border: 3px solid #111111;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  box-shadow: 3px 3px 0 #111111;
+}
+
+.pop-pill:hover {
+  background: #FF6FB5 !important;
+  color: #111111 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #111111 !important;
+}
+
+.pop-pill:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #111111 !important;
+}
+
+.pop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #111111;
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 6px 6px 0 #111111;
+  cursor: pointer;
+}
+
+.pop-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 #111111 !important;
+}
+
+.pop-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #111111 !important;
+}
+
+.pop-btn-pink {
+  box-shadow: 6px 6px 0 #FF6FB5 !important;
+}
+
+.pop-btn-pink:hover {
+  box-shadow: 9px 9px 0 #FF6FB5 !important;
+}
+
+.pop-card {
+  background: #FFFFFF;
+  border: 3px solid #111111;
+  box-shadow: 8px 8px 0 #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pop-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 12px 12px 0 #111111;
+}
+
+.pop-sticker {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 3px solid #111111;
+  box-shadow: 4px 4px 0 #111111;
+  font-family: 'Archivo Black', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.pop-sticker:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 7px 7px 0 #111111;
+}
+
+.text-stroke-pop {
+  color: #FFFFFF;
+  -webkit-text-stroke: 3px #111111;
+  paint-order: stroke fill;
+}
+
+.text-stroke-pop-sm {
+  color: #FFFFFF;
+  -webkit-text-stroke: 2px #111111;
+  paint-order: stroke fill;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes skillWave {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* Custom Utilities for Technical Polish */
@@ -146,153 +268,6 @@
   background: var(--subtle);
 }
 
-/* Aakarsh DevHQ inspired animations */
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes skillWave {
-  0% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(360deg);
-  }
-}
-
-@keyframes floatProfile {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes rotateBorder {
-  to {
-    --angle: 360deg;
-  }
-}
-
-@keyframes shimmerText {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
-
-@keyframes sweepLine {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 150%;
-  }
-}
-
-/* ========================================================================= */
-/* GETLAYERS.AI CINEMATIC ANIMATIONS & GLASSMORPHIC DESIGN SYSTEM            */
-/* ========================================================================= */
-
-@keyframes getlayersFloat {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0.8deg);
-  }
-}
-
-@keyframes getlayersFloatReverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(6px) rotate(-0.8deg);
-  }
-}
-
-@keyframes getlayersShine {
-  0% {
-    transform: translateX(-150%) skewX(-20deg);
-  }
-  100% {
-    transform: translateX(250%) skewX(-20deg);
-  }
-}
-
-@keyframes getlayersAmbientGlow {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1) translate(0, 0);
-  }
-  50% {
-    opacity: 0.65;
-    transform: scale(1.1) translate(10px, -10px);
-  }
-}
-
-.getlayers-glass {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.light .getlayers-glass {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.animate-getlayers-float {
-  animation: getlayersFloat 4.5s ease-in-out infinite;
-}
-
-.animate-getlayers-float-reverse {
-  animation: getlayersFloatReverse 5.2s ease-in-out infinite;
-}
-
-.animate-getlayers-glow {
-  animation: getlayersAmbientGlow 8s ease-in-out infinite;
-}
-
-/* Warm Amber / Solar Gold Ambient Lighting (Replacing generic blue highlights) */
-@keyframes solarPulse {
-  0%, 100% {
-    opacity: 0.25;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.55;
-    transform: scale(1.08);
-  }
-}
-
-.animate-solar-pulse {
-  animation: solarPulse 6.5s ease-in-out infinite;
-}
-
-.getlayers-gold-glass {
-  background: rgba(18, 17, 23, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(245, 158, 11, 0.2);
-  box-shadow: 
-    0 24px 48px -12px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(251, 191, 36, 0.18);
-}
-
 /* Smooth fade-in utility used by FloatingDock and other animated elements */
 @keyframes fadeIn {
   from {
@@ -312,5 +287,19 @@
 /* GPU acceleration hint for heavily animated elements */
 .will-animate {
   will-change: transform, opacity;
+}
+
+/* Devicon font icon color visibility in dark & light themes */
+i[class*="devicon-"] {
+  display: inline-block;
+  line-height: 1;
+}
+
+.dark .devicon-nextjs-plain:not(.colored),
+.dark .devicon-express-original:not(.colored),
+.dark .devicon-github-original:not(.colored),
+.dark .devicon-vercel-original:not(.colored),
+.dark .devicon-bash-plain:not(.colored) {
+  color: #f4f4f5 !important;
 }
 

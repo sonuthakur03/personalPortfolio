@@ -12,5 +12,9 @@ export interface ProfileData {
   readonly linkedin: string;
   readonly email: string;
   readonly activeStatus: string;
+  readonly hackathonWin?: string;
   readonly avatarUrl?: string;
+  readonly resumeUrl?: string;
+  readonly instagram?: string;
+  readonly discord?: string;
 }

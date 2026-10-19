@@ -40,7 +40,7 @@ export const LinkedinIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => 
   </svg>
 );
 
-export const MailIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
+export const InstagramIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
   <svg
     className={className}
     viewBox="0 0 24 24"
@@ -51,59 +51,8 @@ export const MailIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
     strokeLinejoin="round"
     aria-hidden="true"
   >
-    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-    <rect x="2" y="4" width="20" height="16" rx="2" />
-  </svg>
-);
-
-export const ExternalLinkIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    <polyline points="15 3 21 3 21 9" />
-    <line x1="10" y1="14" x2="21" y2="3" />
-  </svg>
-);
-
-export const ArrowRightIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M5 12h14" />
-    <path d="m12 5 7 7-7 7" />
-  </svg>
-);
-
-export const FileTextIcon: React.FC<IconProps> = ({ className = 'w-4 h-4' }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-    <path d="M10 9H8" />
-    <path d="M16 13H8" />
-    <path d="M16 17H8" />
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );

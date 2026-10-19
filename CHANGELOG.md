@@ -7,6 +7,555 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.2] - 2026-10-19
+
+- **Technical Stack & Skills Arsenal Realignment (`skillsData.ts`, `SkillsSection.tsx`)**:
+  - Implemented strict 25-item decision matrix matching verified competencies and technical CV priorities:
+    - **Core Languages & Web:** `JavaScript` (Advanced), `TypeScript` (Intermediate), `React 19` (Advanced), `Next.js` (Intermediate).
+    - **Consolidated Frontend & Backend:** `HTML5 + CSS3 + Tailwind CSS` grouped as `Frontend development`; `Node.js + Express.js` grouped as `Backend development`.
+    - **Databases & Fundamentals:** Prioritized `MongoDB` (Advanced), `MySQL` (Intermediate), `PostgreSQL` (Intermediate), renamed ACID & DBMS to `Database fundamentals` (`ACID & Relational`), downgraded `Redis Streams` to `Beginner (Optional)`.
+    - **Architectural & Security Renaming:** Renamed JWT Auth & RBAC to `Authentication & Authorization`, Khalti / eSewa / Stripe to `Payment gateway integration`, and retained `Application Security` as `Intermediate (Evidence)`.
+    - **AI & Development Tooling Separation:** Segregated `Claude Code / Antigravity` into dedicated category `AI-assisted development tools`; retained `AI SDK` conditionally as `AI application integration — Beginner`.
+    - **Demonstrable Frameworks & Languages:** Updated `Python` and `Django` to `Certified · Demonstrable`; condensed Java, C/C++, PHP, C#/.NET into `Academic experience`.
+    - **Protocol Downgrade:** Reclassified `WebSockets` to `Beginner`.
+    - **DevOps, Collaboration & Testing:** Grouped `Git / GitHub / GitLab` under `Version control & collaboration`, `Vercel / Render` under `Deployment & hosting`, retained `Postman` for `API testing`, `Linux` as `Intermediate (Secondary)`, and `Figma` for `UI/UX design`.
+    - **CS Fundamentals:** Relocated `Data Structures & Algorithms` out of main stack into dedicated `Computer Science Fundamentals` category.
+    - **Pruned Items:** Removed `Docker` and `BugV CTF` from skills catalog (BugV CTF preserved across verified achievements, certificates, and timeline).
+    - **Filter Pill Expansion:** Added `AI Dev Tools` and `CS Fundamentals` filter pills in [SkillsSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/skills/SkillsSection.tsx) with animated category count badges.
+- **Pre-Deployment Dead Code Pruning & Asset Optimization**:
+  - **Dead Code & Obsolete Types Elimination**:
+    - Pruned dead jigsaw puzzle types (`PuzzleSkillPiece`, `JigsawEdgeType`, `JigsawEdges`, `PuzzleGridConfig`) in [types/skills.ts](file:///e:/codes/PersonalPortfolio/src/types/skills.ts) and replaced with canonical `SkillCategoryType`, `FlatSkillItem`, and `SkillCategory`.
+    - Pruned redundant SVG wrapper icons (`MailIcon`, `ExternalLinkIcon`, `ArrowRightIcon`, `FileTextIcon`) in [BrandIcons.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/BrandIcons.tsx), centralizing exclusively on brand icons (`GithubIcon`, `LinkedinIcon`, `InstagramIcon`) while consuming Lucide for generic UI icons.
+    - Extended `useModalDismiss` hook to [CommandPalette.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/CommandPalette.tsx) to unify Escape key listening and body scroll locking across all modals.
+  - **Asset Weight Budget & Modern WebP Migration**:
+    - Converted all 6 flagship project preview images in `public/projects/` to `.webp`, cutting average asset sizes by 80–90% (e.g. `CricketNepal.png` reduced from 609 KB to 58 KB; `QuizBizz.png` reduced from 517 KB to 89 KB).
+    - Compressed all 12 certificate scans in `public/certificates/` with `mozjpeg`, decreasing total certificate payload from 4,070 KB to 752 KB (-81.5%) while maintaining 1400px high-resolution legibility.
+    - Deleted obsolete `.png` duplicates in `public/projects/`.
+  - **Production Bundle & Chunk Verification**:
+    - Verified all production JavaScript chunks are strictly under the 300 kB budget (largest vendor chunk: 275 kB, main bundle: 191 kB, gzipped CSS: 10.45 kB).
+    - Clean passes on all 13 Vitest tests (`npm run test`), ESLint (`npm run lint`), and Vite build (`npm run build`).
+- **Footer CTA Dimensional Alignment (`Footer.tsx`)**:
+  - Resolved height and text wrapping mismatch on the "Send Message" action box (`height: 78px` vs `height: 58px` on the email box caused by unconstrained text wrapping).
+  - Standardized both buttons to `h-[58px]`, `whitespace-nowrap`, `gap-2.5`, `shrink-0` icon constraints, and identical baseline alignment across desktop and mobile viewports.
+- **System-Wide DRY (Don't Repeat Yourself) Architectural Refactoring**:
+  - **Eliminated Project Data Redundancy (`labProjectsData.ts` & `projectsData.ts`)**:
+    - Transformed `labProjects` to derive dynamically from canonical `projectsData`, removing ~100 lines of duplicated summaries, roles, links, and technology arrays.
+    - Consolidated project color schemes into a single `getProjectTheme(id)` helper with automatic hyphenation normalization.
+  - **Decoupled Curriculum Pillars (`educationData.ts` & `types/education.ts`)**:
+    - Extracted 4 large curriculum pillars (`systems`, `data`, `software`) from `EducationSection.tsx` into a typed, static data store, preventing memory reallocation on every component re-render.
+  - **Reusable Modal Dismiss Hook (`hooks/useModalDismiss.ts`)**:
+    - Centralized Escape key dismiss logic and `document.body.style.overflow` scroll locking into a single hook used across [ContactModal.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/ContactModal.tsx) and [CaseStudyModal.tsx](file:///e:/codes/PersonalPortfolio/src/components/case-studies/CaseStudyModal.tsx).
+  - **Centralized Profile Constants & Link Synchronization**:
+    - Exported canonical constants in `profileData.ts` (`DEFAULT_EMAIL`, `DEFAULT_GITHUB`, `DEFAULT_LINKEDIN`, `DEFAULT_INSTAGRAM`, `DEFAULT_RESUME_URL`, `STANDARD_RESUME_URL`).
+    - Wired `ContactModal.tsx`, `Footer.tsx`, `FloatingDock.tsx`, `CommandPalette.tsx`, and `WebPresenceSection.tsx` to consume central profile data and fallbacks.
+- **Hero Sticker Pill Update (`HeroSection.tsx`)**:
+  - Replaced `ACID` sticker badge with `PYTHON` in the hero polaroid sticker cluster alongside `MERN`, `APPLIED AI`, `TYPESCRIPT`, `HACKATHON WINNER 🏆`, and `TU BCA RANK 1`.
+- **Web Presence & Dev Network Reconfiguration (`WebPresenceSection.tsx`, `BrandIcons.tsx`)**:
+  - Added Instagram profile (`https://www.instagram.com/not_sonuthakur?srtk=MWNpZmwzcnN0cWV5aA==`) with custom SVG `InstagramIcon`.
+  - Focused the Dev Network grid into 5 high-impact cards: **LinkedIn**, **GitHub**, **Instagram**, **Direct Email**, and **Verified Technical CV** (`lg:grid-cols-5`).
+  - Added Instagram links to [ContactModal.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/ContactModal.tsx), [Footer.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/Footer.tsx), and [CommandPalette.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/CommandPalette.tsx).
+- **Official CV Distribution Across the Entire Website (`public/cv/`)**:
+  - Provisioned official curriculum vitae variants in `public/cv/`:
+    - `Sonu_Thakur_CV.pdf` (standard 2-page CV)
+    - `Sonu_Thakur_CV_2page.pdf` (2-page technical deep-dive)
+    - `Sonu_Thakur_CV_1page.pdf` (concise 1-page summary)
+  - Integrated 7 intuitive, high-visibility CV download entry points:
+    1. **Hero Header Navigation**: `[ CV ]` pill with `FileText` icon alongside section pills.
+    2. **Hero Main CTA**: High-contrast Pop Brutalist yellow `[ Download CV ]` button alongside `Explore my work` and `Get in touch`.
+    3. **Floating Bottom Dock**: Tactile CV download icon button with `CV (PDF)` hover tooltip and audio feedback.
+    4. **Web Presence / Social Grid**: 6th interactive card "Verified CV" with "Download PDF →" action.
+    5. **Contact & Inquiry Modal**: "Need full resume first? [Download CV ↗]" quick-access bar for recruiters.
+    6. **Footer Navigation**: High-visibility "Download CV (PDF)" button replacing dev `/admin` link in production.
+    7. **Command Palette (`Ctrl+K` / `⌘K`)**: Instant searchable "Download CV / Resume (PDF)" item.
+- **Fixed Project Color Mapping Defect (`ProjectsSection.tsx`)**:
+  - Resolved mismatch where unhyphenated keys in `projectColors` caused `cricket-nepal`, `public-care`, `study-track`, and `travel-np` to fall back to generic yellow.
+  - All 6 projects now render their distinct, vibrant Pop Brutalist color themes across both Grid Feed and Cinematic Stage views.
+- **Preloader Delay Optimization (`LanguagePreloader.tsx`)**:
+  - Added `sessionStorage` caching (`sonu_preloader_seen`) to run the animated multi-lingual preloader on first entry while skipping subsequent in-session refreshes.
+- **Test Suite Expansion (`content-accuracy.test.ts`)**:
+  - Added automated test ensuring the physical existence, accessibility, and byte validity (>10 KB) of all CV PDF variants in `public/cv/` (13/13 tests passing).
+- **Hero Sticker Accuracy (`HeroSection.tsx`)**:
+  - Replaced obsolete `GSAP` sticker badge with `TYPESCRIPT` to accurately reflect the active architecture and pruned dependencies.
+- **CSS Dead Weight Cleanup (`src/index.css`)**:
+  - Purged over 140 lines of obsolete CSS rules and duplicate keyframes (duplicate `@keyframes skillWave`, dead `getlayers-*`, `solarPulse`, `floatProfile`, and unreferenced glassmorphism classes).
+- **CI/CD Quality Gate (`.github/workflows/deploy.yml`)**:
+  - Added automated `npm run test` step in the GitHub Pages deployment pipeline prior to production bundling.
+
+---
+
+## [1.1.1] - 2026-10-19
+
+### Nano Banana Pop Brutalist Favicon & Deep Forensic Dead Code Purge
+- **Nano Banana Pop Brutalist Favicon Suite**:
+  - Generated iconic Pop Brutalist "ST" monogram favicon using Nano Banana (Gemini image model).
+  - Features bold brutalist typography, split diagonal yellow (`#FFE14D`) and pink (`#FF6FB5`) backdrop, and chunky black offset drop shadow.
+  - Exported multi-resolution production favicons via `sharp`:
+    - `public/favicon.svg`: Ultra-crisp vector SVG with halftone retro dots and hard shadow.
+    - `public/favicon.png`: 192x192 high-DPI raster icon.
+    - `public/favicon-64.png`: 64x64 desktop browser icon.
+    - `public/favicon-32.png`: 32x32 standard tab icon.
+    - `public/apple-touch-icon.png`: 180x180 iOS home screen icon.
+  - Updated [index.html](file:///e:/codes/PersonalPortfolio/index.html) with complete modern favicon and apple-touch-icon tags.
+- **Deep Dead Code Purge (>15 MB Reclaimed)**:
+  - Purged obsolete external template directory `B · Pop Brutalist-html` (template files and react vendor duplicates).
+  - Purged unused `src/assets/` directory containing 14.92 MB of unreferenced high-resolution mockup PNGs (`about pagee.png`, `contact.png`, `porftfolio home page.png`, `projects page.png`, and `design/`).
+- **Header Navigation Enhancement**:
+  - Wired up `onOpenCommandPalette` prop in [HeroSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/hero/HeroSection.tsx) to render a stylish `⌘K` Pop Brutalist search pill in the header navigation bar.
+
+---
+
+## [1.1.0] - 2026-10-19
+
+### Comprehensive Website Audit, Test Suite & Performance Optimization
+- **Automated Testing Suite (`src/__tests__/`)**:
+  - Integrated Vitest, `@testing-library/react`, `@testing-library/jest-dom`, and `jsdom` with `npm run test` script.
+  - Implemented 12 automated unit/integration tests across 3 core suites:
+    - `security.test.ts`: Validates CSP headers, zero `dangerouslySetInnerHTML`, safe external link attributes (`rel="noopener noreferrer"`), and zero hardcoded LLM secrets.
+    - `content-accuracy.test.ts`: Verifies CV alignment (Rank 1 TU, 3.63 CGPA, IdeaX FinTech track winner, BugV CTF 3rd place), all 6 project images and architecture blueprints (`/architectures/*.html`), and verified physical certificate scans.
+    - `components.test.tsx`: Validates component rendering and user interaction across `HeroSection`, `FloatingDock`, `SkillsSection`, `EducationSection`, and `CertificationsSection`.
+- **Dead Code & Dependency Purge**:
+  - Uninstalled unused packages: `three`, `@types/three`, and `gsap` (removed 9 dependencies).
+  - Deleted 10 orphan prototype files: `AsciiPandaCanvas.tsx`, `Sonu3DWorkstation.tsx`, `AntigravityCharacter.tsx`, `ConstellationCanvas.tsx`, `Magnetic.tsx`, `SplitText.tsx`, `PuzzleSkillsBoard.tsx`, `jigsawGeometry.ts`, `puzzleSkillsData.ts`, and `LabProjectVisual.tsx`.
+  - Removed 4 unused page stubs: `AboutPage.tsx`, `ContactPage.tsx`, `ProjectsPage.tsx`, and `SkillsPage.tsx`.
+  - Deleted dead 3D models and unused mockups: `readyplayer.me.glb` (1.84 MB), `antigravity_hero_mockup.jpg`, `sonu_character_sheet.jpg`, and `crop_test.jpg`.
+  - Deleted redundant root `assets/` folder (~10 MB) in favor of the active, served `public/` directory.
+- **Asset & Bundle Performance**:
+  - Converted oversized `public/projects/TravelNP.png` (2.31 MB) to high-fidelity WebP (`TravelNP.webp`, 224 KB, **90.3% file size reduction**).
+  - Implemented Rollup vendor chunking (`vendor-react`, `vendor-motion`, `vendor-icons`), dropping the main application bundle from monolithic size down to **189.66 kB**.
+  - Modernized OpenGraph and Twitter meta descriptions in `index.html` to reflect IdeaX FinTech hackathon win, Applied AI systems, and security credentials.
+- **Auditing Skill Installed**:
+  - Created standardized operating skill at `.agents/skills/portfolio-audit-and-test/SKILL.md` enforcing the 5-point audit standard.
+
+---
+
+## [1.0.7] - 2026-10-19
+
+### Dark Mode Hover Text Contrast Fix across Curriculum & Action Cards
+- **Fixed Curriculum Pillars & Module Cards (`EducationSection.tsx`)**:
+  - Resolved Tailwind specificity collision where `hover:text-[#111111]` caused module card text to turn pitch black against dark backgrounds.
+  - In dark mode, cards now retain `dark:hover:text-white` while elevating with `dark:hover:bg-[#1E222D]` and yellow Pop Brutalist accent borders (`dark:hover:border-[#FFE14D]`).
+  - Added `dark:hover:bg-[#FF6FB5] dark:hover:text-[#111111]` to curriculum pillar tab buttons and `dark:bg-[#FFE14D] dark:text-[#111111]` for active state.
+- **Fixed Dark Mode Hover Across Related Sections (`JourneyTimeline.tsx`, `SkillsSection.tsx`, `CertificationsSection.tsx`)**:
+  - Aligned dark hover background styles so buttons and filter pills cleanly pair hover background transitions with high-contrast text.
+
+---
+
+## [1.0.6] - 2026-10-19
+
+### Foldable Pop Brutalist Floating Navigation Dock
+- **Fold/Unfold Capability (`FloatingDock.tsx`)**:
+  - Integrated a dedicated Fold button (`ChevronDown`) on the right side of the floating navigation dock.
+  - When folded, the dock collapses with a spring animation (`motion.div` + `AnimatePresence`) into a minimal, compact Pop Brutalist capsule: `[ 🧭 NAV  CURRENT-SECTION  ⌃ ]`.
+  - Clicking the folded capsule immediately unfolds the dock back with sound feedback (`sounds.playClick`).
+  - Keeps reading space unobscured while retaining live active section context and instant 1-click access.
+
+---
+
+## [1.0.5] - 2026-10-19
+
+### Hero Section Bio Personalization
+- **Updated Hero Bio Description (`HeroSection.tsx`)**:
+  - Replaced the placeholder fragment ("MERN products, ACID-safe transactional backends... Click the highlighted word...") with an authentic, comprehensive description of Sonu Thakur.
+  - Clearly highlights full-stack engineering expertise, production-grade MERN web apps, ACID-compliant transactional APIs, Applied AI systems with the Gemini SDK, IdeaX FinTech Hackathon win, and BCA Rank 1 at Tribhuvan University.
+
+---
+
+## [1.0.4] - 2026-10-18
+
+### Removed Redundant Verified Stack Badges Container
+- **Excised Bottom Verified Badges Container (`SkillsSection.tsx`)**:
+  - Completely excised the bottom container (`Verified across Full-Stack, Applied AI, and Application Security` and its 6 duplicate badges) from the bottom of the Technical Arsenal section as requested.
+  - Cleaned up unused Lucide imports (`Sparkles`, `CheckCircle2`) to ensure strict zero-warning builds.
+- **Preserved Hero Sticker Cluster (`HeroSection.tsx`)**:
+  - Maintained the playful Pop Brutalist sticker cluster (`MERN`, `ACID`, `GEMINI SDK`, `GSAP`, `HACKATHON WINNER 🏆`, `TU BCA RANK 1`) beneath the polaroid frame.
+
+---
+
+## [1.0.3] - 2026-10-18
+
+### 3s Certificate Carousel, Unique Tech Stack Liquid Colors, High-Contrast Text, & Timeline Reordering
+- **Faster 3-Second Certificate Carousel (`CertificationsSection.tsx`)**:
+  - Decreased the auto-cycle interval from 4s to 3s (`3000ms`) and synchronized the top countdown progress bar transition.
+- **Unique Liquid Wave Color per Tech Stack Card (`SkillsSection.tsx`)**:
+  - Configured 10 distinct, vibrant Pop Brutalist gradient wave palettes cycling across the skill cards so each card has its own signature fluid tone.
+- **High Text & Level Contrast Before Hover (`SkillsSection.tsx`)**:
+  - Positioned the resting liquid wave well below the card (`top: 195px`) so no fluid tips bleed onto the card before hovering.
+  - Ensured all card text, typography (`text-[#111111] dark:text-white`), icons, and level pills (`text-[#111111] dark:text-neutral-200 bg-neutral-100 dark:bg-black/60`) have crisp, high-contrast visibility prior to hover.
+- **Reordered Experience Timeline & Hackathon Winner Wording (`JourneyTimeline.tsx`, `HeroSection.tsx`, `AntigravityCanvas.tsx`, `Footer.tsx`)**:
+  - Reordered the bento timeline so the **IdeaX Hackathon FinTech Track Winner** card appears as **Cell 2** (before BugV National CTF in Cell 3).
+  - Updated all badges, stickers, and marquee tickers to accurately read `"HACKATHON WINNER 🏆"` and `"IDEAX HACKATHON WINNER (FINTECH)"`.
+
+---
+
+## [1.0.2] - 2026-10-18
+
+### Liquid Tech Stack Filling, Black Hello Screen, Carousel Certificates, & IdeaX FinTrace 1st Place Win
+- **Liquid Wave Filling Effect on Tech Stack Cards (`SkillsSection.tsx`, `src/index.css`)**:
+  - Re-introduced the signature liquid filling wave animation to every skill card on hover.
+  - Added `@keyframes skillWave` in `src/index.css` rotating the fluid boundary (`borderRadius: 45% 55% 40% 60% / 55% 60% 35% 45%`) as the liquid rises from the card bottom to the top on hover (`top: 165px` -> `top: -45%`).
+- **Cinematic Black "Hello" Screen Preloader (`LanguagePreloader.tsx`)**:
+  - Restyled the initial multilingual intro greeting screen from bright yellow to pure matte black (`#090A0D`) with crisp white display typography, a minimal white dot, and dark brutalist language pill, delivering a dramatic and sophisticated first impression.
+- **Auto-Cycling Carousel for Certificates Stage (`CertificationsSection.tsx`)**:
+  - Transformed the exhibition stage into an auto-advancing carousel cycling every 4 seconds by default.
+  - Added an animated brutalist progress bar across the top of the stage indicating countdown to the next slide.
+  - Implemented pause-on-hover interaction so visitors can read and inspect certificates without unexpected advances.
+  - Added slide animations using `AnimatePresence` and `motion.img`, along with interactive bottom dot indicators and slide counter.
+- **IdeaX 2026 FinTech Track Winner (FinTrace) Integration Across Portfolio**:
+  - **Hero Section (`HeroSection.tsx`)**: Replaced `BUGV CTF 3RD` sticker badge with `FINTRACE 1ST 🏆` and updated marquee ticker to `✦ FINTRACE 1ST PLACE · IDEAX`.
+  - **Antigravity Backdrop (`AntigravityCanvas.tsx`)**: Replaced the floating CTF badge with `★ FINTRACE 1ST PLACE · IDEAX`.
+  - **Skills Section (`SkillsSection.tsx`)**: Updated bottom verified highlight badge to `'IdeaX Winner — FinTrace (1st Place)'`.
+  - **Footer Ticker (`Footer.tsx`)**: Updated ticker tape to `✦ FINTRACE 1ST PLACE WIN · IDEAX`.
+  - **Journey Timeline (`JourneyTimeline.tsx`)**: Upgraded Cell 3 to prominently feature the **IdeaX Hackathon 2026 1st Place Win with FinTrace** (36-Hour Hackathon · Real-Time Algorithmic Ledger).
+  - **Domain Records (`achievementsData.ts`, `profileData.ts`, `profile.ts`)**: Published `ideax-fintrace-winner-2026` as an active achievement and added `hackathonWin` to profile metadata.
+
+---
+
+## [1.0.1] - 2026-10-18
+
+### Hero Viewport Fitting & Automatic Reload Color Rotation
+- **Automatic Accent Color Change on Each Reload (`HeroSection.tsx`)**:
+  - Implemented dynamic accent color selection on mount/refresh using `sessionStorage` exclusion pool (`#FFE14D` Yellow, `#7DFFA6` Mint, `#FF6FB5` Pink, `#7C9BFF` Blue, `#FFB38A` Peach, `#C4B5FD` Lavender).
+  - Guarantees that each reload picks a distinctly different vibrant color from the previous view.
+  - Added quick-shuffle dice button in the header palette picker and dynamic contrast color mapping for the "Hire me" button and interactive word cycler button so they always stand out against any background tone.
+  - Synchronized the active accent color to the document CSS variable `--pop-hero-accent`.
+- **Responsive Viewport-Fitting Layout (`HeroSection.tsx`)**:
+  - Replaced hard-coded `min-h-[900px]` with fluid responsive constraints (`min-h-screen lg:min-h-0 lg:h-screen lg:max-h-[880px] xl:max-h-[920px] 2xl:max-h-[960px]`).
+  - Balanced padding and font scaling (`text-4xl sm:text-5xl lg:text-[3.6rem] xl:text-[4.5rem] 2xl:text-[5rem]`) so all hero elements—header, headline, cycler, bio, buttons, polaroid card, sticker badges, and bottom marquee—fit seamlessly inside the initial viewport across laptop, desktop, and mobile displays without being cut off or overly zoomed in.
+
+---
+
+## [1.0.0] - 2026-10-18
+
+### Full-Website Redesign to "B · Pop Brutalist" & Nano Banana Pro Custom Avatars
+- **Global Pop Brutalist Design System (`tailwind.config.js`, `src/index.css`, `index.html`)**:
+  - Integrated Google Fonts: **Archivo Black** for display headlines, **Archivo** (400/600) for body/labels, and **Space Mono** (400/700) for telemetry, timestamps, and data tags.
+  - Implemented high-contrast 3px solid black borders (`border-[#111111]`), zero-blur hard drop shadows (`shadow-brutal-sm`, `shadow-brutal`, `shadow-brutal-md`, `shadow-brutal-lg`, `shadow-brutal-xl`), and tactile button states with physical hover/active offsets (`translate(-3px, -3px)` and `translate(4px, 4px)`).
+  - Configured vibrant Pop Brutalist color palette tokens: `#FFE14D` (Yellow), `#FF6FB5` (Pink), `#7DFFA6` (Mint), `#7C9BFF` (Blue), `#FFB38A` (Peach), `#B9C8FF` (Lavender), and `#111111` (Heavy Dark).
+- **Nano Banana Pro Avatars & Custom Illustrations**:
+  - Generated full-body developer workspace illustration with custom bucket hat, raglan shirt, and laptop in transparent PNG format (`public/character/sonu_workspace_sitting.png`).
+  - Created circular tech emblem badge avatar (`public/character/sonu_avatar_badge.png`) with code syntax and git branch graphics.
+- **Hero Section Overhaul (`HeroSection.tsx`)**:
+  - Faithful implementation of the `B · Pop Brutalist` design specification (`Brutalist.dc.html`).
+  - Massive Archivo Black headline with white stroke-fill outline effect (`developer`).
+  - Interactive rotating word button (`building [ scalable / secure / smart / fast ] apps`) with 2.4s auto-cycler and tactile click advance.
+  - Tilted polaroid card with live Kathmandu clock (`Space Mono`), dual-avatar toggle (Workspace vs Badge view), and sticker cluster (`MERN`, `ACID`, `GEMINI SDK`, `GSAP`, `BUGV CTF 3RD`, `TU BCA RANK 1`).
+  - Interactive 5-color accent picker (`#FFE14D`, `#7DFFA6`, `#FF6FB5`, `#7C9BFF`, `#FFB38A`) and running marquee banner.
+- **Projects & Case Studies Showcase (`ProjectsSection.tsx`, `CaseStudyModal.tsx`)**:
+  - Color-blocked Pop Brutalist project cards with dual view modes: Feed View vs Cinematic Stage.
+  - Interactive "Surprise Me" quick-discovery randomizer.
+  - Re-architected `CaseStudyModal.tsx` with yellow `#FFE14D` header, brutalist tabs, and integrated Archify SVG architecture viewports.
+- **Career Journey & Experience (`JourneyTimeline.tsx`)**:
+  - Asymmetric Pop Brutalist bento cards for Zidio Development, BugV National CTF podium (3rd place), Embark Hackathon radar, and Production Systems node matrix.
+- **Education & Academic Distinction (`EducationSection.tsx`)**:
+  - Vibrant yellow `#FFE14D` TU BCA Rank 1 topper card (`3.63 / 4.0`), Viswa Niketan +2 card, and interactive semester curriculum explorer.
+- **Skills & Certifications (`SkillsSection.tsx`, `CertificationsSection.tsx`)**:
+  - Interactive Pop Brutalist Sticker Pack with alternating card tilts and verified CV badges.
+  - Interactive Exhibition Stage & Archival Gallery for Certifications (`CertificationsSection.tsx`): Replaced the restrictive bento grid with an Exhibition Stage and Uniform Grid view. High-resolution landscape certificate display on the left (60%) paired with a dedicated non-clipping metadata panel on the right (40%) with full descriptions, skills pills, and 1-click credential ID copy. Removed the academic marksheet (`cert-tu-bca-sgpa-381`), added horizontal filmstrip deck navigation, keyboard arrow support, and "Surprise Me" award randomizer.
+  - Developer Workspace Illustration (`HeroSection.tsx`, `public/character/sonu_workspace_sitting.png`): Restored the full-body developer workspace illustration (sitting with laptop in ergonomic chair, bucket hat, and drop shadow) as the default hero image inside the polaroid card frame, with the toggle button allowing switching to the tech emblem badge.
+- **Web Presence & Dev Network (`WebPresenceSection.tsx`, `Footer.tsx`, `FloatingDock.tsx`)**:
+  - Nano Banana Pro circular avatar emblem centerpiece with high-contrast dev cards (LinkedIn, GitHub, BugV, LeetCode, Email).
+  - Pop Brutalist floating dock with `border-[3px] border-[#111111]` and `shadow-brutal-md`.
+  - Massive footer banner with one-click copy email button and running marquee.
+- **Interactive Pop Brutalist Backdrop (`AntigravityCanvas.tsx`)**:
+  - Replaced soft blurry gradient spheres with a crisp 32px dot-matrix graph paper background and floating Pop Brutalist stamps/stickers (`★ FULL-STACK MERN`, `ACID-SAFE TRANSACTIONS`, `GEMINI AI SDK PRO`, `BUGV CTF 3RD PLACE`, `TU BCA 3.63 CGPA`) with smooth spring mouse parallax.
+
+---
+
+## [0.9.47] - 2026-10-16
+
+### Slower Non-Sequential Letter Drop (O -> U -> S -> N) & Hero SFX Removal
+- **Non-Sequential Slower Letter Drop (`HeroSection.tsx`)**:
+  - Replaced linear index delays with an asynchronous, non-sequential sequence: **'O'** drops first (`0.15s`), followed by **'U'** (`0.45s`), then **'S'** (`0.75s`), and finally **'N'** (`1.05s`) completing the wordmark.
+  - Slowed down spring physics (`stiffness: 38`, `damping: 14`, `mass: 1.8`) to create a heavier, more majestic trajectory and a soft physical bounce upon floor impact.
+  - Retained multi-revisit triggers so the non-sequential drop gracefully replays on page reload, tab revisit, window focus, brand click, or scrolling back to top.
+- **Removed Hero SFX Audio & Toggle (`HeroSection.tsx`)**:
+  - Completely removed the SFX audio toggle button from the navbar.
+  - Removed all synthesizer click sound triggers from hero navigation links, CTA buttons, and brand anchors for a silent, distraction-free hero experience.
+
+---
+
+## [0.9.46] - 2026-10-16
+
+### Sky-High SONU Letter Drop, Hero Liveness Enhancements & Project Filter Removal
+- **Sky-High Cascading Letter Drop with Multi-Revisit Triggers (`HeroSection.tsx`)**:
+  - Re-engineered the "SONU" letter drop animation so each character (`S`, `O`, `N`, `U`) plunges from above the viewport (`y: '-120vh'`) all the way down to its grounded bottom resting position.
+  - Removed container clipping so the letters visibly travel across the full hero stage with authentic spring dynamics (`damping: 10`, `stiffness: 75`, `mass: 1.2`) producing a satisfying physical impact and subtle bounce.
+  - Implemented multi-revisit triggers (`dropKey` counter with 1-second debounce): replays seamlessly on initial page load, window focus, tab-switching (`visibilitychange`), clicking the "SONU" brand logo, and scrolling away and back up to the hero stage.
+- **Hero Section Liveness & Ambient Micro-Interactions (`HeroSection.tsx`)**:
+  - **Mouse-Following Spotlight Aura**: Added a smooth spring-lerped radial glow (`smoothX`, `smoothY` with `damping: 28`) that organically follows the cursor across the canvas.
+  - **Live Kathmandu Clock & Beacon**: Integrated a real-time ticking Nepal time clock (`UTC+5:45`) and an animated pulsing availability pill (`Available for 2026 Roles`) in the identity eyebrow.
+  - **Tactile Sound FX Toggle**: Added a dedicated audio state toggle in the top header (`SFX ON / OFF`) with animated speaker waves and tactile click feedback.
+- **Removed Category Filter Bar in Projects (`ProjectsSection.tsx`)**:
+  - Completely removed the category pill filter row from the Projects section for a sleeker, unencumbered presentation.
+  - Unified grid and cinematic views to stream directly into the full lab projects catalog.
+
+---
+
+## [0.9.45] - 2026-10-16
+
+### Minimal Project Dots Navigation with Sneak Peek & Cascading Hero Wordmark Drop
+- **Minimal Project Dots Navigation with On-Hover Sneak Peek (`ProjectsSection.tsx`)**:
+  - Replaced bulky 6-thumbnail card grid with a pure minimal, centered floating glass pill navigation dock.
+  - Active project indicator smoothly expands into an elongated glowing pill (`w-7 h-2 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]`), while inactive dots provide subtle circular targets.
+  - Implemented floating micro-preview tooltip cards with spring motion physics (`scale: 0.94 -> 1`, `y: 10 -> 0`) that appear on dot hover.
+  - Each sneak peek card displays the project's aspect-ratio screenshot, monospace number & year badges (`01 // 2026`), bold title, and category status dot.
+  - Integrated acoustic feedback (`sounds.playHover`, `sounds.playClick`) and minimal keyboard navigation indicator.
+- **Cascading Letter Drop Entry for "SONU" Wordmark (`HeroSection.tsx`)**:
+  - Transformed the massive static "SONU" backdrop into a dynamic cascading letter drop animation using Framer Motion.
+  - Each individual letter (`S`, `O`, `N`, `U`) drops sequentially from above (`y: -140` -> `0`) with staggered timing (`staggerChildren: 0.1`) and spring physics (`damping: 14`, `stiffness: 110`, `mass: 0.8`) creating a subtle bounce.
+  - Preserved exact typography scale (`27vw - 32vw`), tight kerning, and dark mode contrast with zero layout shift.
+
+---
+
+## [0.9.44] - 2026-10-16
+
+### Linear/Vercel Asymmetric Bento Grid Refactor for Experience (`JourneyTimeline.tsx`)
+- **Strict Anti-AI Design Overhaul**:
+  - Eliminated repetitive identical card templates (`[Icon -> Title -> Description -> 2 Checkmarks -> Tech Pills]`).
+  - Removed glowing neon borders and boxed icon containers in favor of authentic `1px solid rgba(255,255,255,0.07)` borders, `#090A0F` dark matte surfaces, and top-edge inner highlights (`shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]`).
+  - Replaced tech pill overload with refined monospace dot-separated strings (e.g. `Gemini SDK · Node.js · React · MongoDB ACID · Vercel`).
+- **Asymmetric 4-Cell Bento Architecture (`grid-cols-1 lg:grid-cols-12 gap-4`)**:
+  - **Cell 1 (`lg:col-span-7` — Zidio Development / Full Stack Developer Intern)**:
+    - Split internal layout: Left side contains role title, pulsing active production dot, Project LOOP engineering summary, and monospace stack string; Right side features a vertical telemetry stack with large architectural numbers (`<120ms` P99 Latency, `94.2%` VoC Risk Accuracy, `ACID` Concurrency Safety).
+  - **Cell 2 (`lg:col-span-5` — BugV National CTF 2026 / Solo 3rd Podium)**:
+    - Low-level security terminal card featuring a large `#03` background watermark, realistic terminal window (`$ ./verify_exploit.sh`), and executed exploit traces (`[+] BOLA privilege escalation bypassed`, `[+] JWT signature forgery & LLM delimiter defense`).
+  - **Cell 3 (`lg:col-span-5` — Embark Innovation Hackathon / PublicCare)**:
+    - Compact architectural card featuring a geospatial radar pulse graphic, `72h Sprint` monospace tag, and a 2-step pipeline diagram (`01. GPS Clustering` -> `02. WebSocket Bids`).
+  - **Cell 4 (`lg:col-span-7` — Production Systems & Open Source / 6 Live Platforms)**:
+    - 2-column internal layout: Left side highlights Full-Stack Systems Engineer track record; Right side renders an interactive 2x3 "Live Node Matrix" grid displaying the 6 deployed systems (`CricketNepal`, `StudyTrack`, `PublicCare`, `Project LOOP`, `Quizify`, `TravelNP`) with live/design status dots and gateway telemetry.
+
+---
+
+## [0.9.43] - 2026-10-16
+
+### Experience Bento Streamlining, Skills Logos Restoration & Bottom Dock Prominence
+- **Streamlined Experience Bento Boxes (`JourneyTimeline.tsx`)**:
+  - Significantly reduced the vertical footprint and padding of the Experience bento cards (`p-4 sm:p-5`), creating a tighter, more cohesive grid.
+  - Replaced verbose paragraphs and heavy multi-box widgets with compact, high-signal telemetry pills (e.g. `<120ms Latency · 94.2% Risk Acc · ACID Concurrency`).
+  - Summarized deliverables into 2 concise, punchy bullet points per card with focused 4–5 technology chips.
+  - Removed redundant lower summary strip to reduce visual clutter and keep cards focused.
+- **Restored Skills Devicon Brand Logos (`index.html`, `src/index.css`)**:
+  - Updated Content Security Policy (CSP) `font-src` directive in `index.html` to permit `https://cdn.jsdelivr.net`, unblocking Devicon font icon loading.
+  - Added CSS rules in `src/index.css` preserving full-color brand visibility and dark-mode contrast for monochrome devicons (`nextjs`, `express`, `github`, `vercel`, `bash`).
+- **Enhanced Bottom Floating Navbar Prominence (`FloatingDock.tsx`)**:
+  - Elevated the bottom dock position (`bottom-6 sm:bottom-7`) with a more substantial, tactile pill silhouette (`px-2.5 sm:px-3.5 py-2 sm:py-2.5`).
+  - Strengthened glassmorphism and shadow backdrop (`shadow-[0_20px_50px_rgba(0,0,0,0.2),0_0_35px_rgba(37,99,235,0.18)]` in light mode, `dark:shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(37,99,235,0.25)]` in dark mode).
+  - Scaled navigation icons to `w-4 h-4 sm:w-4.5 sm:h-4.5` with enhanced hover states and high-contrast tooltip pills.
+  - Added a dedicated, prominent blue "Contact" action pill at the end of the dock with an explicit text label on desktop.
+
+---
+
+## [0.9.42] - 2026-10-16
+
+### Remade Experience Layout (Vibrant Bento Grid Architecture)
+- **Completely Redesigned Experience Section (`JourneyTimeline.tsx`)**:
+  - Replaced the previous single-column vertical timeline line with an interactive **Vibrant Bento Grid Architecture** matching Projects and Education.
+  - **Zidio Development AI Spotlight Bento (Span 8)**:
+    - Dedicated role telemetry bar, active internship badge, Google Gemini AI SDK VoC pipeline overview, and multi-turn conversational AI.
+    - 4-column metric grid (`<120ms` Token Latency, `94.2%` VoC Risk Accuracy, `ACID` Concurrency Safety, `2 Devs` Core Team).
+    - Deliverable checklists, tech chips, and direct links to GitHub and the Project LOOP Archify blueprint.
+  - **BugV National CTF Cyber Defense Terminal Bento (Span 4)**:
+    - High-contrast cyber terminal aesthetic with verified exploit scanline, command prompts (`./verify_exploit.sh`), and nationwide solo 3rd place podium badge.
+    - Exploit & defense chips: BOLA privilege escalation, JWT forgery, and LLM prompt delimiter isolation.
+  - **Embark Innovation Hackathon Bento (Span 6)**:
+    - PublicCare civic infrastructure mesh, automated GPS radius clustering, and real-time WebSocket contractor tendering room.
+  - **Production Systems & Open Source Bento (Span 6)**:
+    - 6 live deployed systems overview featuring triple payment gateways (Khalti, eSewa, Stripe in CricketNepal), automated node-cron digests (StudyTrack), and dynamic caching.
+  - **Interactive Category Filtering**:
+    - Filter pills (`All Roles`, `Applied AI`, `AppSec / CTF`, `Systems & Hackathons`) with audio click feedback (`sounds.playClick`).
+  - **Core Specialization Summary Strip**:
+    - 3-card bottom strip summarizing Full-Stack MERN, Applied Generative AI, and Application Security competencies.
+
+---
+
+## [0.9.41] - 2026-10-16
+
+### Remade Education Section (Vibrant Bento Standard)
+- **Created Dedicated, Unique Education Bento Showcase (`EducationSection.tsx`)**:
+  - **Tribhuvan University BCA Rank 1 Spotlight**:
+    - Animated SVG circular CGPA dial (`3.63 / 4.00` · 90.75% academic distinction) with glowing Royal Blue gradient stroke.
+    - Verified board exam merit badges: Rank 1 in every internal and central board exam, Dean's Honor List across all 8 semesters, and academic gold medal standing.
+    - Swoyambhu International College affiliation & Batch 2022-2026 degree status.
+  - **Interactive Curriculum Explorer**:
+    - 4 selectable pillars: *Systems & Architecture*, *Data & Algorithms*, *Software Engineering*, and *Web & Applied AI*.
+    - Displays official course codes (`CSC-204`, `CSC-201`, `CSC-252`, `CSC-401`, etc.), grade achievements, and real-world engineering topics with sound feedback (`sounds.playClick`).
+  - **Viswa Niketan Secondary School (+2 / NEB) Foundation Card**:
+    - Highlights computer science major, first division standing, procedural C programming, Boolean logic, and relational data basics.
+  - **Academic Rigor & Scholarship Metric Cards**:
+    - 100% Rank 1 examination streak, academic peer mentorship in Web Architecture, and direct theory-to-production translation.
+- **Refined Experience & Journey Architecture**:
+  - Streamlined [JourneyTimeline.tsx](file:///e:/codes/PersonalPortfolio/src/components/timeline/JourneyTimeline.tsx) to focus purely on professional internships (Zidio Development / Project LOOP), CTF competitions (BugV 3rd Place), hackathons (Embark Finalist / PublicCare), and production systems.
+  - Integrated `#education` anchors across [HomePage.tsx](file:///e:/codes/PersonalPortfolio/src/pages/HomePage.tsx), [HeroSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/hero/HeroSection.tsx) top navbar, [FloatingDock.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/FloatingDock.tsx) (with `GraduationCap` icon), and [Footer.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/Footer.tsx).
+
+---
+
+## [0.9.40] - 2026-10-16
+
+### Projects Section Refinements: Cinematic Default & Minimalist Title
+- **Cinematic 3D Perspective Stage as Default**:
+  - Configured default `viewMode` in [ProjectsSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/case-studies/ProjectsSection.tsx) to `'stage'`, launching directly into the widescreen 3D perspective flip carousel with auto-advance countdown and thumbnail quick-jump strip.
+  - Connected category filter pills to immediately navigate the stage carousel to the first project in the selected category.
+  - Enhanced the "Surprise Me" action to automatically jump the stage carousel to the randomly chosen project before launching its architectural blueprint modal.
+- **Minimalist, Compact Section Header**:
+  - Shortened the title from the previous verbose heading to a clean 1-word heading: `Projects` (`text-2xl sm:text-3xl font-display font-bold`).
+  - Simplified the eyebrow pill from `ENGINEERING WORKSPACE // SYSTEM ARCHITECTURES` to a clean `Featured` tag.
+  - Streamlined the descriptive subtitle for higher visual breathing room.
+
+---
+
+## [0.9.39] - 2026-10-16
+
+### Color System Elevation: Cyan to Electric Royal Blue / Vibrant Cobalt
+- **Eliminated Cyan Accents Across Entire Portfolio**:
+  - Replaced all cyan text, badges, borders, icons, and highlights with **Electric Royal Blue / Vibrant Cobalt** (`#2563EB` / `#3074FE` / `blue-600` / `blue-500` / `blue-400`).
+  - **Design Rationale**: Matches the signature accent from vibrant.design and top Coolors developer palettes (Cyber-Minimalist / Modern Light), delivering crisp contrast, professional engineering authority, and eliminating harsh neon green/cyan tints.
+- **Components Updated**:
+  - [ProjectsSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/case-studies/ProjectsSection.tsx): Category pills, project numbers (`01`, `02`), card hover borders, live telemetry status dots, and "Archify Blueprint" text.
+  - [HeroSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/hero/HeroSection.tsx): Top navbar brand dot and ambient background glow gradient (`from-blue-500/10 via-indigo-500/5`).
+  - [HomePage.tsx](file:///e:/codes/PersonalPortfolio/src/pages/HomePage.tsx): Text selection highlight updated from cyan to royal blue (`selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-blue-300`).
+  - [SkillsSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/skills/SkillsSection.tsx): Technical stack header icons, core specialization highlight dots, and gradient heading.
+  - [CertificationsSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/certifications/CertificationsSection.tsx): Category pill badges, radial glow background, and ShieldCheck verification icons.
+  - [WebPresenceSection.tsx](file:///e:/codes/PersonalPortfolio/src/components/social/WebPresenceSection.tsx): Heading gradient, rotating avatar conic ring, fallback avatar background, and mail icon.
+  - [JourneyTimeline.tsx](file:///e:/codes/PersonalPortfolio/src/components/timeline/JourneyTimeline.tsx): AI milestone icons and timeline hover bullets.
+  - [CaseStudyModal.tsx](file:///e:/codes/PersonalPortfolio/src/components/case-studies/CaseStudyModal.tsx): Figma action button, metrics tab active state, and CTF takeaway indicator.
+  - [FloatingDock.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/FloatingDock.tsx) & [Footer.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/Footer.tsx): Dock contact CTA and footer navigation links.
+  - [ConstellationCanvas.tsx](file:///e:/codes/PersonalPortfolio/src/components/common/ConstellationCanvas.tsx): Replaced cyan particle rgba with royal blue (`rgba(37, 99, 235, ...)`).
+  - [AntigravityCharacter.tsx](file:///e:/codes/PersonalPortfolio/src/components/hero/AntigravityCharacter.tsx): Ambient background glow, React orb levitation aura, tech badge shadow, and pill text.
+  - [Sonu3DWorkstation.tsx](file:///e:/codes/PersonalPortfolio/src/components/hero/Sonu3DWorkstation.tsx): Radial spotlight aura, laptop telemetry icon, and greeting spark icon.
+  - [PuzzleSkillsBoard.tsx](file:///e:/codes/PersonalPortfolio/src/components/skills/PuzzleSkillsBoard.tsx): Hint pill pulsating indicator dot.
+  - [tailwind.config.js](file:///e:/codes/PersonalPortfolio/tailwind.config.js) & [index.css](file:///e:/codes/PersonalPortfolio/src/index.css): Re-anchored `--primary` and `accent.blue`/`accent.cyan` to `#2563EB` and `#3B82F6`.
+
+---
+
+## [0.9.38] - 2026-10-16
+
+### Visual Design & Projects Section Redesign (Inspired by vibrant.design)
+- **Darkened SONU Wordmark in Light Mode (`HeroSection.tsx`)**:
+  - Increased light mode opacity of the background `SONU` wordmark from `text-neutral-900/[0.16]` to `text-neutral-900/[0.30]`, dramatically improving contrast, visual weight, and legibility while preserving subtle dark mode balance (`dark:text-white/[0.22]`).
+- **Complete Projects Section Redesign Inspired by `vibrant.design` (`ProjectsSection.tsx`)**:
+  - **Vibrant Category Filter Pills**: Integrated responsive pill navigation (`All Systems`, `AI Systems`, `Full-Stack MERN`, `Civic Tech & IoT`, `Interactive Web`, `UI/UX Architecture`) with dynamic project count badges and active pill highlighting.
+  - **"Surprise Me" Discovery Action**: Added vibrant.design's iconic "Surprise Me" feature, which picks a random project, highlights it with spring physics, and triggers its interactive architectural blueprint.
+  - **Dual Presentation Modes**:
+    - **Vibrant Bento Grid Feed (Default)**: Multi-column card showcase with 16:10 aspect ratio screenshot previews, top domain badges (`https://...`), live telemetry status chips with pulsing indicators, tech stack chips, and top-right floating quick-action buttons (GitHub, Live URL, Archify Blueprint).
+    - **Cinematic 3D Perspective Stage (Toggleable)**: Retained the interactive widescreen 3D perspective flip carousel with auto-advance countdown timer, play/pause toggle, and thumbnail selector strip.
+  - **Motion Patterns & Acoustics**:
+    - Implemented layout animations with spring physics via `motion/react`.
+    - Integrated audio feedback (`sounds.playClick`) on category changes, mode toggles, and modal reveals.
+    - Maintained strict zero-emoji engineering standards and TypeScript strict mode.
+
+---
+
+## [0.9.37] - 2026-10-15
+
+### Security, Performance & Codebase Hardening (Audit via `/grill-me`)
+- **Email Consistency & Communication Flow**:
+  - Unified all portfolio contact points (`ContactModal.tsx`, `WebPresenceSection.tsx`, `profileData.ts`) to `rsonuth789@gmail.com` as the single source of truth, eliminating mismatched recipient addresses.
+- **Security & Bundle Optimization (`AppRouter.tsx`)**:
+  - Code-split `AdminPage.tsx` using `React.lazy` and `Suspense`, shaving 26 kB off the primary bundle downloaded by regular portfolio visitors.
+  - Restricted `/admin` to development mode only (`import.meta.env.DEV`), routing unauthorized production requests directly to `NotFoundPage` to mitigate client-side passkey inspection risks.
+- **Security & Rich Sharing Metadata (`index.html` & `public/favicon.svg`)**:
+  - Injected strict Content Security Policy (CSP) meta directives covering script, style, font, connect, and framing permissions.
+  - Created and linked a bespoke terminal-inspired SVG favicon (`/favicon.svg`), eliminating browser 404 console errors.
+  - Added full Open Graph (`og:type`, `og:title`, `og:description`, `og:image`, `og:site_name`) and Twitter Card metadata for rich social previews.
+- **Mobile UX & Gesture Navigation (`ProjectsSection.tsx`)**:
+  - Added touch swipe gesture detection (left/right swipe) to the 3D perspective projects carousel.
+  - Integrated automatic pause-on-touch so mobile and tablet visitors can examine architectural blueprints and code metrics without sudden auto-advance.
+- **Dead Code & Asset Purge**:
+  - Purged unused `CelestialHorizon.tsx` and unreferenced `celestial_planet_horizon.jpg` asset.
+
+---
+
+## [0.9.36] - 2026-10-15
+
+### Revert & Refinement
+- **Reverted Hero Section without Horizon (`HeroSection.tsx`)**:
+  - Reverted the hero stage to the clean, typography-led layout without the horizon.
+  - Retained the elevated semi-transparent `SONU` wordmark, subtle ambient upper glow, and single/two-line kinetic `SplitText` headline.
+  - Preserved the top navbar and ceiling pull-cord (`PullCordTheme.tsx`) completely intact.
+
+---
+
+## [0.9.35] - 2026-10-15
+
+### Visual & Architectural Realization
+- **Exact Flagship Celestial Planet Horizon & Hero Composition (`HeroSection.tsx` & `CelestialHorizon.tsx`)**:
+  - Implemented the exact composition from the user's reference screenshot:
+    - **Realistic Planet Earth Curved Horizon**: Rendered high-definition Earth curvature along the bottom viewport with radiant electric cyan and turquoise atmospheric rim.
+    - **Solar Starburst & Lens Flare**: Embedded a brilliant white starburst flare positioned at ~65% across the horizon with anamorphic light rays and glowing coronal stardust.
+    - **Behind-the-Horizon "SONU" Wordmark**: Positioned the massive neutral semi-transparent `SONU` wordmark (`z-0`) so its lower half is eclipsed by the planet horizon (`z-10`), while its upper half stands proudly in deep space.
+    - **Single-Line Editorial Headline**: Set `Full Stack Developer.` on a single responsive line with kinetic `SplitText`.
+    - **Cyan Glow Identity Capsule**: Enhanced eyebrow badge with glowing cyan dot and aura matching the reference.
+    - **Strict Preservation**: Maintained the ceiling pull-cord (`PullCordTheme.tsx`) and the top glass capsule navbar completely intact without alterations.
+
+---
+
+## [0.9.34] - 2026-10-15
+
+### Refined & Architectural Polish
+- **Monochrome SONU & Elevated Taller Celestial Horizon (`CelestialHorizon.tsx` & `HeroSection.tsx`)**:
+  - Eliminated all color flares, radial gradient fills (`skyFlare`, `coreFlare`), and mask rects that caused color bleeding onto the background "SONU" text.
+  - Heightened the celestial horizon arc from `h-[150px]-h-[230px]` to `h-[260px]-h-[420px]` with an arched curve (`M 0 380 Q 600 80, 1200 380`).
+  - Rendered the horizon as a pure luminous line filament using theme-adaptive monochrome `currentColor` gradients (radiant white in dark mode; deep slate in light mode) with soft bloom and razor-sharp edge filters.
+  - Changed stardust particle canvas color to clean monochrome white/slate.
+  - Ensured the background `SONU` wordmark remains strictly neutral monochrome with zero color tinting.
+- **Black & Grey Circular Backdrop for Lower Website (`AntigravityCanvas.tsx` & `HomePage.tsx`)**:
+  - Removed circular backdrop completely from `HeroSection.tsx`, leaving the landing hero clean.
+  - Restyled circular floating backdrop in `AntigravityCanvas.tsx` strictly in **black and grey shades** (charcoal, obsidian, smoky zinc, slate, and translucent silver mist).
+  - Positioned the monochrome circular backdrop in `HomePage.tsx` across all subsequent sections (`ProjectsSection`, `JourneyTimeline`, `SkillsSection`, `CertificationsSection`, `WebPresenceSection`), setting section backgrounds to `bg-transparent` so the monochrome floating spheres drift gracefully down the page.
+
+---
+
+## [0.9.33] - 2026-10-15
+
+### Added & Refined
+- **Overlapping Theme-Colored Circles Backdrop (`AntigravityCanvas.tsx`)**:
+  - Implemented large, intersecting circular layers matching user reference geometry with distinct curved boundaries and soft dispersion (`blur-2xl` / `blur-3xl`).
+  - Restyled using the portfolio's native brand palette: cyan, deep purple, sky, indigo, and teal (translucent deep aura in dark mode; soft airy pastel tones in light mode).
+  - Integrated slow floating sine-wave drift, breathing scale, and interactive spring cursor parallax.
+- **Compact Celestial Horizon Arc & Stardust (`CelestialHorizon.tsx` & `HeroSection.tsx`)**:
+  - Re-introduced a sleek, compact celestial horizon arc along the bottom viewport (`h-[150px]` to `h-[230px]`).
+  - Themed flare and neon horizon filament to cyan/sky/purple/white radiant gradients with stardust particle canvas.
+  - Kept all headline, bio, CTA buttons, and elevated `SONU` wordmark layout strictly intact.
+
+---
+
+## [0.9.32] - 2026-10-15
+
+### Added & Refined
+- **Fluid Morphing Blurred Shapes Background (`AntigravityCanvas.tsx` & `HeroSection.tsx`)**:
+  - Replaced wireframe geometries with GPU-accelerated organic solid blurred shapes (circles, ovals, and fluid droplets) continuously morphing in geometry, scale, and position.
+  - **Dynamic Organic Morphing**: Animated continuous `borderRadius` deforming across 5 keyframe sets (`60% 40% 30% 70% / 60% 30% 70% 40%` -> `30% 60% 70% 40% / 50% 60% 30% 60%`, etc.) with continuous scale breathing (`scale: 0.9` to `1.28`).
+  - **Luminous Aurora Palette**: Crafted 4 overlapping luminous fluid bodies across cyan/teal, purple/violet, sky/indigo, and soft emerald with deep Gaussian dispersion (`blur-[80px]` to `blur-[150px]`).
+  - **Spring-Physics Cursor Parallax**: Integrated smooth spring tracking (`stiffness: 45, damping: 20`) providing responsive organic depth without performance impact.
+  - Removed redundant static ambient glow from `HeroSection.tsx`, letting the dynamic morphing blobs serve as the glowing atmosphere.
+
+---
+
+## [0.9.31] - 2026-10-15
+
+### Added & Refined
+- **Floating 3D Geometric Shapes Background (`AntigravityCanvas.tsx` & `HeroSection.tsx`)**:
+  - Implemented an animated HTML5 Canvas backdrop featuring rotating 3D wireframe polyhedra (cubes, octahedrons, tetrahedrons, icosahedrons, and rings) drifting with weightless zero-gravity sine wave physics.
+  - **Dynamic Cursor Parallax & Projection**: Projected 3D vertices using real-time perspective division (`fov: 320`) with smooth mouse-lag parallax tracking that shifts depth layers as the user moves their cursor.
+  - **Theme-Reactive Luminescence**: In dark mode, shapes glow with translucent cyan, purple, sky, and emerald edges with specular vertex dots; in light mode, shapes render with crisp, subtle slate and indigo lines.
+  - **Ambient Micro-Particles**: Subtle glowing particles drifting upward to emphasize an authentic "Antigravity" engineering atmosphere while keeping foreground copy completely crisp and legible.
+
+---
+
+## [0.9.30] - 2026-10-15
+
+### Added & Redesigned
+- **Flagship 3D Perspective Flip Carousel (`ProjectsSection.tsx`)**:
+  - Transformed the projects showcase into an interactive auto-advancing carousel modeled after the flagship **Project LOOP** interface.
+  - **Dynamic 3D Perspective Transitions**: Utilized CSS 3D perspective (`perspective: 1200px`) with hardware-accelerated rotational flip animations (`rotateY: ±14deg`, `scale: 0.94 -> 1.0`, spring easing `[0.16, 1, 0.3, 1]`) via Framer Motion / Motion.
+  - **6-Second Linear Countdown Timer**: Smooth visual progress line indicating time remaining per project, with **automatic pause-on-hover** allowing visitors to read architectural specs without interruption.
+  - **Interactive Top Toolbar**: Added play/pause toggle button, active slide counter (`01 / 06`), and manual previous/next chevron navigation controls with sound effects (`sounds.playClick`).
+  - **Interactive 6-System Thumbnail Strip**: Responsive miniature card selector below the stage showing real screenshots, system numbers, titles, and live status dots, enabling instant jump to any project.
+  - **Full Keyboard Accessibility**: ArrowLeft / ArrowRight navigation and Spacebar play/pause shortcuts.
+  - Zero emojis, strict TypeScript types, zero lint errors.
+
+---
+
 ## [0.9.29] - 2026-10-15
 
 ### Added & Redesigned

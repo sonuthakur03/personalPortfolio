@@ -44,7 +44,7 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['Node.js', 'Express', 'React', 'Google Gemini SDK', 'MongoDB', 'Tailwind CSS', 'Vercel'],
     metrics: ['2-person core engineering team', '100% ACID compliant writes', 'Zero credential exposure'],
-    image: '/projects/Loop.png',
+    image: '/projects/Loop.webp',
   },
   {
     id: 'cricket-nepal',
@@ -87,7 +87,7 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['MongoDB', 'Express', 'React', 'Node.js', 'JWT', 'Khalti', 'eSewa', 'Stripe', 'Cloudinary'],
     metrics: ['3 integrated payment gateways', 'Live on Vercel & Render', 'Zero oversell concurrency guarantee'],
-    image: '/projects/CricketNepal.png',
+    image: '/projects/CricketNepal.webp',
   },
   {
     id: 'public-care',
@@ -125,7 +125,7 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['Node.js', 'Express', 'MongoDB (2dsphere)', 'Socket.io', 'JWT', 'Cloudinary', 'Leaflet'],
     metrics: ['3-day rapid hackathon delivery', 'Live WebSocket bi-directional sync', 'GPS radius clustering'],
-    image: '/projects/PublicCare.png',
+    image: '/projects/PublicCare.webp',
   },
   {
     id: 'study-track',
@@ -163,7 +163,7 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Node-Cron', 'Nodemailer', 'Tailwind CSS'],
     metrics: ['Automated daily cron jobs', 'Live on Vercel', 'Timezone-aware streak calculation'],
-    image: '/projects/StudyTrack.png',
+    image: '/projects/StudyTrack.webp',
   },
   {
     id: 'quizify',
@@ -201,7 +201,7 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Open Trivia DB API', 'LocalStorage'],
     metrics: ['Zero runtime XSS risks', 'Instant offline state recovery', 'Live on Vercel'],
-    image: '/projects/QuizBizz.png',
+    image: '/projects/QuizBizz.webp',
   },
   {
     id: 'travel-np',
@@ -238,6 +238,6 @@ export const projectsData: readonly ProjectCaseStudy[] = [
     ],
     techStack: ['Figma', 'UI/UX Prototyping', 'User Flow Mapping', 'Information Architecture'],
     metrics: ['Complete dual-persona UX flow', 'Full screen-to-screen interactive prototype', 'High-fidelity Figma UI'],
-    image: '/projects/TravelNP.png',
+    image: '/projects/TravelNP.webp',
   },
 ];

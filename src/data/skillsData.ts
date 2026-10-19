@@ -1,150 +1,119 @@
 // src/data/skillsData.ts
+// Structured technical skills and competencies matching Sonu Thakur's verified stack.
 
-export type SkillCategoryType =
-  | 'all'
-  | 'languages'
-  | 'frontend'
-  | 'backend'
-  | 'databases'
-  | 'ai-security'
-  | 'tools';
+import type { SkillCategoryType, FlatSkillItem, SkillCategory } from '../types/skills';
 
-export interface FlatSkillItem {
-  id: string;
-  name: string;
-  category: SkillCategoryType;
-  iconClass: string;
-  color?: string;
-  level?: string;
-  highlight?: boolean;
-}
-
-export interface SkillCategory {
-  readonly title: string;
-  readonly skills: readonly {
-    readonly name: string;
-    readonly level?: string;
-    readonly highlight?: boolean;
-  }[];
-}
+export type { SkillCategoryType, FlatSkillItem, SkillCategory };
 
 export const flatSkillsData: FlatSkillItem[] = [
-  // --- Languages (from CV: JavaScript, Java, Python, PHP, C) ---
+  // --- Languages ---
   { id: 'js', name: 'JavaScript', category: 'languages', iconClass: 'devicon-javascript-plain colored', level: 'Advanced', highlight: true },
-  { id: 'ts', name: 'TypeScript', category: 'languages', iconClass: 'devicon-typescript-plain colored', level: 'Advanced', highlight: true },
-  { id: 'py', name: 'Python', category: 'languages', iconClass: 'devicon-python-plain colored', level: 'Intermediate', highlight: true },
-  { id: 'java', name: 'Java', category: 'languages', iconClass: 'devicon-java-plain colored', level: 'Intermediate' },
-  { id: 'c', name: 'C / C++', category: 'languages', iconClass: 'devicon-cplusplus-plain colored', level: 'Academic' },
-  { id: 'php', name: 'PHP', category: 'languages', iconClass: 'devicon-php-plain colored', level: 'Intermediate' },
+  { id: 'ts', name: 'TypeScript', category: 'languages', iconClass: 'devicon-typescript-plain colored', level: 'Intermediate', highlight: true },
+  { id: 'py', name: 'Python', category: 'languages', iconClass: 'devicon-python-plain colored', level: 'Certified · Demonstrable', highlight: true },
+  { id: 'academic-languages', name: 'Java / C++ / PHP / .NET', category: 'languages', iconClass: 'devicon-java-plain colored', level: 'Academic experience' },
 
-  // --- Frontend (from CV: React, Next.js, Tailwind CSS, HTML/CSS, Figma) ---
+  // --- Frontend Development ---
   { id: 'react', name: 'React 19', category: 'frontend', iconClass: 'devicon-react-original colored', level: 'Advanced', highlight: true },
   { id: 'nextjs', name: 'Next.js', category: 'frontend', iconClass: 'devicon-nextjs-plain', level: 'Intermediate', highlight: true },
-  { id: 'tailwind', name: 'Tailwind CSS', category: 'frontend', iconClass: 'devicon-tailwindcss-original colored', level: 'Advanced', highlight: true },
-  { id: 'html5', name: 'HTML5', category: 'frontend', iconClass: 'devicon-html5-plain colored', level: 'Advanced' },
-  { id: 'css3', name: 'CSS3', category: 'frontend', iconClass: 'devicon-css3-plain colored', level: 'Advanced' },
-  { id: 'figma', name: 'Figma UI/UX', category: 'frontend', iconClass: 'devicon-figma-plain colored', level: 'Certified 30h', highlight: true },
+  { id: 'frontend-core', name: 'HTML5 / CSS3 / Tailwind', category: 'frontend', iconClass: 'devicon-tailwindcss-original colored', level: 'Frontend development', highlight: true },
+  { id: 'figma', name: 'Figma', category: 'frontend', iconClass: 'devicon-figma-plain colored', level: 'UI/UX design', highlight: true },
 
-  // --- Backend (from CV: Node.js, Express, Django, .NET, REST APIs, WebSockets, Payments) ---
-  { id: 'nodejs', name: 'Node.js', category: 'backend', iconClass: 'devicon-nodejs-plain colored', level: 'Advanced', highlight: true },
-  { id: 'express', name: 'Express.js', category: 'backend', iconClass: 'devicon-express-original', level: 'Advanced', highlight: true },
-  { id: 'django', name: 'Django', category: 'backend', iconClass: 'devicon-django-plain colored', level: 'Certified 30h', highlight: true },
-  { id: 'dotnet', name: '.NET Framework', category: 'backend', iconClass: 'devicon-dot-net-plain colored', level: 'Academic' },
-  { id: 'rest', name: 'REST APIs', category: 'backend', iconClass: 'devicon-fastapi-plain colored', level: 'Advanced', highlight: true },
-  { id: 'jwt', name: 'JWT Auth & RBAC', category: 'backend', iconClass: 'devicon-oauth-plain colored', level: 'Advanced', highlight: true },
-  { id: 'socketio', name: 'WebSockets', category: 'backend', iconClass: 'devicon-socketio-original', level: 'Production', highlight: true },
-  { id: 'payments', name: 'Khalti / eSewa / Stripe', category: 'backend', iconClass: 'devicon-fastapi-plain colored', level: 'Production', highlight: true },
+  // --- Backend Development ---
+  { id: 'backend-core', name: 'Node.js & Express.js', category: 'backend', iconClass: 'devicon-nodejs-plain colored', level: 'Backend development', highlight: true },
+  { id: 'auth', name: 'Authentication & Authorization', category: 'backend', iconClass: 'devicon-oauth-plain colored', level: 'JWT & RBAC', highlight: true },
+  { id: 'payments', name: 'Payment Gateway Integration', category: 'backend', iconClass: 'devicon-fastapi-plain colored', level: 'Khalti / eSewa / Stripe', highlight: true },
+  { id: 'django', name: 'Django', category: 'backend', iconClass: 'devicon-django-plain colored', level: 'Certified · Demonstrable' },
+  { id: 'socketio', name: 'WebSockets', category: 'backend', iconClass: 'devicon-socketio-original', level: 'Beginner' },
 
-  // --- Databases (from CV: MongoDB, MySQL, Prisma, DBMS Fundamentals) ---
-  { id: 'mongodb', name: 'MongoDB (Mongoose)', category: 'databases', iconClass: 'devicon-mongodb-plain colored', level: 'Advanced', highlight: true },
-  { id: 'mysql', name: 'MySQL', category: 'databases', iconClass: 'devicon-mysql-plain colored', level: 'Intermediate', highlight: true },
-  { id: 'prisma', name: 'Prisma ORM', category: 'databases', iconClass: 'devicon-prisma-original colored', level: 'Intermediate', highlight: true },
-  { id: 'dbms', name: 'ACID & DBMS', category: 'databases', iconClass: 'devicon-postgresql-plain colored', level: 'Advanced', highlight: true },
+  // --- Databases ---
+  { id: 'mongodb', name: 'MongoDB', category: 'databases', iconClass: 'devicon-mongodb-plain colored', level: 'Advanced (Prioritized)', highlight: true },
+  { id: 'mysql', name: 'MySQL', category: 'databases', iconClass: 'devicon-mysql-plain colored', level: 'Intermediate' },
   { id: 'postgres', name: 'PostgreSQL', category: 'databases', iconClass: 'devicon-postgresql-plain colored', level: 'Intermediate' },
-  { id: 'redis', name: 'Redis Streams', category: 'databases', iconClass: 'devicon-redis-plain colored', level: 'Intermediate' },
+  { id: 'dbms', name: 'Database Fundamentals', category: 'databases', iconClass: 'devicon-postgresql-plain colored', level: 'ACID & Relational', highlight: true },
+  { id: 'redis', name: 'Redis Streams', category: 'databases', iconClass: 'devicon-redis-plain colored', level: 'Beginner (Optional)' },
 
-  // --- AI & Security / CS Fundamentals (from CV: Gemini AI SDK, Claude/Antigravity, BugV CTF, AppSec, DSA) ---
-  { id: 'gemini', name: 'Gemini AI SDK', category: 'ai-security', iconClass: 'devicon-googlecloud-plain colored', level: 'Production', highlight: true },
-  { id: 'ai-tools', name: 'Claude / Antigravity', category: 'ai-security', iconClass: 'devicon-googlecloud-plain colored', level: 'Production', highlight: true },
-  { id: 'bugv', name: 'BugV CTF (3rd)', category: 'ai-security', iconClass: 'devicon-linux-plain colored', level: 'National 3rd', highlight: true },
-  { id: 'appsec', name: 'Application Security', category: 'ai-security', iconClass: 'devicon-bash-plain', level: 'Advanced', highlight: true },
-  { id: 'dsa', name: 'Data Structures & Algo', category: 'ai-security', iconClass: 'devicon-cplusplus-plain colored', level: 'TU Rank 1', highlight: true },
+  // --- Applied AI & Security ---
+  { id: 'gemini', name: 'AI Application Integration', category: 'ai-security', iconClass: 'devicon-googlecloud-plain colored', level: 'Beginner (AI SDK)' },
+  { id: 'appsec', name: 'Application Security', category: 'ai-security', iconClass: 'devicon-bash-plain', level: 'Intermediate (Evidence)', highlight: true },
 
-  // --- Tools & Deployment (from CV: Git/GitHub, Cloudinary, Postman, Linux, Vercel/Render, Docker) ---
-  { id: 'git', name: 'Git', category: 'tools', iconClass: 'devicon-git-plain colored', level: 'Advanced', highlight: true },
-  { id: 'github', name: 'GitHub', category: 'tools', iconClass: 'devicon-github-original', level: 'Advanced', highlight: true },
-  { id: 'cloudinary', name: 'Cloudinary API', category: 'tools', iconClass: 'devicon-googlecloud-plain colored', level: 'Production', highlight: true },
-  { id: 'postman', name: 'Postman', category: 'tools', iconClass: 'devicon-postman-plain colored', level: 'Advanced' },
-  { id: 'linux', name: 'Linux OS', category: 'tools', iconClass: 'devicon-linux-plain colored', level: 'Advanced' },
-  { id: 'vercel', name: 'Vercel & Render', category: 'tools', iconClass: 'devicon-vercel-original', level: 'Production', highlight: true },
-  { id: 'docker', name: 'Docker', category: 'tools', iconClass: 'devicon-docker-plain colored', level: 'Intermediate' },
+  // --- AI-Assisted Development Tools ---
+  { id: 'ai-tools', name: 'Claude Code / Antigravity', category: 'ai-tools', iconClass: 'devicon-googlecloud-plain colored', level: 'AI-assisted dev tools', highlight: true },
+
+  // --- Tools, Version Control & Hosting ---
+  { id: 'vcs', name: 'Git / GitHub / GitLab', category: 'tools', iconClass: 'devicon-github-original', level: 'Version control & collab', highlight: true },
+  { id: 'hosting', name: 'Vercel / Render', category: 'tools', iconClass: 'devicon-vercel-original', level: 'Deployment & hosting', highlight: true },
+  { id: 'postman', name: 'Postman', category: 'tools', iconClass: 'devicon-postman-plain colored', level: 'API testing' },
+  { id: 'linux', name: 'Linux OS', category: 'tools', iconClass: 'devicon-linux-plain colored', level: 'Intermediate (Secondary)' },
+
+  // --- Computer Science Fundamentals ---
+  { id: 'dsa', name: 'Data Structures & Algorithms', category: 'fundamentals', iconClass: 'devicon-cplusplus-plain colored', level: 'CS Fundamentals', highlight: true },
 ];
 
 export const initialSkillsData: readonly SkillCategory[] = [
   {
     title: 'Languages & Core',
     skills: [
-      { name: 'JavaScript (ES6+)', level: 'Advanced', highlight: true },
-      { name: 'TypeScript', level: 'Advanced', highlight: true },
-      { name: 'Python', level: 'Intermediate', highlight: true },
-      { name: 'Java', level: 'Intermediate' },
-      { name: 'C / C++', level: 'Academic' },
-      { name: 'PHP', level: 'Intermediate' },
+      { name: 'JavaScript', level: 'Advanced', highlight: true },
+      { name: 'TypeScript', level: 'Intermediate', highlight: true },
+      { name: 'Python', level: 'Certified · Demonstrable', highlight: true },
+      { name: 'Java / C++ / PHP / .NET', level: 'Academic experience' },
     ],
   },
   {
-    title: 'Frontend Architecture',
+    title: 'Frontend Development',
     skills: [
       { name: 'React 19', level: 'Advanced', highlight: true },
       { name: 'Next.js', level: 'Intermediate', highlight: true },
-      { name: 'Tailwind CSS', level: 'Advanced', highlight: true },
-      { name: 'HTML5 & CSS3', level: 'Advanced' },
-      { name: 'Figma UI/UX (30h)', level: 'Certified', highlight: true },
+      { name: 'HTML5 / CSS3 / Tailwind CSS', level: 'Frontend development', highlight: true },
+      { name: 'Figma', level: 'UI/UX design', highlight: true },
     ],
   },
   {
-    title: 'Backend & Systems',
+    title: 'Backend Development',
     skills: [
-      { name: 'Node.js', level: 'Advanced', highlight: true },
-      { name: 'Express.js', level: 'Advanced', highlight: true },
-      { name: 'Django (30h)', level: 'Certified', highlight: true },
-      { name: '.NET Framework', level: 'Academic' },
-      { name: 'REST APIs & JWT', level: 'Advanced', highlight: true },
-      { name: 'WebSockets (Socket.io)', level: 'Production', highlight: true },
-      { name: 'Payment Gateways (Khalti/eSewa/Stripe)', level: 'Production', highlight: true },
+      { name: 'Node.js & Express.js', level: 'Backend development', highlight: true },
+      { name: 'Authentication & Authorization', level: 'JWT & RBAC', highlight: true },
+      { name: 'Payment Gateway Integration', level: 'Khalti / eSewa / Stripe', highlight: true },
+      { name: 'Django', level: 'Certified · Demonstrable' },
+      { name: 'WebSockets', level: 'Beginner' },
     ],
   },
   {
-    title: 'Databases & Storage',
+    title: 'Databases & Fundamentals',
     skills: [
-      { name: 'MongoDB (Mongoose)', level: 'Advanced', highlight: true },
-      { name: 'MySQL', level: 'Intermediate', highlight: true },
-      { name: 'Prisma ORM', level: 'Intermediate', highlight: true },
-      { name: 'ACID & DBMS Fundamentals', level: 'Advanced', highlight: true },
+      { name: 'MongoDB', level: 'Advanced (Prioritized)', highlight: true },
+      { name: 'MySQL', level: 'Intermediate' },
       { name: 'PostgreSQL', level: 'Intermediate' },
-      { name: 'Redis Streams', level: 'Intermediate' },
+      { name: 'Database Fundamentals', level: 'ACID & Relational', highlight: true },
+      { name: 'Redis Streams', level: 'Beginner (Optional)' },
     ],
   },
   {
     title: 'Applied AI & Security',
     skills: [
-      { name: 'Google Gemini AI SDK', level: 'Production', highlight: true },
-      { name: 'AI Tooling (Claude/Antigravity)', level: 'Production', highlight: true },
-      { name: 'BugV CTF Security', level: 'Solo 3rd Podium', highlight: true },
-      { name: 'Application Security (OWASP)', level: 'Advanced', highlight: true },
-      { name: 'Data Structures & Algorithms', level: 'TU Rank 1', highlight: true },
+      { name: 'AI Application Integration (AI SDK)', level: 'Beginner' },
+      { name: 'Application Security', level: 'Intermediate (Evidence)', highlight: true },
     ],
   },
   {
-    title: 'Tools & DevOps',
+    title: 'AI-Assisted Development Tools',
     skills: [
-      { name: 'Git & GitHub', level: 'Advanced', highlight: true },
-      { name: 'Cloudinary API', level: 'Production', highlight: true },
-      { name: 'Postman', level: 'Advanced' },
-      { name: 'Linux OS', level: 'Advanced' },
-      { name: 'Vercel & Render', level: 'Production', highlight: true },
-      { name: 'Docker', level: 'Intermediate' },
+      { name: 'Claude Code / Antigravity', level: 'AI-assisted dev tools', highlight: true },
+    ],
+  },
+  {
+    title: 'Version Control, Tools & Hosting',
+    skills: [
+      { name: 'Git / GitHub / GitLab', level: 'Version control & collaboration', highlight: true },
+      { name: 'Vercel / Render', level: 'Deployment & hosting', highlight: true },
+      { name: 'Postman', level: 'API testing' },
+      { name: 'Linux OS', level: 'Intermediate (Secondary)' },
+    ],
+  },
+  {
+    title: 'Computer Science Fundamentals',
+    skills: [
+      { name: 'Data Structures & Algorithms', level: 'CS Fundamentals', highlight: true },
     ],
   },
 ];
-

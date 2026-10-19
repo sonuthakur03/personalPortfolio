@@ -27,18 +27,6 @@ export const initialCertificatesData: CertificateItem[] = [
     skills: ['Capture The Flag', 'OWASP Top 10', 'Penetration Testing', 'Web Security', 'BugV'],
   },
   {
-    id: 'cert-tu-bca-sgpa-381',
-    title: 'Tribhuvan University BCA — SGPA 3.81 Academic Excellence',
-    issuer: "Tribhuvan University (Dean's Office, FOHSS)",
-    date: 'October 14, 2025',
-    category: 'Academic',
-    description:
-      'Official Tribhuvan University grade sheet certifying SGPA 3.81 with Grade A distinctions in C Programming (GPA 4.0), Mathematics II (GPA 4.0), Financial Accounting (GPA 4.0), and Microprocessor & Computer Architecture (GPA 3.7).',
-    imageUrl: '/certificates/BCA2ndSemScanned.jpeg',
-    credentialUrl: 'https://tu.edu.np',
-    skills: ['C Programming (GPA 4.0)', 'Mathematics II (GPA 4.0)', 'Financial Accounting (GPA 4.0)', 'Computer Architecture'],
-  },
-  {
     id: 'cert-embark-hackathon-2026',
     title: 'Embark Community Innovation Hackathon',
     issuer: 'Embark College & Business Incubation Center',

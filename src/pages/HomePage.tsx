@@ -6,12 +6,14 @@ import { FloatingDock } from '../components/common/FloatingDock';
 import { ContactModal } from '../components/common/ContactModal';
 import { LanguagePreloader } from '../components/common/LanguagePreloader';
 import { HeroSection } from '../components/hero/HeroSection';
+import { AntigravityCanvas } from '../components/hero/AntigravityCanvas';
 import { ProjectsSection } from '../components/case-studies/ProjectsSection';
 import { CaseStudyModal } from '../components/case-studies/CaseStudyModal';
 import { JourneyTimeline } from '../components/timeline/JourneyTimeline';
 import { SkillsSection } from '../components/skills/SkillsSection';
 import { CertificationsSection } from '../components/certifications/CertificationsSection';
 import { WebPresenceSection } from '../components/social/WebPresenceSection';
+import { EducationSection } from '../components/education/EducationSection';
 import { PullCordTheme } from '../components/common/PullCordTheme';
 import { usePortfolioContent } from '../context/PortfolioContentContext';
 import type { ProjectCaseStudy } from '../types/projects';
@@ -30,8 +32,8 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative selection:bg-cyan-500/20 selection:text-cyan-300 overflow-x-hidden">
-      {/* 0. Initial Multi-Language Preloader (aadarshrai.vercel.app inspiration) */}
+    <div className="min-h-screen bg-background text-foreground relative selection:bg-[#FFE14D] selection:text-[#111111] overflow-x-hidden">
+      {/* 0. Initial Multi-Language Preloader */}
       <LanguagePreloader />
 
       {/* Ceiling Pull-Cord Theme Switcher (abdulrehmanwaseem.me inspiration) */}
@@ -42,26 +44,34 @@ const HomePage: React.FC = () => {
 
       {/* Main Sections */}
       <main>
-        {/* 1. Hero & Verified Proofs */}
+        {/* 1. Hero Landing: Clean, Elevated Horizon Arc, Monochrome SONU (Zero Circles) */}
         <HeroSection
           onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
           onOpenContact={() => setIsContactModalOpen(true)}
         />
 
-        {/* 2. Flagship Case Studies & Archify Diagrams */}
-        <ProjectsSection onOpenModal={(project) => setSelectedModalProject(project)} />
+        {/* 2. Rest of the Website: Subtly Animated Black & Grey Circles Backdrop */}
+        <div className="relative overflow-hidden">
+          <AntigravityCanvas />
 
-        {/* 5. Engineering Career & Academic Journey */}
-        <JourneyTimeline />
+          {/* 2. Flagship Case Studies & Archify Diagrams */}
+          <ProjectsSection onOpenModal={(project) => setSelectedModalProject(project)} />
 
-        {/* 6. Technical Skills (Aakarsh DevHQ inspired) */}
-        <SkillsSection />
+          {/* 5. Engineering Career & Experience */}
+          <JourneyTimeline />
 
-        {/* 7. Certifications & Milestones (Aakarsh DevHQ inspired) */}
-        <CertificationsSection />
+          {/* 6. Education Showcase (Vibrant Bento Standard) */}
+          <EducationSection />
 
-        {/* 8. Web Presence & Dev Network (Aakarsh DevHQ inspired social handle cards) */}
-        <WebPresenceSection />
+          {/* 6. Technical Skills (Aakarsh DevHQ inspired) */}
+          <SkillsSection />
+
+          {/* 7. Certifications & Milestones (Aakarsh DevHQ inspired) */}
+          <CertificationsSection />
+
+          {/* 8. Web Presence & Dev Network (Aakarsh DevHQ inspired social handle cards) */}
+          <WebPresenceSection />
+        </div>
       </main>
 
       {/* Footer */}

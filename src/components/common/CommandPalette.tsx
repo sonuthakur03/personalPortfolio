@@ -1,7 +1,19 @@
+// src/components/common/CommandPalette.tsx
+// Pop Brutalist Command Palette (Ctrl+K):
+// - Heavy 3px solid black borders, shadow-brutal-xl
+// - Yellow (#FFE14D) search input header with bold Space Mono typography
+// - Pink (#FF6FB5) active selection highlighting with hard black offset shadows
+// - Mint (#7DFFA6) keyboard navigation footer
+// - Audio cues and smooth keyboard shortcuts
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, ArrowRight, Shield, Cpu, Layers, ExternalLink, X } from 'lucide-react';
 import { usePortfolioContent } from '../../context/PortfolioContentContext';
 import { useNavigate } from 'react-router-dom';
+import { sounds } from '../../utils/soundEffects';
+import { DEFAULT_INSTAGRAM, DEFAULT_RESUME_URL } from '../../data/profileData';
+
+import { useModalDismiss } from '../../hooks/useModalDismiss';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -20,6 +32,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  useModalDismiss({ isOpen, onClose });
+
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
   if (isOpen !== prevIsOpen) {
     setPrevIsOpen(isOpen);
@@ -37,15 +51,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     }
   }, [isOpen]);
 
-  // Global keydown listeners for Ctrl+K and Escape
+  // Global keydown listener for Ctrl+K toggle
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
         if (isOpen) onClose();
-      }
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -53,6 +64,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   }, [isOpen, onClose]);
 
   const navigateToSection = (sectionId: string) => {
+    sounds.playClick();
     onClose();
     const el = document.getElementById(sectionId);
     if (el) {
@@ -85,14 +97,21 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       title: 'Academic Merit & Career Trajectory',
       subtitle: 'Tribhuvan Univ Rank 1, BugV CTF podium, and Zidio AI journey',
       category: 'Navigation',
-      action: () => navigateToSection('journey'),
+      action: () => navigateToSection('experience'),
     },
     {
       id: 'nav-skills',
       title: 'Technical Skills & Core Expertise',
-      subtitle: '5-column filterable tech stack with interactive wave cards',
+      subtitle: 'Interactive sticker pack with verified CV badges',
       category: 'Navigation',
       action: () => navigateToSection('skills'),
+    },
+    {
+      id: 'nav-education',
+      title: 'Education & Academic Honors',
+      subtitle: 'TU BCA Rank 1 topper (3.63 CGPA) & Viswa Niketan +2',
+      category: 'Navigation',
+      action: () => navigateToSection('education'),
     },
     {
       id: 'nav-certs',
@@ -108,16 +127,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       category: 'Navigation',
       action: () => navigateToSection('profiles'),
     },
-    {
-      id: 'nav-admin',
-      title: 'Admin Control Console',
-      subtitle: 'Manage portfolio sections, draft hackathon wins, and export code',
-      category: 'Admin',
-      action: () => {
-        onClose();
-        navigate('/admin');
-      },
-    },
     // Projects
     ...visibleProjects.map((p) => ({
       id: `project-${p.id}`,
@@ -125,6 +134,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       subtitle: `${p.role} · ${p.architectureDiagram.subtitle}`,
       category: 'Projects' as const,
       action: () => {
+        sounds.playClick();
         onClose();
         if (onSelectProject) onSelectProject(p.id);
         else navigateToSection('projects');
@@ -144,6 +154,23 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       subtitle: profile.linkedin,
       category: 'External',
       action: () => window.open(profile.linkedin, '_blank', 'noopener,noreferrer'),
+    },
+    {
+      id: 'ext-instagram',
+      title: 'Instagram Profile',
+      subtitle: '@not_sonuthakur',
+      category: 'External',
+      action: () => window.open(profile.instagram || DEFAULT_INSTAGRAM, '_blank', 'noopener,noreferrer'),
+    },
+    {
+      id: 'doc-cv',
+      title: 'Download CV / Resume (PDF)',
+      subtitle: '2-page verified technical curriculum vitae',
+      category: 'External',
+      action: () => {
+        sounds.playClick(900);
+        window.open(profile.resumeUrl || DEFAULT_RESUME_URL, '_blank', 'noopener,noreferrer');
+      },
     },
   ];
 
@@ -177,31 +204,31 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/85 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-[#111111]/80 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-xl bg-zinc-950 border border-white/15 text-white shadow-2xl overflow-hidden"
+        className="w-full max-w-xl bg-white dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal-xl overflow-hidden text-[#111111] dark:text-white"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Search Input */}
-        <div className="flex items-center px-4 py-3.5 border-b border-white/10 bg-black">
-          <Search className="w-4 h-4 text-zinc-400 mr-3 shrink-0" />
+        {/* Search Input Banner in Pop Yellow */}
+        <div className="flex items-center px-4 py-3.5 border-b-[3px] border-[#111111] bg-[#FFE14D]">
+          <Search className="w-5 h-5 text-[#111111] mr-3 shrink-0" />
           <input
             ref={inputRef}
             type="text"
-            placeholder="Search projects, architecture diagrams, skills, or admin..."
+            placeholder="SEARCH BLUEPRINTS, SKILLS, OR ROLES..."
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
             onKeyDown={handleInputKeyDown}
-            className="w-full bg-transparent border-none outline-none text-white font-mono text-sm placeholder:text-zinc-500"
+            className="w-full bg-transparent border-none outline-none text-[#111111] font-spaceMono font-bold text-sm placeholder:text-[#111111]/60 uppercase tracking-wide"
           />
           <button
             onClick={onClose}
-            className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
+            className="p-1 bg-white text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] hover:bg-[#FF6FB5] transition-colors cursor-pointer"
             aria-label="Close Command Palette"
           >
             <X className="w-4 h-4" />
@@ -209,10 +236,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         </div>
 
         {/* Results List */}
-        <div className="max-h-80 overflow-y-auto p-2 divide-y divide-white/5">
+        <div className="max-h-80 overflow-y-auto p-2 space-y-1.5 bg-[#F8F6F0] dark:bg-[#121318]">
           {filtered.length === 0 ? (
-            <div className="py-8 text-center text-xs font-mono text-zinc-500">
-              No matching commands or architecture blueprints found.
+            <div className="py-8 text-center text-xs font-spaceMono font-bold text-zinc-500 uppercase">
+              No matching commands or blueprints found.
             </div>
           ) : (
             filtered.map((item, idx) => {
@@ -222,16 +249,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   key={item.id}
                   onClick={item.action}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-center justify-between p-2.5 cursor-pointer transition-colors ${
-                    isSelected ? 'bg-white text-black' : 'hover:bg-white/[0.04] text-zinc-300'
+                  className={`flex items-center justify-between p-3 border-2 border-[#111111] cursor-pointer transition-all ${
+                    isSelected
+                      ? 'bg-[#FF6FB5] text-[#111111] shadow-[3px_3px_0_#111111] -translate-y-0.5'
+                      : 'bg-white dark:bg-[#1c1e28] text-[#111111] dark:text-white shadow-[2px_2px_0_#111111] hover:bg-[#FFE14D]'
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
                     <div
-                      className={`p-1.5 text-xs font-mono shrink-0 border ${
+                      className={`p-1.5 text-xs font-spaceMono shrink-0 border-2 border-[#111111] ${
                         isSelected
-                          ? 'border-black text-black bg-transparent'
-                          : 'border-white/10 text-zinc-400 bg-black'
+                          ? 'bg-[#111111] text-white'
+                          : 'bg-[#FFE14D] text-[#111111]'
                       }`}
                     >
                       {item.category === 'Projects' && <Layers className="w-3.5 h-3.5" />}
@@ -240,28 +269,28 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                       {item.category === 'External' && <ExternalLink className="w-3.5 h-3.5" />}
                     </div>
                     <div className="truncate">
-                      <div className="font-display font-medium text-xs truncate">
+                      <div className="font-archivoBlack text-xs uppercase truncate">
                         {item.title}
                       </div>
                       <div
-                        className={`font-mono text-[11px] truncate ${
-                          isSelected ? 'text-zinc-700' : 'text-zinc-500'
+                        className={`font-spaceMono text-[11px] font-bold truncate ${
+                          isSelected ? 'text-[#111111]' : 'text-zinc-600 dark:text-zinc-400'
                         }`}
                       >
                         {item.subtitle}
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 shrink-0 pl-2">
+                  <div className="flex items-center gap-2 shrink-0 pl-2">
                     <span
-                      className={`text-[10px] font-mono hidden sm:inline ${
-                        isSelected ? 'text-zinc-600' : 'text-zinc-500'
+                      className={`text-[10px] font-spaceMono font-bold px-2 py-0.5 border border-[#111111] hidden sm:inline uppercase ${
+                        isSelected ? 'bg-white text-[#111111]' : 'bg-[#7DFFA6] text-[#111111]'
                       }`}
                     >
                       {item.category}
                     </span>
                     <ArrowRight
-                      className={`w-3 h-3 ${isSelected ? 'text-black' : 'text-zinc-500'}`}
+                      className={`w-3.5 h-3.5 ${isSelected ? 'text-[#111111]' : 'text-zinc-400'}`}
                     />
                   </div>
                 </div>
@@ -270,10 +299,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           )}
         </div>
 
-        {/* Footer info */}
-        <div className="px-4 py-2 border-t border-white/10 bg-black flex items-center justify-between text-[11px] font-mono text-zinc-500">
-          <span>Navigate with ↑ ↓ · Select with ↵</span>
-          <span>ESC to exit</span>
+        {/* Mint Footer info */}
+        <div className="px-4 py-2 border-t-[3px] border-[#111111] bg-[#7DFFA6] text-[#111111] flex items-center justify-between text-xs font-spaceMono font-bold uppercase">
+          <span>Navigate: ↑ ↓ · Enter: ↵</span>
+          <span>Esc: Close</span>
         </div>
       </div>
     </div>
