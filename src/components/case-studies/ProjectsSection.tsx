@@ -499,7 +499,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
               onMouseLeave={() => setIsHovered(false)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="relative min-h-[520px]"
+              className="relative min-h-[720px] sm:min-h-[870px] lg:min-h-[580px]"
             >
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.article
@@ -509,7 +509,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="w-full bg-white dark:bg-[#181A20] border-[3px] border-[#111111] shadow-brutal-lg overflow-hidden"
+                  className="w-full min-h-[720px] sm:min-h-[870px] lg:min-h-[580px] flex flex-col justify-between bg-white dark:bg-[#181A20] border-[3px] border-[#111111] shadow-brutal-lg overflow-hidden"
                 >
                   {/* Top Color Banner */}
                   <div
@@ -525,14 +525,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                     <span>{activeProject.year}</span>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 lg:p-10 items-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-6 sm:p-8 lg:p-9 items-center flex-1">
                     {/* Left: Spec Details */}
-                    <div className="lg:col-span-5 space-y-5">
+                    <div className="lg:col-span-5 space-y-4">
                       <div>
-                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white leading-[0.95]">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white leading-[1.05]">
                           {activeProject.name}
                         </h3>
-                        <p className="mt-2 font-spaceMono text-xs sm:text-sm font-bold text-[#111111]/70 dark:text-white/70">
+                        <p className="mt-1 font-spaceMono text-xs sm:text-sm font-bold text-[#111111]/70 dark:text-white/70">
                           {activeProject.role}
                         </p>
                       </div>
@@ -542,37 +542,42 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                         <span>{activeProject.systemStatus}</span>
                       </div>
 
-                      <p className="font-archivo text-base sm:text-lg font-medium text-[#111111]/85 dark:text-white/85 leading-relaxed">
+                      <p className="font-archivo text-sm sm:text-base font-medium text-[#111111]/85 dark:text-white/85 leading-relaxed line-clamp-3">
                         {activeProject.fullDescription}
                       </p>
 
-                      {/* Tech Chips */}
-                      <div className="space-y-2 pt-2">
+                      {/* Tech Chips (Capped to 5 to preserve uniform height) */}
+                      <div className="space-y-1.5 pt-1">
                         <span className="font-spaceMono text-[11px] font-bold uppercase tracking-wider text-[#111111]/60 dark:text-white/60 block">
                           Architecture Stack:
                         </span>
-                        <div className="flex flex-wrap gap-2">
-                          {activeProject.technologies.map((tech) => (
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {activeProject.technologies.slice(0, 5).map((tech) => (
                             <span
                               key={tech}
-                              className="px-3 py-1 bg-white dark:bg-[#111111] text-[#111111] dark:text-white border-2 border-[#111111] dark:border-white/30 font-spaceMono text-xs font-bold shadow-brutal-sm"
+                              className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-white dark:bg-[#111111] text-[#111111] dark:text-white border-2 border-[#111111] dark:border-white/30 font-spaceMono text-[11px] sm:text-xs font-bold shadow-brutal-sm"
                             >
                               {tech}
                             </span>
                           ))}
+                          {activeProject.technologies.length > 5 && (
+                            <span className="px-2 py-0.5 bg-neutral-100 dark:bg-black/60 text-[#111111] dark:text-white/80 border border-[#111111] dark:border-neutral-700 font-spaceMono text-[10px] font-bold">
+                              +{activeProject.technologies.length - 5} more
+                            </span>
+                          )}
                         </div>
                       </div>
 
-                      {/* CTAs */}
-                      <div className="flex flex-wrap gap-3 pt-3">
+                      {/* CTAs (Standardized row) */}
+                      <div className="flex flex-wrap items-center gap-2.5 pt-2">
                         <button
                           type="button"
                           onClick={(e) => handleOpenBlueprint(e, activeProject)}
-                          className="pop-btn px-6 py-3 bg-[#FF6FB5] text-[#111111] text-sm font-spaceMono font-bold gap-2 shadow-brutal"
+                          className="pop-btn px-4 sm:px-5 py-2.5 bg-[#FF6FB5] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
                         >
-                          <Layers className="w-4 h-4" />
-                          <span>Inspect Blueprint</span>
-                          <ArrowUpRight className="w-4 h-4" />
+                          <Layers className="w-4 h-4 shrink-0" />
+                          <span>Blueprint</span>
+                          <ArrowUpRight className="w-4 h-4 shrink-0" />
                         </button>
 
                         {activeProject.liveUrl && (
@@ -580,10 +585,22 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                             href={activeProject.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pop-btn px-5 py-3 bg-white dark:bg-[#111111] text-[#111111] dark:text-white text-sm font-spaceMono font-bold gap-2 shadow-brutal"
+                            className="pop-btn px-4 sm:px-5 py-2.5 bg-[#7DFFA6] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
                           >
-                            <ExternalLink className="w-4 h-4" />
-                            <span>Live System</span>
+                            <ExternalLink className="w-4 h-4 shrink-0" />
+                            <span>Live Demo</span>
+                          </a>
+                        )}
+
+                        {activeProject.figmaUrl && (
+                          <a
+                            href={activeProject.figmaUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pop-btn px-4 sm:px-5 py-2.5 bg-[#FFE14D] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
+                          >
+                            <ExternalLink className="w-4 h-4 shrink-0" />
+                            <span>Figma UI</span>
                           </a>
                         )}
 
@@ -592,10 +609,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                             href={activeProject.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pop-btn px-4 py-3 bg-white dark:bg-[#111111] text-[#111111] dark:text-white text-sm font-spaceMono font-bold shadow-brutal"
+                            className="pop-btn p-2.5 bg-white dark:bg-[#111111] text-[#111111] dark:text-white text-xs sm:text-sm font-spaceMono font-bold shadow-brutal"
                             title="GitHub"
                           >
-                            <GithubIcon className="w-4 h-4" />
+                            <GithubIcon className="w-4 h-4 shrink-0" />
                           </a>
                         )}
                       </div>

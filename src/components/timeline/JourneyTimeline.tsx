@@ -150,12 +150,12 @@ export const JourneyTimeline: React.FC = () => {
                     FinTech Track Winner
                   </h3>
                   <p className="text-xs font-spaceMono font-bold text-[#111111]/60 dark:text-white/60 mt-1">
-                    36-Hour Hackathon · Team FinTrace · 1st Place
+                    72-Hour Hackathon · Team FinTrace · 1st Place
                   </p>
                 </div>
 
                 <p className="font-archivo text-sm font-medium leading-relaxed text-[#111111]/80 dark:text-white/80">
-                  Secured 1st Place / Track Winner in the FinTech Track at the 36-Hour IdeaX Hackathon with project FinTrace. Designed and deployed an algorithmic real-time financial tracking and expense orchestration platform.
+                  Secured 1st Place / Track Winner in the FinTech Track at the 72-Hour IdeaX Hackathon with project FinTrace. Designed and deployed an algorithmic real-time financial tracking and expense orchestration platform.
                 </p>
 
                 {/* 2-Step Brutalist Pipeline */}
@@ -213,7 +213,7 @@ export const JourneyTimeline: React.FC = () => {
                     BugV National CTF 2026
                   </h3>
                   <p className="text-xs font-spaceMono font-bold text-[#111111]/60 dark:text-white/60 mt-1">
-                    48-Hour Continuous Hackathon · Solo Non-Team Entry
+                    48-Hour Continuous CTF Tournament · Solo Non-Team Entry
                   </p>
                 </div>
 

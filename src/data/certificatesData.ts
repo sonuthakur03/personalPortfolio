@@ -9,7 +9,7 @@ export const initialCertificatesData: CertificateItem[] = [
     date: 'October 4, 2026',
     category: 'Hackathon',
     description:
-      'Secured 1st Place / Track Winner in the FinTech Track with team FinTrace at the 36-Hour IdeaX Hackathon. Designed and engineered an innovative real-time financial tracking and algorithmic management platform.',
+      'Secured 1st Place / Track Winner in the FinTech Track with team FinTrace at the 72-Hour IdeaX Hackathon. Designed and engineered an innovative real-time financial tracking and algorithmic management platform.',
     imageUrl: '/certificates/IDEAXTrackWinnerScanned.jpeg',
     credentialId: 'MBMC-IDEAX-2026-FINTECH-WINNER',
     skills: ['FinTech', 'Hackathon 1st Place', 'Full-Stack MERN', 'System Architecture', 'FinTrace'],
@@ -23,7 +23,6 @@ export const initialCertificatesData: CertificateItem[] = [
     description:
       'Secured 3rd Position nationwide in the BugV Capture The Flag (CTF) cybersecurity competition in collaboration with Swoyambhu International College. Demonstrated advanced offensive and defensive techniques, web vulnerability analysis, and penetration testing.',
     imageUrl: '/certificates/Bugv3rdScanned.jpeg',
-    credentialUrl: 'https://bugv.io',
     skills: ['Capture The Flag', 'OWASP Top 10', 'Penetration Testing', 'Web Security', 'BugV'],
   },
   {
@@ -66,9 +65,9 @@ export const initialCertificatesData: CertificateItem[] = [
     date: 'October 4, 2026',
     category: 'Hackathon',
     description:
-      'Official participation credential at the 36-Hour IdeaX Hackathon 2026 with team FinTrace, executing high-intensity sprint development and deploying distributed fintech application features.',
+      'Official participation credential at the 72-Hour IdeaX Hackathon 2026 with team FinTrace, executing high-intensity sprint development and deploying distributed fintech application features.',
     imageUrl: '/certificates/IDEAXParticipation.jpeg',
-    skills: ['36-Hour Hackathon', 'FinTrace', 'Full-Stack Architecture', 'Agile Sprint'],
+    skills: ['72-Hour Hackathon', 'FinTrace', 'Full-Stack Architecture', 'Agile Sprint'],
   },
   {
     id: 'cert-uiux-workshop',
@@ -103,7 +102,6 @@ export const initialCertificatesData: CertificateItem[] = [
     description:
       'Participated in the GeeksforGeeks Summer Workshop covering foundational software engineering principles, algorithmic problem solving, core computer science concepts, and practical coding best practices.',
     imageUrl: '/certificates/SummerWorkshop.jpeg',
-    credentialUrl: 'https://www.geeksforgeeks.org',
     skills: ['Algorithms', 'Data Structures', 'Problem Solving', 'Computer Science Fundamentals'],
   },
   {

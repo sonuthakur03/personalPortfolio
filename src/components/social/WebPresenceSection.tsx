@@ -95,7 +95,7 @@ export const WebPresenceSection: React.FC = () => {
               Connect &amp; Follow
             </h2>
             <p className="text-base font-archivo font-semibold text-[#111111]/80 dark:text-white/80 max-w-xl mx-auto">
-              Find my open source code, tournament rankings, algorithm benchmarks, and professional network.
+              Find my open-source repositories, engineering case studies, professional network, and direct contact channels.
             </p>
           </div>
         </ScrollReveal>

@@ -48,7 +48,7 @@ export const initialAchievementsData: readonly Achievement[] = [
     date: 'October 4, 2026',
     rankOrAward: '1st Place / FinTech Track Winner (FinTrace)',
     description:
-      'Secured 1st Place / Track Winner in the FinTech Track with team FinTrace at the 36-Hour IdeaX Hackathon. Engineered an algorithmic real-time financial tracking and expense orchestration platform.',
+      'Secured 1st Place / Track Winner in the FinTech Track with team FinTrace at the 72-Hour IdeaX Hackathon. Engineered an algorithmic real-time financial tracking and expense orchestration platform.',
     category: 'hackathon',
     badge: 'IdeaX Winner 🏆',
     isDraft: false,

@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.3] - 2026-10-19
+
+- **Carousel Stage Uniform Height & Cumulative Layout Shift Elimination (`ProjectsSection.tsx`)**:
+  - Eliminated vertical layout jump and lag during card auto-play and manual navigation:
+    - Standardized CTA buttons to a single row (`Blueprint`, `Live Demo` or `Figma UI`, `GitHub` icon button).
+    - Capped displayed architecture stack chips to 5 with a compact `+N more` indicator.
+    - Clamped project descriptions to `line-clamp-3` and normalized title typography to `text-2xl sm:text-3xl lg:text-4xl leading-[1.05]`.
+    - Enforced responsive minimum height enclosure (`min-h-[720px] sm:min-h-[870px] lg:min-h-[580px]`) with `justify-between` and `flex-1` distribution, ensuring all 6 project cards are pixel-identical on desktop (580px), tablet (870px), and mobile (720px).
+- **Accurate Hackathon Duration & CTF Domain Clarification**:
+  - Updated won hackathon (**IdeaX 2026 / Team FinTrace**) duration from 36 hours to **72 hours** across [achievementsData.ts](file:///e:/codes/PersonalPortfolio/src/data/achievementsData.ts), [certificatesData.ts](file:///e:/codes/PersonalPortfolio/src/data/certificatesData.ts), [JourneyTimeline.tsx](file:///e:/codes/PersonalPortfolio/src/components/timeline/JourneyTimeline.tsx), and [README.md](file:///e:/codes/PersonalPortfolio/README.md).
+  - Clarified BugV CTF in [JourneyTimeline.tsx](file:///e:/codes/PersonalPortfolio/src/components/timeline/JourneyTimeline.tsx) as a `48-Hour Continuous CTF Tournament · Solo Non-Team Entry` (corrected from hackathon).
+- **Footer Clean-up & Meta Narrative Pruning (`Footer.tsx`)**:
+  - Removed unauthenticated external root link (`https://bugv.io`) from the Connect column.
+  - Removed self-referential `Crafted in Pop Brutalist Style with React 19 & Vite` text from the bottom bar, replacing it with clean `Kathmandu, Nepal` geolocation.
+  - Pruned unused `ArrowUpRight` import from `Footer.tsx`.
+- **Documentation & Live Link Integration (`README.md`)**:
+  - Embedded live production links ([https://sonuthakur03.com.np](https://sonuthakur03.com.np) and GitHub Pages deployment) directly in the header banner, live preview block, and author contacts.
+
 ## [1.1.2] - 2026-10-19
 
 - **Technical Stack & Skills Arsenal Realignment (`skillsData.ts`, `SkillsSection.tsx`)**:

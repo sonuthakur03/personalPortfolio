@@ -4,17 +4,18 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646cff?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![GSAP](https://img.shields.io/badge/GSAP-3.15-88ce02?style=flat-square&logo=greensock&logoColor=white)](https://gsap.com/)
+[![Live Site](https://img.shields.io/badge/Live_Site-sonuthakur03.com.np-7DFFA6?style=flat-square&logo=googlechrome&logoColor=black)](https://sonuthakur03.com.np/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple?style=flat-square)](LICENSE)
 
-> **Live Preview:** [http://localhost:4173/](http://localhost:4173/)  
+> 🌐 **Live Website:** [https://sonuthakur03.com.np](https://sonuthakur03.com.np)  
+> 🚀 **GitHub Pages Deployment:** [https://sonuthakur03.github.io/personalPortfolio/](https://sonuthakur03.github.io/personalPortfolio/)  
 > **Production Stack:** TypeScript 6.0+, React 19, Vite 8, Tailwind CSS v3, GSAP 3 (ScrollTrigger & Flip), Motion (motion/react), Web Audio API.
 
 ---
 
 ## 🚀 Overview
 
-**Sonu Thakur Personal Portfolio** is an interactive engineering portfolio and system design showcase built to demonstrate production-grade competence across **Full-Stack MERN Architecture**, **Applied AI Engineering (Gemini AI SDK)**, **Application Security (BugV CTF 2026 3rd Place)**, and **Modern Interactive Web Design**.
+**Sonu Thakur Personal Portfolio** is an interactive engineering portfolio and system design showcase built to demonstrate production-grade competence across **Full-Stack MERN Architecture**, **Applied AI Engineering (Gemini AI SDK)**, **Application Security (BugV CTF 2026 3rd Place)**, **Hackathon Innovation (72-Hour IdeaX FinTech Winner)**, and **Modern Interactive Web Design**.
 
 Moving far beyond generic resume websites, every project, skill, and credential is backed by **interactive architectural blueprints (Archify)**, **security threat models (OWASP)**, and **real-time system telemetry**.
 
@@ -172,11 +173,12 @@ This portfolio enforces strict engineering and security standards governed by [`
 
 **Sonu Thakur**  
 *Full-Stack Software Engineer · Applied AI Developer · Security Enthusiast*  
-*Tribhuvan University (BCA Rank 1, 3.63 CGPA) · BugV CTF 2026 (3rd Place)*  
+*IdeaX Hackathon 2026 Winner (FinTech Track) · Tribhuvan University (BCA Rank 1, 3.63 CGPA) · BugV CTF 2026 (3rd Place)*  
 
+* **Live Site:** [https://sonuthakur03.com.np](https://sonuthakur03.com.np)
 * **GitHub:** [@sonuthakur03](https://github.com/sonuthakur03)
 * **LinkedIn:** [Sonu Thakur](https://linkedin.com/in/sonuthakur03)
-* **Email:** [sonuthakur.dev@gmail.com](mailto:sonuthakur.dev@gmail.com)
+* **Email:** [rsonuth789@gmail.com](mailto:rsonuth789@gmail.com)
 
 ---
 

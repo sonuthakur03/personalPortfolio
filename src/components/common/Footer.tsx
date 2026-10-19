@@ -7,7 +7,7 @@
 // - Strictly typed, zero emojis
 
 import React, { useState } from 'react';
-import { Mail, Copy, Check, ArrowUpRight, Shield, FileText } from 'lucide-react';
+import { Mail, Copy, Check, Shield, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './BrandIcons';
 import { usePortfolioContent } from '../../context/PortfolioContentContext';
 import { Link } from 'react-router-dom';
@@ -176,17 +176,6 @@ export const Footer: React.FC = () => {
                   <span>@not_sonuthakur</span>
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://bugv.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-white/80 hover:text-[#7DFFA6] transition-colors"
-                >
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                  <span>BugV CTF Profile</span>
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -225,7 +214,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-wrap items-center justify-between gap-4 font-spaceMono text-xs text-white/50">
           <span>&copy; {new Date().getFullYear()} Sonu Thakur. All rights reserved.</span>
-          <span>Crafted in Pop Brutalist Style with React 19 &amp; Vite</span>
+          <span>Kathmandu, Nepal</span>
         </div>
       </div>
     </footer>
