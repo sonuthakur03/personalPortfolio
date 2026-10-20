@@ -68,7 +68,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg bg-[#FFE14D] dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal-xl p-6 sm:p-8 space-y-6 text-[#111111] dark:text-white"
+        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-[#FFE14D] dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal-xl p-4 sm:p-8 space-y-4 sm:space-y-6 text-[#111111] dark:text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

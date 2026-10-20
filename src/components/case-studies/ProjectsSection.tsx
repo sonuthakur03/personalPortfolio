@@ -368,7 +368,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                       </div>
 
                       {/* Content Body */}
-                      <div className="p-5 sm:p-6 space-y-4">
+                      <div className="p-4 sm:p-6 space-y-3.5 sm:space-y-4">
                         <div>
                           <h3 className="font-archivoBlack text-2xl uppercase tracking-tight text-[#111111] dark:text-white group-hover:text-[#FF6FB5] transition-colors">
                             {project.name}
@@ -397,7 +397,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                     </div>
 
                     {/* Bottom Action Footer */}
-                    <div className="p-5 pt-0 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-white/10 mt-3 pt-4">
+                    <div className="p-4 sm:p-5 pt-0 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-white/10 mt-3 pt-4">
                       <button
                         type="button"
                         onClick={(e) => handleOpenBlueprint(e, project)}
@@ -499,7 +499,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
               onMouseLeave={() => setIsHovered(false)}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="relative min-h-[720px] sm:min-h-[870px] lg:min-h-[580px]"
+              className="relative min-h-[640px] sm:min-h-[820px] lg:min-h-[580px]"
             >
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.article
@@ -509,15 +509,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="w-full min-h-[720px] sm:min-h-[870px] lg:min-h-[580px] flex flex-col justify-between bg-white dark:bg-[#181A20] border-[3px] border-[#111111] shadow-brutal-lg overflow-hidden"
+                  className="w-full min-h-[640px] sm:min-h-[820px] lg:min-h-[580px] flex flex-col justify-between bg-white dark:bg-[#181A20] border-[3px] border-[#111111] shadow-brutal-lg overflow-hidden"
                 >
                   {/* Top Color Banner */}
                   <div
                     style={{ backgroundColor: activeColor.bg }}
-                    className="px-6 py-3 border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between font-spaceMono text-sm font-bold text-[#111111]"
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs sm:text-sm font-bold text-[#111111]"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <span className="bg-[#111111] text-white px-2.5 py-0.5 text-xs">
+                    <div className="flex items-center gap-2 sm:gap-2.5">
+                      <span className="bg-[#111111] text-white px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs">
                         SYSTEM {activeProject.number}
                       </span>
                       <span className="uppercase tracking-wider">{activeProject.category}</span>
@@ -525,7 +525,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                     <span>{activeProject.year}</span>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-6 sm:p-8 lg:p-9 items-center flex-1">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 p-4 sm:p-7 lg:p-9 items-center flex-1">
                     {/* Left: Spec Details */}
                     <div className="lg:col-span-5 space-y-4">
                       <div>
@@ -569,11 +569,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                       </div>
 
                       {/* CTAs (Standardized row) */}
-                      <div className="flex flex-wrap items-center gap-2.5 pt-2">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-2">
                         <button
                           type="button"
                           onClick={(e) => handleOpenBlueprint(e, activeProject)}
-                          className="pop-btn px-4 sm:px-5 py-2.5 bg-[#FF6FB5] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
+                          className="pop-btn px-3.5 sm:px-5 py-2 sm:py-2.5 bg-[#FF6FB5] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
                         >
                           <Layers className="w-4 h-4 shrink-0" />
                           <span>Blueprint</span>
@@ -585,7 +585,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                             href={activeProject.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pop-btn px-4 sm:px-5 py-2.5 bg-[#7DFFA6] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
+                            className="pop-btn px-3.5 sm:px-5 py-2 sm:py-2.5 bg-[#7DFFA6] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
                           >
                             <ExternalLink className="w-4 h-4 shrink-0" />
                             <span>Live Demo</span>
@@ -597,7 +597,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                             href={activeProject.figmaUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pop-btn px-4 sm:px-5 py-2.5 bg-[#FFE14D] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
+                            className="pop-btn px-3.5 sm:px-5 py-2 sm:py-2.5 bg-[#FFE14D] text-[#111111] text-xs sm:text-sm font-spaceMono font-bold gap-1.5 shadow-brutal"
                           >
                             <ExternalLink className="w-4 h-4 shrink-0" />
                             <span>Figma UI</span>
@@ -609,7 +609,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenModal })
                             href={activeProject.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pop-btn p-2.5 bg-white dark:bg-[#111111] text-[#111111] dark:text-white text-xs sm:text-sm font-spaceMono font-bold shadow-brutal"
+                            className="pop-btn p-2 sm:p-2.5 bg-white dark:bg-[#111111] text-[#111111] dark:text-white text-xs sm:text-sm font-spaceMono font-bold shadow-brutal"
                             title="GitHub"
                           >
                             <GithubIcon className="w-4 h-4 shrink-0" />

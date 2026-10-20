@@ -246,7 +246,7 @@ export const CertificationsSection: React.FC = () => {
                   setActiveFilter(cat);
                   setCurrentIndex(0);
                 }}
-                className={`px-3.5 sm:px-5 py-2 border-[3px] border-[#111111] font-spaceMono text-xs sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-2 ${
+                className={`px-3 sm:px-5 py-1.5 sm:py-2 border-[3px] border-[#111111] font-spaceMono text-[11px] sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
                   isActive
                     ? 'shadow-brutal -translate-x-0.5 -translate-y-0.5 text-[#111111]'
                     : 'bg-white dark:bg-[#181A20] text-[#111111] dark:text-white hover:bg-[#FFE14D] dark:hover:bg-[#FFE14D] hover:text-[#111111] dark:hover:text-[#111111] hover:-translate-y-0.5'
@@ -289,7 +289,7 @@ export const CertificationsSection: React.FC = () => {
                   sounds.playClick(750);
                   setSelectedCertIndex(currentIndex);
                 }}
-                className="relative lg:w-3/5 min-h-[360px] sm:min-h-[460px] lg:min-h-[520px] bg-[#0C0D11] border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-[#111111] flex items-center justify-center p-4 sm:p-8 overflow-hidden group cursor-pointer"
+                className="relative lg:w-3/5 min-h-[260px] sm:min-h-[460px] lg:min-h-[520px] bg-[#0C0D11] border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-[#111111] flex items-center justify-center p-3 sm:p-8 overflow-hidden group cursor-pointer"
               >
                 {/* Decorative Top Washi Tape */}
                 <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-30 w-24 h-6 bg-[#FFE14D] border-2 border-[#111111] rotate-[-2deg] shadow-[2px_2px_0_#111111] pointer-events-none" />
@@ -369,7 +369,7 @@ export const CertificationsSection: React.FC = () => {
               </div>
 
               {/* RIGHT COLUMN: Generous Metadata Details Panel (Zero Clipping!) */}
-              <div className="lg:w-2/5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-[#FFFFFF] dark:bg-[#15161C] text-[#111111] dark:text-white">
+              <div className="lg:w-2/5 p-4 sm:p-8 flex flex-col justify-between space-y-4 sm:space-y-6 bg-[#FFFFFF] dark:bg-[#15161C] text-[#111111] dark:text-white">
                 <div className="space-y-4">
                   {/* Category & Status Row */}
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b-2 border-[#111111]/15 dark:border-white/10">

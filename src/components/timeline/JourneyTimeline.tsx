@@ -52,7 +52,7 @@ export const JourneyTimeline: React.FC = () => {
           <ScrollReveal delay={0.05} className="lg:col-span-7">
             <div className="pop-card group relative h-full flex flex-col justify-between overflow-hidden dark:bg-[#181A20]">
               {/* Color Header Banner */}
-              <div className="px-5 py-3 bg-[#7C9BFF] text-[#111111] border-b-[3px] border-[#111111] flex items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-5 py-2.5 sm:py-3 bg-[#7C9BFF] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#111111] text-white px-2 py-0.5 text-[11px]">INTERNSHIP</span>
                   <span className="uppercase">Zidio Development · Remote</span>
@@ -64,7 +64,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Body */}
-              <div className="p-6 space-y-5">
+              <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
                   {/* Left Column: Role Details */}
                   <div className="sm:col-span-7 space-y-3">
@@ -113,7 +113,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Bottom Quick-Action Link */}
-              <div className="p-4 px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex items-center justify-between text-xs font-spaceMono font-bold">
+              <div className="p-3.5 sm:p-4 px-4 sm:px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex flex-wrap items-center justify-between gap-2 text-xs font-spaceMono font-bold">
                 <a
                   href="#projects"
                   onClick={() => sounds.playClick(750)}
@@ -133,7 +133,7 @@ export const JourneyTimeline: React.FC = () => {
           <ScrollReveal delay={0.1} className="lg:col-span-5">
             <div className="pop-card group relative h-full flex flex-col justify-between overflow-hidden dark:bg-[#181A20]">
               {/* Color Header Banner */}
-              <div className="px-5 py-3 bg-[#FFE14D] text-[#111111] border-b-[3px] border-[#111111] flex items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-5 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#111111] text-white px-2 py-0.5 text-[11px]">HACKATHON</span>
                   <span className="uppercase">IdeaX 2026</span>
@@ -144,7 +144,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Body */}
-              <div className="p-6 space-y-4">
+              <div className="p-4 sm:p-6 space-y-4">
                 <div>
                   <h3 className="text-2xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white">
                     FinTech Track Winner
@@ -176,7 +176,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Bottom Quick-Action Link */}
-              <div className="p-4 px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex items-center justify-between text-xs font-spaceMono font-bold">
+              <div className="p-3.5 sm:p-4 px-4 sm:px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex flex-wrap items-center justify-between gap-2 text-xs font-spaceMono font-bold">
                 <a
                   href="#certifications"
                   onClick={() => sounds.playClick(750)}
@@ -196,7 +196,7 @@ export const JourneyTimeline: React.FC = () => {
           <ScrollReveal delay={0.15} className="lg:col-span-5">
             <div className="pop-card group relative h-full flex flex-col justify-between overflow-hidden dark:bg-[#181A20]">
               {/* Color Header Banner */}
-              <div className="px-5 py-3 bg-[#7DFFA6] text-[#111111] border-b-[3px] border-[#111111] flex items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-5 py-2.5 sm:py-3 bg-[#7DFFA6] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#111111] text-white px-2 py-0.5 text-[11px]">SECURITY</span>
                   <span className="uppercase">BugV Cyber Defense</span>
@@ -207,7 +207,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Body */}
-              <div className="p-6 space-y-4">
+              <div className="p-4 sm:p-6 space-y-4">
                 <div>
                   <h3 className="text-2xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white">
                     BugV National CTF 2026
@@ -240,7 +240,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Bottom Quick-Action Link */}
-              <div className="p-4 px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex items-center justify-between text-xs font-spaceMono font-bold">
+              <div className="p-3.5 sm:p-4 px-4 sm:px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex flex-wrap items-center justify-between gap-2 text-xs font-spaceMono font-bold">
                 <a
                   href="#certifications"
                   onClick={() => sounds.playClick(700)}
@@ -260,7 +260,7 @@ export const JourneyTimeline: React.FC = () => {
           <ScrollReveal delay={0.2} className="lg:col-span-7">
             <div className="pop-card group relative h-full flex flex-col justify-between overflow-hidden dark:bg-[#181A20]">
               {/* Color Header Banner */}
-              <div className="px-5 py-3 bg-[#FFB38A] text-[#111111] border-b-[3px] border-[#111111] flex items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-5 py-2.5 sm:py-3 bg-[#FFB38A] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#111111] text-white px-2 py-0.5 text-[11px]">PORTFOLIO</span>
                   <span className="uppercase">Production Platforms</span>
@@ -272,7 +272,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Body */}
-              <div className="p-6 space-y-5">
+              <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-5">
                   {/* Left Column */}
                   <div className="sm:col-span-5 space-y-3">
@@ -327,7 +327,7 @@ export const JourneyTimeline: React.FC = () => {
               </div>
 
               {/* Bottom Quick-Action Link */}
-              <div className="p-4 px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex items-center justify-between text-xs font-spaceMono font-bold">
+              <div className="p-3.5 sm:p-4 px-4 sm:px-6 border-t-[3px] border-[#111111] bg-neutral-50 dark:bg-black/20 flex flex-wrap items-center justify-between gap-2 text-xs font-spaceMono font-bold">
                 <a
                   href="#projects"
                   onClick={() => sounds.playClick(750)}

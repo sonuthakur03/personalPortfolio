@@ -67,19 +67,19 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Copy Email Button */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
             <button
               type="button"
               onClick={handleCopyEmail}
-              className="pop-btn h-[58px] px-6 py-4 bg-[#7DFFA6] text-[#111111] font-spaceMono text-sm font-bold gap-2.5 shadow-brutal-sm cursor-pointer whitespace-nowrap justify-center items-center"
+              className="pop-btn min-h-[52px] sm:h-[58px] px-4 sm:px-6 py-3 sm:py-4 bg-[#7DFFA6] text-[#111111] font-spaceMono text-xs sm:text-sm font-bold gap-2 sm:gap-2.5 shadow-brutal-sm cursor-pointer justify-center items-center"
             >
               {copied ? <Check className="w-4 h-4 shrink-0 text-[#111111]" /> : <Copy className="w-4 h-4 shrink-0" />}
-              <span>{copied ? 'Email Copied!' : email}</span>
+              <span className="truncate">{copied ? 'Email Copied!' : email}</span>
             </button>
 
             <a
               href={`mailto:${email}`}
-              className="pop-btn h-[58px] px-6 py-4 bg-[#FF6FB5] text-[#111111] font-spaceMono text-sm font-bold gap-2.5 shadow-brutal-sm text-center cursor-pointer whitespace-nowrap justify-center items-center"
+              className="pop-btn min-h-[52px] sm:h-[58px] px-4 sm:px-6 py-3 sm:py-4 bg-[#FF6FB5] text-[#111111] font-spaceMono text-xs sm:text-sm font-bold gap-2 sm:gap-2.5 shadow-brutal-sm text-center cursor-pointer justify-center items-center"
             >
               <Mail className="w-4 h-4 shrink-0" />
               <span>Send Message</span>

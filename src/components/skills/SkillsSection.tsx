@@ -29,8 +29,8 @@ const FILTER_OPTIONS: FilterOption[] = [
   { key: 'fundamentals', label: 'CS Fundamentals' },
 ];
 
-// Alternating rotation tilts for playful sticker feel
-const tilts = ['-rotate-2', 'rotate-2', '-rotate-1', 'rotate-3', '-rotate-3', 'rotate-1'];
+// Alternating rotation tilts for playful sticker feel (active on sm+)
+const tilts = ['sm:-rotate-2', 'sm:rotate-2', 'sm:-rotate-1', 'sm:rotate-3', 'sm:-rotate-3', 'sm:rotate-1'];
 
 // Diverse Pop Brutalist liquid filling gradients for each skill card
 const waveGradients = [
@@ -95,7 +95,7 @@ export const SkillsSection: React.FC = () => {
         {/* ================================================================= */}
         {/* POP BRUTALIST FILTER PILLS                                        */}
         {/* ================================================================= */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {FILTER_OPTIONS.map((filter) => {
             const isActive = activeFilter === filter.key;
             const count =
@@ -108,7 +108,7 @@ export const SkillsSection: React.FC = () => {
                 key={filter.key}
                 type="button"
                 onClick={() => handleFilterClick(filter.key)}
-                className={`px-4 sm:px-5 py-2 border-[3px] border-[#111111] font-spaceMono text-xs sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-2 ${
+                className={`px-3 sm:px-5 py-1.5 sm:py-2 border-[3px] border-[#111111] font-spaceMono text-[11px] sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
                   isActive
                     ? 'bg-[#FF6FB5] text-[#111111] shadow-brutal -translate-x-0.5 -translate-y-0.5'
                     : 'bg-white dark:bg-[#181A20] text-[#111111] dark:text-white hover:bg-[#FFE14D] dark:hover:bg-[#FFE14D] hover:text-[#111111] dark:hover:text-[#111111]'

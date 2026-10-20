@@ -18,7 +18,7 @@ export const PullCordTheme: React.FC = () => {
   }, [toggleTheme]);
 
   return (
-    <>
+    <div className="hidden md:block" aria-hidden="false">
       {/* 1. Physics PullCord Rope hanging from top-right */}
       <PullCord
         onPull={switchTheme}
@@ -46,6 +46,6 @@ export const PullCordTheme: React.FC = () => {
           />
         </svg>
       </div>
-    </>
+    </div>
   );
 };

@@ -125,15 +125,17 @@ export const WebPresenceSection: React.FC = () => {
         {/* ================================================================= */}
         {/* POP BRUTALIST SOCIAL CARDS GRID                                   */}
         {/* ================================================================= */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-5xl mx-auto">
-          {profiles.map((item) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-6 max-w-5xl mx-auto">
+          {profiles.map((item, idx) => (
             <a
               key={item.id}
               href={item.url}
               download={item.id === 'resume' ? 'Sonu_Thakur_CV.pdf' : undefined}
               target="_blank"
               rel="noopener noreferrer"
-              className="pop-card group relative flex flex-col items-center justify-center p-6 text-center dark:bg-[#181A20] hover:-translate-y-2 hover:shadow-brutal-lg transition-all duration-200"
+              className={`pop-card group relative flex flex-col items-center justify-center p-4 sm:p-6 text-center dark:bg-[#181A20] hover:-translate-y-2 hover:shadow-brutal-lg transition-all duration-200 ${
+                idx === profiles.length - 1 ? 'col-span-2 sm:col-span-1' : ''
+              }`}
             >
               {/* Icon Container */}
               <div

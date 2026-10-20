@@ -70,7 +70,7 @@ export const EducationSection: React.FC = () => {
           <ScrollReveal delay={0.05} className="lg:col-span-8">
             <div className="pop-card group relative flex flex-col justify-between h-full overflow-hidden dark:bg-[#181A20]">
               {/* Top Color Banner */}
-              <div className="px-6 py-3 bg-[#FFE14D] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#111111] text-white px-2.5 py-0.5 text-[11px]">UNIVERSITY</span>
                   <span className="uppercase">Tribhuvan University (TU) · Kathmandu</span>
@@ -81,7 +81,7 @@ export const EducationSection: React.FC = () => {
               </div>
 
               {/* Main Content */}
-              <div className="p-6 sm:p-8 space-y-6">
+              <div className="p-4 sm:p-8 space-y-5 sm:space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b-[3px] border-[#111111]">
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white">
@@ -229,15 +229,15 @@ export const EducationSection: React.FC = () => {
           <ScrollReveal delay={0.15} className="lg:col-span-4 flex flex-col justify-between gap-6">
             <div className="pop-card group relative flex flex-col justify-between h-full overflow-hidden dark:bg-[#181A20]">
               {/* Top Color Banner */}
-              <div className="px-5 py-3 bg-[#7C9BFF] text-[#111111] border-b-[3px] border-[#111111] flex items-center justify-between font-spaceMono text-xs font-bold">
+              <div className="px-4 sm:px-5 py-2.5 sm:py-3 bg-[#7C9BFF] text-[#111111] border-b-[3px] border-[#111111] flex flex-wrap items-center justify-between gap-2 font-spaceMono text-xs font-bold">
                 <div className="flex items-center gap-2">
-                  <span className="bg-[#111111] text-white px-2 py-0.5 text-[11px]">+2 / NEB</span>
+                  <span className="bg-[#111111] text-white px-2.5 py-0.5 text-[11px]">+2 / NEB</span>
                   <span className="uppercase">Viswa Niketan</span>
                 </div>
                 <span>2021 - 2023</span>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-4 sm:p-6 space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="p-3 bg-white dark:bg-[#111111] border-2 border-[#111111] shadow-brutal-sm">
                     <BookOpen className="w-6 h-6 text-[#7C9BFF]" />

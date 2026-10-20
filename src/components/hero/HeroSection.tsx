@@ -162,7 +162,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
               key={link.label}
               href={link.href}
               onClick={handleScrollTo(link.targetId)}
-              className="pop-pill text-xs sm:text-sm px-3 sm:px-3.5 py-1 sm:py-1.5"
+              className={`pop-pill text-xs sm:text-sm px-3 sm:px-3.5 py-1 sm:py-1.5 ${
+                link.label !== 'Work' ? 'hidden sm:inline-flex' : ''
+              }`}
             >
               {link.label}
             </a>
@@ -279,36 +281,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 pt-1">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 pt-1 w-full sm:w-auto">
             <a
               href="#projects"
               onClick={handleScrollTo('projects')}
-              className="pop-btn pop-btn-pink px-5 sm:px-6 py-2.5 sm:py-3 bg-[#111111] text-white text-sm sm:text-base gap-2.5"
+              className="pop-btn pop-btn-pink w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-[#111111] text-white text-sm sm:text-base justify-center gap-2.5"
             >
               <span>Explore my work</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </a>
 
-            <a
-              href={STANDARD_RESUME_URL}
-              download="Sonu_Thakur_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pop-btn px-5 sm:px-6 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] text-sm sm:text-base gap-2 shadow-brutal hover:bg-[#FFD700] transition-colors"
-              title="Download Sonu Thakur's Curriculum Vitae (PDF)"
-            >
-              <FileText className="w-4 h-4 text-[#111111]" />
-              <span>Download CV</span>
-            </a>
+            <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3 w-full sm:w-auto">
+              <a
+                href={STANDARD_RESUME_URL}
+                download="Sonu_Thakur_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pop-btn px-3 sm:px-6 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] text-xs sm:text-base justify-center gap-1.5 sm:gap-2 shadow-brutal hover:bg-[#FFD700] transition-colors"
+                title="Download Sonu Thakur's Curriculum Vitae (PDF)"
+              >
+                <FileText className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#111111]" />
+                <span>Download CV</span>
+              </a>
 
-            <button
-              type="button"
-              onClick={onOpenContact}
-              className="pop-btn px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-[#111111] text-sm sm:text-base gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>Get in touch</span>
-            </button>
+              <button
+                type="button"
+                onClick={onOpenContact}
+                className="pop-btn px-3 sm:px-6 py-2.5 sm:py-3 bg-white text-[#111111] text-xs sm:text-base justify-center gap-1.5 sm:gap-2"
+              >
+                <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-amber-500" />
+                <span>Get in touch</span>
+              </button>
+            </div>
           </div>
         </section>
 

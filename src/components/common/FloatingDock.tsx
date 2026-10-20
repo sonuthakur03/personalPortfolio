@@ -35,7 +35,12 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({ onOpenContact }) => 
   const { theme, toggleTheme, profile } = usePortfolioContent();
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
-  const [isFolded, setIsFolded] = useState(false);
+  const [isFolded, setIsFolded] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 640;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +80,9 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({ onOpenContact }) => 
 
   const handleNavClick = (href: string) => {
     sounds.playClick(700);
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      setIsFolded(true);
+    }
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -88,7 +96,7 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({ onOpenContact }) => 
   return (
     <aside
       aria-label="Quick navigation dock"
-      className="fixed bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300"
+      className="fixed bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 max-w-[calc(100vw-24px)]"
     >
       <AnimatePresence mode="wait">
         {isFolded ? (

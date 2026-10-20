@@ -247,8 +247,9 @@
 }
 
 @media not all and (min-width: 48rem) {
-  .cord-hint {
-    display: none;
+  .cord-hint,
+  .pullcord {
+    display: none !important;
   }
 }
 
