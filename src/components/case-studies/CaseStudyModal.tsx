@@ -7,7 +7,8 @@
 // - Strictly typed, zero emojis, full accessibility
 
 import React, { useState } from 'react';
-import { X, Maximize2, Minimize2, ExternalLink, Shield, Layers, Cpu, CheckCircle, Laptop, Lightbulb } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { X, Maximize2, Minimize2, ExternalLink, Shield, Layers, Cpu, CheckCircle, Laptop, Lightbulb, BookOpen } from 'lucide-react';
 import { GithubIcon } from '../common/BrandIcons';
 import type { ProjectCaseStudy } from '../../types/projects';
 import { sounds } from '../../utils/soundEffects';
@@ -24,6 +25,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'dashboard' | 'architecture' | 'security' | 'metrics'>('dashboard');
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -82,6 +84,20 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            {/* Dedicated Case Study Page Link */}
+            <button
+              onClick={() => {
+                sounds.playClick(850);
+                onClose();
+                navigate(`/projects/${project.id}`);
+              }}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] hover:shadow-[4px_4px_0_#111111] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none text-xs font-spaceMono font-bold uppercase transition-all cursor-pointer"
+              title="Open full dedicated case study page"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Full Case Study</span>
+            </button>
+
             {/* Outbound Links */}
             {project.liveUrl && (
               <a

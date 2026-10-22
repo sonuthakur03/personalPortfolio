@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "f7b338bc-6c94-41e9-96a8-c7b38fa37e89",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "E:\\codes\\PersonalPortfolio\\.archify\\architecture-fintrace-20261022-102500\\candidate.json",
+  "output": "E:\\codes\\PersonalPortfolio\\public\\architectures\\fintrace.html",
+  "specification": {
+    "sha256": "751cc9f94685585307f7563eaed179b7078d67672ab20fe1ec81d67acf884d33",
+    "bytes": 4091
+  },
+  "artifact": {
+    "sha256": "bd8e20bf4c2eb2683a09d1a64208ee6eed08a8607fb921392729e9c7ebc777a0",
+    "bytes": 764360
+  }
+}

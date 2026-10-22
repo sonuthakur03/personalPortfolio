@@ -104,7 +104,7 @@ export const WebPresenceSection: React.FC = () => {
         {/* NANO BANANA PRO AVATAR CENTERPIECE                                */}
         {/* ================================================================= */}
         <div className="flex flex-col items-center text-center">
-          <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full border-[3px] border-[#111111] shadow-brutal-md overflow-hidden bg-white dark:bg-[#181A20] rotate-2 hover:rotate-0 transition-transform duration-300">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full border-[3px] border-[#111111] shadow-brutal-md overflow-hidden bg-white dark:bg-[#181A20] rotate-2 hover:rotate-0 transition-transform duration-300">
             <img
               src="/character/sonu_avatar_badge.png"
               alt="Sonu Thakur - Nano Banana Pro Avatar Badge"
@@ -112,11 +112,11 @@ export const WebPresenceSection: React.FC = () => {
             />
           </div>
 
-          <div className="mt-4">
-            <h3 className="text-2xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white">
+          <div className="mt-3 sm:mt-4">
+            <h3 className="text-xl sm:text-2xl font-archivoBlack uppercase tracking-tight text-[#111111] dark:text-white">
               {profile?.name || 'Sonu Thakur'}
             </h3>
-            <p className="font-spaceMono text-xs sm:text-sm font-bold text-[#FF6FB5] mt-0.5">
+            <p className="font-spaceMono text-[11px] sm:text-xs md:text-sm font-bold text-[#FF6FB5] mt-0.5">
               @sonuthakur03 · Kathmandu, Nepal
             </p>
           </div>
@@ -125,7 +125,7 @@ export const WebPresenceSection: React.FC = () => {
         {/* ================================================================= */}
         {/* POP BRUTALIST SOCIAL CARDS GRID                                   */}
         {/* ================================================================= */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-6 max-w-5xl mx-auto">
           {profiles.map((item, idx) => (
             <a
               key={item.id}
@@ -133,23 +133,23 @@ export const WebPresenceSection: React.FC = () => {
               download={item.id === 'resume' ? 'Sonu_Thakur_CV.pdf' : undefined}
               target="_blank"
               rel="noopener noreferrer"
-              className={`pop-card group relative flex flex-col items-center justify-center p-4 sm:p-6 text-center dark:bg-[#181A20] hover:-translate-y-2 hover:shadow-brutal-lg transition-all duration-200 ${
-                idx === profiles.length - 1 ? 'col-span-2 sm:col-span-1' : ''
+              className={`pop-card group relative flex flex-col items-center justify-center p-3 sm:p-4 md:p-3.5 lg:p-6 text-center dark:bg-[#181A20] hover:-translate-y-2 hover:shadow-brutal-lg transition-all duration-200 ${
+                idx === profiles.length - 1 ? 'col-span-2 md:col-span-1' : ''
               }`}
             >
               {/* Icon Container */}
               <div
                 style={{ backgroundColor: item.bgColor }}
-                className="w-14 h-14 border-[3px] border-[#111111] shadow-brutal-sm flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-11 md:h-11 lg:w-14 lg:h-14 border-[3px] border-[#111111] shadow-brutal-sm flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 transition-transform group-hover:scale-110"
               >
                 <ProfileIcon type={item.iconType} />
               </div>
 
               {/* Title & Action */}
-              <h4 className="font-archivoBlack text-base uppercase tracking-tight text-[#111111] dark:text-white">
+              <h4 className="font-archivoBlack text-xs sm:text-sm md:text-xs lg:text-base uppercase tracking-tight text-[#111111] dark:text-white">
                 {item.name}
               </h4>
-              <span className="font-spaceMono text-xs font-bold text-[#111111]/60 dark:text-white/60 mt-1">
+              <span className="font-spaceMono text-[10px] sm:text-xs font-bold text-[#111111]/60 dark:text-white/60 mt-0.5 sm:mt-1">
                 {item.action} →
               </span>
             </a>

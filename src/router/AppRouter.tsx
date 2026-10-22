@@ -2,6 +2,7 @@
 import React, { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
+import ProjectDetailPage from '../pages/ProjectDetailPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 // Lazy-load AdminPage so production visitors do not download admin CMS code
@@ -13,6 +14,16 @@ const AppRouter = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/projects/:id',
+    element: <ProjectDetailPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/case-study/:id',
+    element: <ProjectDetailPage />,
     errorElement: <NotFoundPage />,
   },
   {

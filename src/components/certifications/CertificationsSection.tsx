@@ -225,7 +225,7 @@ export const CertificationsSection: React.FC = () => {
         {/* ================================================================= */}
         {/* CATEGORY FILTER PILLS                                             */}
         {/* ================================================================= */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3">
           {categories.map((cat) => {
             const isActive = activeFilter === cat;
             let count = certificates.length;
@@ -246,7 +246,7 @@ export const CertificationsSection: React.FC = () => {
                   setActiveFilter(cat);
                   setCurrentIndex(0);
                 }}
-                className={`px-3 sm:px-5 py-1.5 sm:py-2 border-[3px] border-[#111111] font-spaceMono text-[11px] sm:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-1.5 sm:gap-2 ${
+                className={`px-2.5 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 border-[3px] border-[#111111] font-spaceMono text-[10px] sm:text-xs md:text-sm font-bold uppercase transition-all select-none cursor-pointer flex items-center gap-1 sm:gap-1.5 md:gap-2 ${
                   isActive
                     ? 'shadow-brutal -translate-x-0.5 -translate-y-0.5 text-[#111111]'
                     : 'bg-white dark:bg-[#181A20] text-[#111111] dark:text-white hover:bg-[#FFE14D] dark:hover:bg-[#FFE14D] hover:text-[#111111] dark:hover:text-[#111111] hover:-translate-y-0.5'
@@ -254,7 +254,7 @@ export const CertificationsSection: React.FC = () => {
                 style={isActive ? { backgroundColor: catInfo.bg } : {}}
               >
                 <span>{cat}</span>
-                <span className="text-[10px] px-1.5 py-0.5 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white font-bold">
+                <span className="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.5 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white font-bold">
                   {count}
                 </span>
               </button>
@@ -266,11 +266,11 @@ export const CertificationsSection: React.FC = () => {
         {/* VIEW 1: EXHIBITION STAGE (CINEMATIC HERO SHOWCASE)                */}
         {/* ================================================================= */}
         {viewMode === 'stage' && activeCert && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="bg-white dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal-xl overflow-hidden flex flex-col lg:flex-row relative"
+              className="bg-white dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal-xl overflow-hidden flex flex-col md:flex-row relative"
             >
               {/* Carousel Progress Bar across top edge */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-neutral-200 dark:bg-neutral-800 z-40 overflow-hidden">
@@ -289,10 +289,10 @@ export const CertificationsSection: React.FC = () => {
                   sounds.playClick(750);
                   setSelectedCertIndex(currentIndex);
                 }}
-                className="relative lg:w-3/5 min-h-[260px] sm:min-h-[460px] lg:min-h-[520px] bg-[#0C0D11] border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-[#111111] flex items-center justify-center p-3 sm:p-8 overflow-hidden group cursor-pointer"
+                className="relative md:w-7/12 lg:w-3/5 min-h-[220px] sm:min-h-[300px] md:min-h-[420px] lg:min-h-[500px] bg-[#0C0D11] border-b-[3px] md:border-b-0 md:border-r-[3px] border-[#111111] flex items-center justify-center p-3 sm:p-6 md:p-6 lg:p-8 overflow-hidden group cursor-pointer"
               >
                 {/* Decorative Top Washi Tape */}
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-30 w-24 h-6 bg-[#FFE14D] border-2 border-[#111111] rotate-[-2deg] shadow-[2px_2px_0_#111111] pointer-events-none" />
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-30 w-20 sm:w-24 h-5 sm:h-6 bg-[#FFE14D] border-2 border-[#111111] rotate-[-2deg] shadow-[2px_2px_0_#111111] pointer-events-none" />
 
                 {/* Scanned Document Image with Smooth Carousel Slide Animation */}
                 <AnimatePresence mode="wait">
@@ -304,13 +304,13 @@ export const CertificationsSection: React.FC = () => {
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: -25, scale: 0.98 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="max-h-[440px] w-auto max-w-full object-contain border-2 border-[#111111] shadow-[8px_8px_0_#000] select-none"
+                    className="max-h-[300px] sm:max-h-[380px] md:max-h-[400px] lg:max-h-[440px] w-auto max-w-full object-contain border-2 border-[#111111] shadow-[8px_8px_0_#000] select-none"
                     draggable="false"
                   />
                 </AnimatePresence>
 
                 {/* Carousel Indicator Dots Overlay */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 p-1 bg-black/75 backdrop-blur-sm border-2 border-[#111111] rounded-full shadow-[2px_2px_0_#000]">
+                <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1 sm:gap-1.5 p-1 bg-black/75 backdrop-blur-sm border-2 border-[#111111] rounded-full shadow-[2px_2px_0_#000]">
                   {filteredCertificates.map((cert, dotIdx) => (
                     <button
                       key={cert.id}
@@ -321,10 +321,10 @@ export const CertificationsSection: React.FC = () => {
                         setCurrentIndex(dotIdx);
                       }}
                       title={cert.title}
-                      className={`h-2 rounded-full transition-all cursor-pointer ${
+                      className={`h-1.5 sm:h-2 rounded-full transition-all cursor-pointer ${
                         dotIdx === safeIndex
-                          ? 'w-6 bg-[#FFE14D] border border-[#111111]'
-                          : 'w-2 bg-white/40 hover:bg-white'
+                          ? 'w-4 sm:w-6 bg-[#FFE14D] border border-[#111111]'
+                          : 'w-1.5 sm:w-2 bg-white/40 hover:bg-white'
                       }`}
                     />
                   ))}
@@ -332,8 +332,8 @@ export const CertificationsSection: React.FC = () => {
 
                 {/* Hover Lens Hint */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <span className="pop-btn px-5 py-2.5 bg-white text-[#111111] font-spaceMono font-bold text-xs uppercase gap-2 shadow-brutal">
-                    <Maximize2 className="w-4 h-4" />
+                  <span className="pop-btn px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-[#111111] font-spaceMono font-bold text-[11px] sm:text-xs uppercase gap-2 shadow-brutal">
+                    <Maximize2 className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                     <span>Click for Fullscreen Lightbox</span>
                   </span>
                 </div>
@@ -347,10 +347,10 @@ export const CertificationsSection: React.FC = () => {
                         e.stopPropagation();
                         handlePrev();
                       }}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2.5 bg-white text-[#111111] border-2 border-[#111111] shadow-brutal-sm hover:bg-[#FFE14D] hover:-translate-x-0.5 active:translate-x-0.5 active:shadow-none transition-all cursor-pointer"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 bg-white text-[#111111] border-2 border-[#111111] shadow-brutal-sm hover:bg-[#FFE14D] hover:-translate-x-0.5 active:translate-x-0.5 active:shadow-none transition-all cursor-pointer"
                       aria-label="Previous Certificate"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
 
                     <button
@@ -359,78 +359,78 @@ export const CertificationsSection: React.FC = () => {
                         e.stopPropagation();
                         handleNext();
                       }}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2.5 bg-white text-[#111111] border-2 border-[#111111] shadow-brutal-sm hover:bg-[#FFE14D] hover:translate-x-0.5 active:translate-x-0.5 active:shadow-none transition-all cursor-pointer"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 bg-white text-[#111111] border-2 border-[#111111] shadow-brutal-sm hover:bg-[#FFE14D] hover:translate-x-0.5 active:translate-x-0.5 active:shadow-none transition-all cursor-pointer"
                       aria-label="Next Certificate"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
                   </>
                 )}
               </div>
 
               {/* RIGHT COLUMN: Generous Metadata Details Panel (Zero Clipping!) */}
-              <div className="lg:w-2/5 p-4 sm:p-8 flex flex-col justify-between space-y-4 sm:space-y-6 bg-[#FFFFFF] dark:bg-[#15161C] text-[#111111] dark:text-white">
-                <div className="space-y-4">
+              <div className="md:w-5/12 lg:w-2/5 p-3.5 sm:p-6 md:p-6 lg:p-8 flex flex-col justify-between space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 bg-[#FFFFFF] dark:bg-[#15161C] text-[#111111] dark:text-white">
+                <div className="space-y-3 sm:space-y-4">
                   {/* Category & Status Row */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b-2 border-[#111111]/15 dark:border-white/10">
-                    <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-2 sm:pb-3 border-b-2 border-[#111111]/15 dark:border-white/10">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <span
                         style={{
                           backgroundColor:
                             categoryColors[activeCert.category]?.bg || '#FFE14D',
                         }}
-                        className="px-3 py-1 border-2 border-[#111111] shadow-[2px_2px_0_#111111] text-[#111111] font-spaceMono font-bold text-xs uppercase"
+                        className="px-2.5 sm:px-3 py-0.5 sm:py-1 border-2 border-[#111111] shadow-[2px_2px_0_#111111] text-[#111111] font-spaceMono font-bold text-[10px] sm:text-xs uppercase"
                       >
                         {activeCert.category}
                       </span>
 
                       {activeCert.id === 'cert-ideax-winner-2026' && (
-                        <span className="px-2.5 py-1 bg-[#FFE14D] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] font-archivoBlack text-xs uppercase">
+                        <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#FFE14D] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] font-archivoBlack text-[10px] sm:text-xs uppercase">
                           🏆 1ST PLACE WINNER
                         </span>
                       )}
                       {activeCert.id === 'cert-bugv-ctf-3rd' && (
-                        <span className="px-2.5 py-1 bg-[#7DFFA6] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] font-archivoBlack text-xs uppercase">
+                        <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#7DFFA6] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] font-archivoBlack text-[10px] sm:text-xs uppercase">
                           🛡️ 3RD PODIUM
                         </span>
                       )}
                     </div>
 
-                    <span className="inline-flex items-center gap-1.5 text-xs font-spaceMono font-bold text-[#17A34A]">
-                      <span className="w-2 h-2 rounded-full bg-[#17A34A] animate-pulse" />
+                    <span className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs font-spaceMono font-bold text-[#17A34A]">
+                      <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#17A34A] animate-pulse" />
                       <span>VERIFIED ASSET</span>
                     </span>
                   </div>
 
                   {/* Headline Title */}
-                  <h3 className="font-archivoBlack uppercase text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#111111] dark:text-white leading-[1.05]">
+                  <h3 className="font-archivoBlack uppercase text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl tracking-tight text-[#111111] dark:text-white leading-[1.05]">
                     {activeCert.title}
                   </h3>
 
                   {/* Issuer & Date Strip */}
-                  <div className="flex items-center gap-2 font-spaceMono text-xs font-bold text-[#111111] dark:text-zinc-300">
-                    <ShieldCheck className="w-4 h-4 text-[#17A34A] shrink-0" />
+                  <div className="flex items-center gap-1.5 sm:gap-2 font-spaceMono text-[11px] sm:text-xs font-bold text-[#111111] dark:text-zinc-300">
+                    <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#17A34A] shrink-0" />
                     <span>{activeCert.issuer}</span>
                     <span className="text-zinc-400">·</span>
                     <span className="text-zinc-500 dark:text-zinc-400">{activeCert.date}</span>
                   </div>
 
                   {/* Full Description with Generous Breathing Room */}
-                  <p className="font-archivo text-sm sm:text-base font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  <p className="font-archivo text-xs sm:text-sm md:text-sm lg:text-base font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
                     {activeCert.description}
                   </p>
 
                   {/* Skills Pills */}
                   {activeCert.skills && (
-                    <div className="pt-2">
-                      <span className="block font-spaceMono text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
+                    <div className="pt-1 sm:pt-2">
+                      <span className="block font-spaceMono text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider mb-1.5 sm:mb-2">
                         Technologies &amp; Disciplines
                       </span>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                         {activeCert.skills.map((skill, sIdx) => (
                           <span
                             key={sIdx}
-                            className="px-2.5 py-1 bg-[#F8F6F0] dark:bg-[#1D1F28] border-2 border-[#111111] text-[#111111] dark:text-white font-spaceMono text-xs font-bold shadow-[2px_2px_0_#111111]"
+                            className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#F8F6F0] dark:bg-[#1D1F28] border-2 border-[#111111] text-[#111111] dark:text-white font-spaceMono text-[10px] sm:text-xs font-bold shadow-[2px_2px_0_#111111]"
                           >
                             {skill}
                           </span>
@@ -441,28 +441,28 @@ export const CertificationsSection: React.FC = () => {
 
                   {/* Credential ID Copy Box */}
                   {activeCert.credentialId && (
-                    <div className="p-3 bg-[#F8F6F0] dark:bg-[#1D1F28] border-2 border-[#111111] shadow-[2px_2px_0_#111111] flex items-center justify-between gap-3 text-xs font-spaceMono">
+                    <div className="p-2 sm:p-3 bg-[#F8F6F0] dark:bg-[#1D1F28] border-2 border-[#111111] shadow-[2px_2px_0_#111111] flex items-center justify-between gap-2 sm:gap-3 text-xs font-spaceMono">
                       <div className="overflow-hidden">
-                        <span className="block text-[10px] font-bold text-zinc-500 uppercase">
+                        <span className="block text-[9px] sm:text-[10px] font-bold text-zinc-500 uppercase">
                           Credential Identifier
                         </span>
-                        <span className="block font-bold text-[#111111] dark:text-white truncate">
+                        <span className="block font-bold text-[#111111] dark:text-white truncate text-[11px] sm:text-xs">
                           {activeCert.credentialId}
                         </span>
                       </div>
                       <button
                         type="button"
                         onClick={() => handleCopyId(activeCert.credentialId!)}
-                        className="px-2.5 py-1 bg-white dark:bg-[#111111] text-[#111111] dark:text-white border border-[#111111] text-xs font-bold flex items-center gap-1 hover:bg-[#FFE14D] transition-colors cursor-pointer shrink-0"
+                        className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white dark:bg-[#111111] text-[#111111] dark:text-white border border-[#111111] text-[10px] sm:text-xs font-bold flex items-center gap-1 hover:bg-[#FFE14D] transition-colors cursor-pointer shrink-0"
                       >
                         {copiedId ? (
                           <>
-                            <Check className="w-3.5 h-3.5 text-[#17A34A]" />
+                            <Check className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#17A34A]" />
                             <span>Copied</span>
                           </>
                         ) : (
                           <>
-                            <Copy className="w-3.5 h-3.5" />
+                            <Copy className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                             <span>Copy</span>
                           </>
                         )}
@@ -472,17 +472,17 @@ export const CertificationsSection: React.FC = () => {
                 </div>
 
                 {/* Bottom Stage Action Buttons & Pagination */}
-                <div className="pt-4 border-t-2 border-[#111111]/15 dark:border-white/10 space-y-4">
-                  <div className="flex flex-wrap items-center gap-3">
+                <div className="pt-3 sm:pt-4 border-t-2 border-[#111111]/15 dark:border-white/10 space-y-3 sm:space-y-4">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <button
                       type="button"
                       onClick={() => {
                         sounds.playClick(750);
                         setSelectedCertIndex(currentIndex);
                       }}
-                      className="pop-btn flex-1 py-3 px-4 bg-[#FFE14D] hover:bg-[#ffd61a] text-[#111111] text-xs sm:text-sm font-archivoBlack uppercase gap-2 shadow-brutal"
+                      className="pop-btn flex-1 py-2 sm:py-3 px-3 sm:px-4 bg-[#FFE14D] hover:bg-[#ffd61a] text-[#111111] text-xs sm:text-sm font-archivoBlack uppercase gap-1.5 sm:gap-2 shadow-brutal"
                     >
-                      <Eye className="w-4 h-4" />
+                      <Eye className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                       <span>Inspect Fullscreen</span>
                     </button>
 
@@ -492,25 +492,25 @@ export const CertificationsSection: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => sounds.playClick(850)}
-                        className="pop-btn py-3 px-5 bg-[#7DFFA6] hover:bg-[#68f595] text-[#111111] text-xs sm:text-sm font-archivoBlack uppercase gap-1.5 shadow-brutal shrink-0"
+                        className="pop-btn py-2 sm:py-3 px-3 sm:px-5 bg-[#7DFFA6] hover:bg-[#68f595] text-[#111111] text-xs sm:text-sm font-archivoBlack uppercase gap-1 sm:gap-1.5 shadow-brutal shrink-0"
                         title="Verify credential on official portal"
                       >
                         <span>Verify Online</span>
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                       </a>
                     )}
                   </div>
 
                   {/* Stage Progress Bar & Pagination Controls */}
-                  <div className="flex items-center justify-between text-xs font-spaceMono font-bold text-zinc-600 dark:text-zinc-400 pt-1">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between text-[11px] sm:text-xs font-spaceMono font-bold text-zinc-600 dark:text-zinc-400 pt-0.5 sm:pt-1">
+                    <div className="flex items-center gap-2 sm:gap-3">
                       <button
                         type="button"
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className="p-1.5 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white hover:bg-[#FF6FB5] transition-colors cursor-pointer"
+                        className="p-1 sm:p-1.5 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white hover:bg-[#FF6FB5] transition-colors cursor-pointer"
                         title={isPlaying ? 'Pause Auto-cycle' : 'Auto-cycle Stage'}
                       >
-                        {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+                        {isPlaying ? <Pause className="w-2.5 sm:w-3 h-2.5 sm:h-3" /> : <Play className="w-2.5 sm:w-3 h-2.5 sm:h-3" />}
                       </button>
                       <span>
                         Stage #{String(currentIndex + 1).padStart(2, '0')} of{' '}
@@ -518,14 +518,14 @@ export const CertificationsSection: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1 sm:gap-1.5">
                       <button
                         type="button"
                         onClick={handlePrev}
                         className="p-1 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white hover:bg-[#FFE14D] transition-colors cursor-pointer"
                         aria-label="Previous"
                       >
-                        <ChevronLeft className="w-4 h-4" />
+                        <ChevronLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                       </button>
                       <button
                         type="button"
@@ -533,7 +533,7 @@ export const CertificationsSection: React.FC = () => {
                         className="p-1 border border-[#111111] bg-white dark:bg-[#111111] text-[#111111] dark:text-white hover:bg-[#FFE14D] transition-colors cursor-pointer"
                         aria-label="Next"
                       >
-                        <ChevronRight className="w-4 h-4" />
+                        <ChevronRight className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                       </button>
                     </div>
                   </div>
@@ -542,8 +542,8 @@ export const CertificationsSection: React.FC = () => {
             </div>
 
             {/* FILMSTRIP THUMBNAIL CAROUSEL DOCK */}
-            <div className="p-3 bg-white dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal flex items-center gap-3 overflow-x-auto select-none">
-              <span className="font-spaceMono text-xs font-bold text-zinc-500 uppercase px-2 shrink-0">
+            <div className="p-2 sm:p-3 bg-white dark:bg-[#15161C] border-[3px] border-[#111111] shadow-brutal flex items-center gap-2 sm:gap-3 overflow-x-auto select-none">
+              <span className="font-spaceMono text-[10px] sm:text-xs font-bold text-zinc-500 uppercase px-1.5 sm:px-2 shrink-0">
                 Deck Filmstrip:
               </span>
               {filteredCertificates.map((cert, idx) => {
@@ -558,7 +558,7 @@ export const CertificationsSection: React.FC = () => {
                       sounds.playClick(700 + idx * 20);
                       setCurrentIndex(idx);
                     }}
-                    className={`relative shrink-0 flex items-center gap-2.5 px-3 py-2 border-2 border-[#111111] text-xs font-spaceMono font-bold transition-all cursor-pointer ${
+                    className={`relative shrink-0 flex items-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 sm:py-2 border-2 border-[#111111] text-[10px] sm:text-xs font-spaceMono font-bold transition-all cursor-pointer ${
                       isActive
                         ? 'bg-[#FFE14D] text-[#111111] shadow-[3px_3px_0_#111111] -translate-y-0.5'
                         : 'bg-[#F8F6F0] dark:bg-[#1A1C26] text-[#111111] dark:text-zinc-300 hover:bg-white hover:-translate-y-0.5'
@@ -566,9 +566,9 @@ export const CertificationsSection: React.FC = () => {
                   >
                     <span
                       style={{ backgroundColor: catInfo.bg }}
-                      className="w-2.5 h-2.5 rounded-full border border-[#111111]"
+                      className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full border border-[#111111]"
                     />
-                    <span className="truncate max-w-[140px] uppercase">{cert.title}</span>
+                    <span className="truncate max-w-[110px] sm:max-w-[140px] uppercase">{cert.title}</span>
                   </button>
                 );
               })}
@@ -580,7 +580,7 @@ export const CertificationsSection: React.FC = () => {
         {/* VIEW 2: UNIFORM ARCHIVAL CATALOG GRID (BALANCED 3-COLUMN LAYOUT)  */}
         {/* ================================================================= */}
         {viewMode === 'grid' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-7">
             {filteredCertificates.map((cert, index) => {
               const catInfo = categoryColors[cert.category] || { bg: '#FFE14D', text: '#111' };
 

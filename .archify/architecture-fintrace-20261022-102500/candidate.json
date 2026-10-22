@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "FinTrace — Algorithmic FinTech & Real-Time Ledger Architecture",
+    "subtitle": "IdeaX Hackathon 1st Place: Double-Entry Ledger, Category Clustering & Financial Telemetry",
+    "output": "fintrace.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "client", "type": "frontend", "label": "Client Dashboard", "sublabel": "React + Tailwind UI", "pos": [40, 280], "size": [130, 60] },
+    { "id": "auth", "type": "security", "label": "Auth & RBAC", "sublabel": "JWT & Payload Signing", "pos": [240, 130], "size": [130, 60], "tag": "Zero Trust" },
+    { "id": "gateway", "type": "security", "label": "API Gateway", "sublabel": "Rate Limit + Idempotency", "pos": [240, 280], "size": [130, 60], "tag": "Hardened" },
+    { "id": "ledger_engine", "type": "backend", "label": "Ledger Engine", "sublabel": "Double-Entry Balance Core", "pos": [450, 280], "size": [140, 60], "tag": "Atomic Core" },
+    { "id": "clustering", "type": "backend", "label": "Category Classifier", "sublabel": "Heuristic & Rule Engine", "pos": [450, 130], "size": [140, 60] },
+    { "id": "db", "type": "database", "label": "Transactional DB", "sublabel": "MongoDB ACID Ledger", "pos": [730, 280], "size": [140, 60], "tag": "ACID Compliant" },
+    { "id": "telemetry", "type": "backend", "label": "Telemetry & Burn Rate", "sublabel": "Real-time Metrics Aggregator", "pos": [730, 130], "size": [140, 60] },
+    { "id": "banking_mock", "type": "external", "label": "Banking Sandbox Mock", "sublabel": "Deterministic Webhook Sync", "pos": [450, 430], "size": [140, 60], "tag": "Sandbox Fixture" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "FinTrace Core Banking & Ledger Boundary", "wraps": ["gateway", "ledger_engine", "auth", "clustering", "telemetry", "db"] },
+    { "kind": "security-group", "label": "Double-Entry Ledger & ACID Safety", "wraps": ["gateway", "ledger_engine", "db"] }
+  ],
+  "connections": [
+    { "id": "client-to-gateway", "from": "client", "to": "gateway", "label": "HTTPS REST", "variant": "emphasis" },
+    { "id": "gateway-to-auth", "from": "gateway", "to": "auth", "label": "validate JWT", "variant": "security", "fromSide": "top", "toSide": "bottom" },
+    { "id": "gateway-to-ledger", "from": "gateway", "to": "ledger_engine", "label": "idempotent tx", "variant": "default" },
+    { "id": "ledger-to-clustering", "from": "ledger_engine", "to": "clustering", "label": "categorize entry", "fromSide": "top", "toSide": "bottom" },
+    { "id": "clustering-to-telemetry", "from": "clustering", "to": "telemetry", "label": "tagged spend", "fromSide": "right", "toSide": "left" },
+    { "id": "telemetry-to-db", "from": "telemetry", "to": "db", "label": "aggregate metrics", "fromSide": "bottom", "toSide": "top" },
+    { "id": "ledger-to-db", "from": "ledger_engine", "to": "db", "label": "atomic debit/credit", "fromSide": "right", "toSide": "left", "variant": "emphasis" },
+    { "id": "ledger-to-mock", "from": "ledger_engine", "to": "banking_mock", "label": "sync statement", "fromSide": "bottom", "toSide": "top" },
+    { "id": "mock-to-db", "from": "banking_mock", "to": "db", "label": "reconcile feeds", "fromSide": "right", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Security & Financial Integrity", "items": ["Double-entry ledger design ensuring zero unverified balance drift across accounts", "Idempotency keys on write endpoints preventing accidental double-charging during network drops"] },
+    { "dot": "cyan", "title": "Algorithmic Classification & Telemetry", "items": ["Sub-millisecond rule-based transaction classification grouping merchant records cleanly", "Rolling burn-rate and financial runway metrics calculated in real-time without batch blocking"] },
+    { "dot": "emerald", "title": "Hackathon Reality & Sandbox Mocks", "items": ["Winner of IdeaX 2026 FinTech track (72-hour rapid prototyping & presentation)", "Simulated sandbox banking gateway using deterministic mock fixtures for realistic audit demonstrations"] }
+  ]
+}

@@ -34,9 +34,10 @@ export interface ProjectTheme {
 
 export const projectThemes: Record<string, ProjectTheme> = {
   'project-loop': { bg: '#FF6FB5', text: '#111111', badge: 'bg-[#FF6FB5]' },
+  'fintrace': { bg: '#FFE14D', text: '#111111', badge: 'bg-[#FFE14D]' },
   'cricket-nepal': { bg: '#7DFFA6', text: '#111111', badge: 'bg-[#7DFFA6]' },
   'public-care': { bg: '#7C9BFF', text: '#111111', badge: 'bg-[#7C9BFF]' },
-  'study-track': { bg: '#FFE14D', text: '#111111', badge: 'bg-[#FFE14D]' },
+  'study-track': { bg: '#FDE047', text: '#111111', badge: 'bg-[#FDE047]' },
   'quizify': { bg: '#FFB38A', text: '#111111', badge: 'bg-[#FFB38A]' },
   'travel-np': { bg: '#B9C8FF', text: '#111111', badge: 'bg-[#B9C8FF]' },
 };
@@ -69,6 +70,14 @@ const labProjectMeta: Record<string, LabProjectMeta> = {
     type: 'AI Ingestion & NLP Platform',
     systemStatus: 'VERIFIED ACID TRANSACTIONS',
     buildCode: 'BUILD 2026.07 · LOOP-AI-01',
+  },
+  'fintrace': {
+    name: 'FINTRACE',
+    shortDescription: 'Algorithmic FinTech & Real-Time Ledger Engine',
+    category: 'FinTech & MERN',
+    type: 'Ledger Engine & Financial Telemetry',
+    systemStatus: 'DOUBLE-ENTRY ATOMIC LEDGER',
+    buildCode: 'BUILD 2026.10 · IDEAX-WINNER-02',
   },
   'cricket-nepal': {
     name: 'CRICKETNEPAL',

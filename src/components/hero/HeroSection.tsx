@@ -233,9 +233,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
       </header>
 
       {/* ── MAIN HERO STAGE ── */}
-      <main className="relative z-20 flex-1 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 xl:gap-12 px-4 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-4 max-w-7xl mx-auto w-full">
+      <main className="relative z-20 flex-1 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-10 xl:gap-12 px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 max-w-7xl mx-auto w-full">
         {/* LEFT COLUMN: Typography & Identity */}
-        <section className="flex-1 min-w-[280px] max-w-xl flex flex-col gap-3.5 sm:gap-4 lg:gap-5 text-left">
+        <section className="flex-1 min-w-[260px] sm:min-w-[280px] max-w-xl flex flex-col gap-3 sm:gap-3.5 md:gap-4 lg:gap-5 text-left">
           {/* Availability Sticker Badge */}
           <div className="self-start inline-flex items-center gap-2 px-3 py-1 bg-white border-[3px] border-[#111111] rounded-full shadow-brutal font-spaceMono text-xs font-bold uppercase -rotate-2 hover:rotate-0 transition-transform select-none">
             <span className="w-2 h-2 rounded-full bg-[#17A34A] border border-[#111111] animate-pulse" />
@@ -243,21 +243,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
           </div>
 
           {/* Display Title */}
-          <h1 className="font-archivoBlack uppercase text-4xl sm:text-5xl lg:text-[3.6rem] xl:text-[4.5rem] 2xl:text-[5rem] leading-[0.93] tracking-tight text-[#111111] select-none">
-            Full stack
-            <br />
+          <h1 className="font-archivoBlack uppercase text-3xl sm:text-4xl md:text-[2.6rem] lg:text-[3.5rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight text-[#111111] select-none flex flex-col leading-[1.08] gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5">
+            <span>Full stack</span>
             <span className="text-white text-stroke-pop">developer</span>
           </h1>
 
           {/* Dynamic Clickable Word Cycler */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-archivoBlack text-xl sm:text-2xl lg:text-3xl leading-tight">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 md:gap-3 font-archivoBlack text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight">
             <span>building</span>
             <button
               type="button"
               onClick={handleNextWord}
               aria-label="Change the word"
               style={{ backgroundColor: cyclerBg }}
-              className="px-3 sm:px-4 py-0.5 sm:py-1 text-[#111111] border-[3px] border-[#111111] shadow-brutal font-archivoBlack text-inherit cursor-pointer -rotate-2 hover:rotate-0 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all select-none"
+              className="px-2.5 sm:px-3 md:px-4 py-0.5 sm:py-1 text-[#111111] border-[3px] border-[#111111] shadow-brutal font-archivoBlack text-inherit cursor-pointer -rotate-2 hover:rotate-0 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all select-none"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -276,55 +275,53 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
           </div>
 
           {/* Bio Description */}
-          <p className="max-w-lg text-sm sm:text-base lg:text-[1.05rem] font-semibold leading-relaxed text-[#111111]">
+          <p className="max-w-lg text-xs sm:text-sm md:text-base lg:text-[1.05rem] font-semibold leading-relaxed text-[#111111]">
             I&apos;m a Full-Stack MERN Developer specializing in production-grade web applications, ACID-compliant transactional APIs, and Applied AI systems.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 pt-1 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1 w-full">
             <a
               href="#projects"
               onClick={handleScrollTo('projects')}
-              className="pop-btn pop-btn-pink w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-[#111111] text-white text-sm sm:text-base justify-center gap-2.5"
+              className="pop-btn pop-btn-pink px-4 sm:px-6 py-2.5 sm:py-3 bg-[#111111] text-white text-xs sm:text-sm md:text-base justify-center gap-2 sm:gap-2.5 shadow-brutal"
             >
               <span>Explore my work</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </a>
 
-            <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3 w-full sm:w-auto">
-              <a
-                href={STANDARD_RESUME_URL}
-                download="Sonu_Thakur_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pop-btn px-3 sm:px-6 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] text-xs sm:text-base justify-center gap-1.5 sm:gap-2 shadow-brutal hover:bg-[#FFD700] transition-colors"
-                title="Download Sonu Thakur's Curriculum Vitae (PDF)"
-              >
-                <FileText className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#111111]" />
-                <span>Download CV</span>
-              </a>
+            <a
+              href={STANDARD_RESUME_URL}
+              download="Sonu_Thakur_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pop-btn px-4 sm:px-6 py-2.5 sm:py-3 bg-[#FFE14D] text-[#111111] text-xs sm:text-sm md:text-base justify-center gap-1.5 sm:gap-2 shadow-brutal hover:bg-[#FFD700] transition-colors"
+              title="Download Sonu Thakur's Curriculum Vitae (PDF)"
+            >
+              <FileText className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#111111]" />
+              <span>Download CV</span>
+            </a>
 
-              <button
-                type="button"
-                onClick={onOpenContact}
-                className="pop-btn px-3 sm:px-6 py-2.5 sm:py-3 bg-white text-[#111111] text-xs sm:text-base justify-center gap-1.5 sm:gap-2"
-              >
-                <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-amber-500" />
-                <span>Get in touch</span>
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onOpenContact}
+              className="pop-btn px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-[#111111] text-xs sm:text-sm md:text-base justify-center gap-1.5 sm:gap-2 shadow-brutal"
+            >
+              <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-amber-500" />
+              <span>Get in touch</span>
+            </button>
           </div>
         </section>
 
         {/* RIGHT COLUMN: Polaroid Frame & Pop Stickers */}
         <section
           aria-label="Portrait and tools"
-          className="shrink-0 w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[370px] flex flex-col items-center gap-3 sm:gap-4 mx-auto lg:mx-0"
+          className="shrink-0 w-full max-w-[250px] sm:max-w-[280px] md:max-w-[300px] lg:max-w-[340px] xl:max-w-[370px] flex flex-col items-center gap-2.5 sm:gap-3.5 md:gap-4 mx-auto md:mx-0"
         >
           {/* Tilted Polaroid Frame */}
           <div className="w-full bg-white border-[3px] border-[#111111] shadow-brutal-lg rotate-2 hover:rotate-0 transition-transform duration-300">
             {/* Image Container */}
-            <div className="relative aspect-[4/3.7] border-b-[3px] border-[#111111] bg-[#F7F7F7] overflow-hidden flex items-center justify-center p-2.5 sm:p-3">
+            <div className="relative aspect-[4/3.7] border-b-[3px] border-[#111111] bg-[#F7F7F7] overflow-hidden flex items-center justify-center p-2 sm:p-2.5 md:p-3">
               {/* Subtle background blueprint stripes */}
               <div
                 className="absolute inset-0 opacity-15"
@@ -360,20 +357,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
             </div>
 
             {/* Bottom Caption Bar */}
-            <div className="flex flex-wrap justify-between items-center gap-1.5 px-3 py-2 font-spaceMono text-xs font-bold text-[#111111]">
+            <div className="flex flex-wrap justify-between items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 font-spaceMono text-[11px] sm:text-xs font-bold text-[#111111]">
               <span>Sonu Thakur</span>
               <span>Kathmandu · {kathmanduTime}</span>
             </div>
           </div>
 
           {/* Pop Sticker Cluster */}
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-[360px]">
-            <div className="pop-sticker bg-[#FF6FB5] -rotate-3 text-[11px] sm:text-xs !py-1 !px-2.5">MERN</div>
-            <div className="pop-sticker bg-[#FFE14D] rotate-2 text-[11px] sm:text-xs !py-1 !px-2.5 font-bold">PYTHON</div>
-            <div className="pop-sticker bg-[#7C9BFF] -rotate-2 text-[11px] sm:text-xs !py-1 !px-2.5">APPLIED AI</div>
-            <div className="pop-sticker bg-[#7DFFA6] rotate-3 text-[11px] sm:text-xs !py-1 !px-2.5">TYPESCRIPT</div>
-            <div className="pop-sticker bg-white -rotate-3 text-[11px] sm:text-xs !py-1 !px-2.5">HACKATHON WINNER 🏆</div>
-            <div className="pop-sticker bg-[#FFB38A] rotate-2 text-[11px] sm:text-xs !py-1 !px-2.5">TU BCA RANK 1</div>
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5 md:gap-2 max-w-[360px]">
+            <div className="pop-sticker bg-[#FF6FB5] -rotate-3 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5">MERN</div>
+            <div className="pop-sticker bg-[#FFE14D] rotate-2 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5 font-bold">PYTHON</div>
+            <div className="pop-sticker bg-[#7C9BFF] -rotate-2 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5">APPLIED AI</div>
+            <div className="pop-sticker bg-[#7DFFA6] rotate-3 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5">TYPESCRIPT</div>
+            <div className="pop-sticker bg-white -rotate-3 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5">HACKATHON WINNER 🏆</div>
+            <div className="pop-sticker bg-[#FFB38A] rotate-2 text-[10px] sm:text-[11px] md:text-xs !py-0.5 sm:!py-1 !px-2 sm:!px-2.5">TU BCA RANK 1</div>
           </div>
         </section>
       </main>

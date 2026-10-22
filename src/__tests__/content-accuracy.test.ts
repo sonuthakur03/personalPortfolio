@@ -23,8 +23,8 @@ describe('Content Accuracy & CV Alignment Protocol', () => {
     expect(initialProfileData.ctfAchievement).toContain('3rd Place');
   });
 
-  it('validates all 6 flagship projects have verified assets and architecture blueprints', () => {
-    expect(labProjects.length).toBe(6);
+  it('validates all flagship projects have verified assets and architecture blueprints', () => {
+    expect(labProjects.length).toBe(7);
 
     for (const project of labProjects) {
       expect(project.id).toBeTruthy();
