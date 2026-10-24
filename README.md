@@ -6,10 +6,10 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Motion](https://img.shields.io/badge/Motion-14.0-black?style=flat-square&logo=framer&logoColor=white)](https://motion.dev/)
 [![Vitest](https://img.shields.io/badge/Vitest-5.0-FCC72B?style=flat-square&logo=vitest&logoColor=black)](https://vitest.dev/)
-[![Live Site](https://img.shields.io/badge/Live_Site-sonuthakur03.com.np-7DFFA6?style=flat-square&logo=googlechrome&logoColor=black)](https://sonuthakur03.com.np/)
+[![Live Site](https://img.shields.io/badge/Live_Site-sonuthakur.info.np-7DFFA6?style=flat-square&logo=googlechrome&logoColor=black)](https://sonuthakur.info.np/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple?style=flat-square)](LICENSE)
 
-> 🌐 **Live Production Website:** [https://sonuthakur03.com.np](https://sonuthakur03.com.np)  
+> 🌐 **Live Production Website:** [https://sonuthakur.info.np](https://sonuthakur.info.np)  
 > 🚀 **GitHub Pages Mirror:** [https://sonuthakur03.github.io/personalPortfolio/](https://sonuthakur03.github.io/personalPortfolio/)  
 > 🛠️ **Core Stack:** React 19, TypeScript 6.0+, Vite 8, Tailwind CSS v3, Motion (`motion/react`), Pullcord, Web Audio API, Vitest.
 
@@ -145,7 +145,7 @@ PersonalPortfolio/
 │   ├── character/              # Nano Banana Pro developer workspace avatars
 │   ├── cv/                     # Verified Curriculum Vitae (1-page & 2-page PDFs)
 │   ├── projects/               # Modern optimized WebP flagship previews
-│   └── CNAME                   # Custom domain mapping (sonuthakur03.com.np)
+│   └── CNAME                   # Custom domain mapping (sonuthakur.info.np)
 ├── src/
 │   ├── components/
 │   │   ├── case-studies/       # ProjectsSection, CaseStudyModal
@@ -254,7 +254,7 @@ This repository enforces strict engineering security standards:
 *Full-Stack Software Engineer · Applied AI Developer · Application Security Enthusiast*  
 *72-Hour IdeaX Hackathon 2026 Winner (FinTech Track) · Tribhuvan University BCA Rank 1 (3.63 CGPA) · BugV CTF 2026 (3rd Place Podium)*  
 
-* **Live Portfolio:** [https://sonuthakur03.com.np](https://sonuthakur03.com.np)
+* **Live Portfolio:** [https://sonuthakur.info.np](https://sonuthakur.info.np)
 * **GitHub:** [@sonuthakur03](https://github.com/sonuthakur03)
 * **LinkedIn:** [linkedin.com/in/sonuthakur03](https://linkedin.com/in/sonuthakur03)
 * **Instagram:** [@not_sonuthakur](https://www.instagram.com/not_sonuthakur?srtk=MWNpZmwzcnN0cWV5aA==)
