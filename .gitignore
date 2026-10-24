@@ -62,3 +62,6 @@ Thumbs.db
 
 # Agent directory
 .agents/
+
+# Cloudflare Wrangler
+.wrangler/
