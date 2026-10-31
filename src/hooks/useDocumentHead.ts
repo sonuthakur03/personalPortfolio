@@ -78,3 +78,4 @@ export function useDocumentHead({
     };
   }, [title, description, canonicalUrl, ogImage]);
 }
+
