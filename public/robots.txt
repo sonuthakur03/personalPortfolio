@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+# Sitemaps
+Sitemap: https://sonuthakur.info.np/sitemap.xml
+Host: https://sonuthakur.info.np

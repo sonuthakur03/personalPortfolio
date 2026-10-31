@@ -16,9 +16,18 @@ import { WebPresenceSection } from '../components/social/WebPresenceSection';
 import { EducationSection } from '../components/education/EducationSection';
 import { PullCordTheme } from '../components/common/PullCordTheme';
 import { usePortfolioContent } from '../context/PortfolioContentContext';
+import { useDocumentHead } from '../hooks/useDocumentHead';
 import type { ProjectCaseStudy } from '../types/projects';
 
 const HomePage: React.FC = () => {
+  useDocumentHead({
+    title: 'Sonu Thakur | Full-Stack Developer',
+    description:
+      "Explore Sonu Thakur's portfolio featuring full-stack development, AI-powered applications, and software projects.",
+    canonicalUrl: 'https://sonuthakur.info.np/',
+    ogImage: 'https://sonuthakur.info.np/og-image.png',
+  });
+
   const { visibleProjects } = usePortfolioContent();
   const [selectedModalProject, setSelectedModalProject] = useState<ProjectCaseStudy | null>(null);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);

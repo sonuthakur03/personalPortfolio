@@ -244,6 +244,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
 
           {/* Display Title */}
           <h1 className="font-archivoBlack uppercase text-3xl sm:text-4xl md:text-[2.6rem] lg:text-[3.5rem] xl:text-[4.5rem] 2xl:text-[5rem] tracking-tight text-[#111111] select-none flex flex-col leading-[1.08] gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5">
+            <span className="sr-only">Sonu Thakur — </span>
             <span>Full stack</span>
             <span className="text-white text-stroke-pop">developer</span>
           </h1>

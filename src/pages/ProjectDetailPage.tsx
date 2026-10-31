@@ -34,6 +34,7 @@ import { STANDARD_RESUME_URL, DEFAULT_EMAIL, DEFAULT_GITHUB, DEFAULT_LINKEDIN } 
 import { PullCordTheme } from '../components/common/PullCordTheme';
 import { ScrollProgressBar } from '../components/common/ScrollProgressBar';
 import { sounds } from '../utils/soundEffects';
+import { useDocumentHead } from '../hooks/useDocumentHead';
 import type { ProjectCaseStudy } from '../types/projects';
 
 const ProjectDetailPage: React.FC = () => {
@@ -49,6 +50,15 @@ const ProjectDetailPage: React.FC = () => {
 
   const currentIndex = projectsData.findIndex((p) => p.id === id);
   const project: ProjectCaseStudy | undefined = projectsData[currentIndex];
+
+  useDocumentHead({
+    title: project
+      ? `${project.title} — Case Study | Sonu Thakur`
+      : 'Project Not Found | Sonu Thakur',
+    description: project?.summary,
+    canonicalUrl: project ? `https://sonuthakur.info.np/projects/${project.id}` : undefined,
+    ogImage: project?.image ? `https://sonuthakur.info.np${project.image}` : undefined,
+  });
 
   if (!project) {
     return (

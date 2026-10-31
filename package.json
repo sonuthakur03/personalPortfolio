@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "capture:og": "node scripts/capture-og.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.52.0",
