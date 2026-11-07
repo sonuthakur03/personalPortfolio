@@ -110,6 +110,11 @@ export const Footer: React.FC = () => {
             </span>
             <ul className="space-y-2">
               <li>
+                <Link to="/blog" className="text-[#FFE14D] hover:underline font-bold transition-colors">
+                  → Engineering Blog &amp; Notes
+                </Link>
+              </li>
+              <li>
                 <a href="#projects" className="text-white/80 hover:text-[#FF6FB5] transition-colors">
                   → Work &amp; Projects
                 </a>

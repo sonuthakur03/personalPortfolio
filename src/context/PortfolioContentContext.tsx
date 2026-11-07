@@ -14,9 +14,6 @@ import { initialSkillsData } from '../data/skillsData';
 interface ContentContextType {
   theme: 'dark' | 'light';
   toggleTheme: () => void;
-  isAdminAuthenticated: boolean;
-  authenticateAdmin: (passkey: string) => boolean;
-  logoutAdmin: () => void;
   profile: ProfileData;
   updateProfile: (updated: ProfileData) => void;
   projects: readonly ProjectCaseStudy[];
@@ -39,14 +36,10 @@ interface ContentContextType {
 
 const STORAGE_KEYS = {
   THEME: 'sonu_portfolio_theme',
-  ADMIN_AUTH: 'sonu_portfolio_admin_auth',
   PROFILE: 'sonu_portfolio_profile',
   PROJECTS: 'sonu_portfolio_projects',
   ACHIEVEMENTS: 'sonu_portfolio_achievements',
 };
-
-// Default Admin passkey is 'sonu2026' or 'admin'
-const ADMIN_PASSKEY = 'sonu2026';
 
 const PortfolioContentContext = createContext<ContentContextType | undefined>(undefined);
 
@@ -73,25 +66,6 @@ export const PortfolioContentProvider: React.FC<{ children: React.ReactNode }> =
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  // Admin Auth state
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
-    return sessionStorage.getItem(STORAGE_KEYS.ADMIN_AUTH) === 'true';
-  });
-
-  const authenticateAdmin = (passkey: string): boolean => {
-    if (passkey.trim() === ADMIN_PASSKEY || passkey.trim() === 'admin') {
-      setIsAdminAuthenticated(true);
-      sessionStorage.setItem(STORAGE_KEYS.ADMIN_AUTH, 'true');
-      return true;
-    }
-    return false;
-  };
-
-  const logoutAdmin = () => {
-    setIsAdminAuthenticated(false);
-    sessionStorage.removeItem(STORAGE_KEYS.ADMIN_AUTH);
-  };
-
   // Profile state
   const [profile, setProfile] = useState<ProfileData>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.PROFILE);
@@ -109,35 +83,31 @@ export const PortfolioContentProvider: React.FC<{ children: React.ReactNode }> =
     return saved ? JSON.parse(saved) : projectsData;
   });
 
-  const saveProjects = (nextProjects: readonly ProjectCaseStudy[]) => {
-    setProjects(nextProjects);
-    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(nextProjects));
-  };
+  const visibleProjects = projects.filter((p) => !p.isHidden);
 
   const addProject = (project: ProjectCaseStudy) => {
-    saveProjects([project, ...projects]);
+    const updated = [project, ...projects];
+    setProjects(updated);
+    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
   };
 
-  const updateProject = (id: string, updated: Partial<ProjectCaseStudy>) => {
-    saveProjects(
-      projects.map((p) => (p.id === id ? { ...p, ...updated } : p))
-    );
+  const updateProject = (id: string, updatedFields: Partial<ProjectCaseStudy>) => {
+    const updated = projects.map((p) => (p.id === id ? { ...p, ...updatedFields } : p));
+    setProjects(updated);
+    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
   };
 
   const deleteProject = (id: string) => {
-    saveProjects(projects.filter((p) => p.id !== id));
+    const updated = projects.filter((p) => p.id !== id);
+    setProjects(updated);
+    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
   };
 
   const toggleProjectVisibility = (id: string) => {
-    saveProjects(
-      projects.map((p) =>
-        p.id === id ? { ...p, isHidden: !p.isHidden, isDraft: !p.isDraft } : p
-      )
-    );
+    const updated = projects.map((p) => (p.id === id ? { ...p, isHidden: !p.isHidden } : p));
+    setProjects(updated);
+    localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
   };
-
-  // Filtered public view: hide drafts and hidden items
-  const visibleProjects = projects.filter((p) => !p.isHidden && !p.isDraft);
 
   // Achievements state
   const [achievements, setAchievements] = useState<readonly Achievement[]>(() => {
@@ -145,39 +115,35 @@ export const PortfolioContentProvider: React.FC<{ children: React.ReactNode }> =
     return saved ? JSON.parse(saved) : initialAchievementsData;
   });
 
-  const saveAchievements = (next: readonly Achievement[]) => {
-    setAchievements(next);
-    localStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(next));
-  };
+  const visibleAchievements = achievements.filter((a) => !a.isHidden);
 
   const addAchievement = (achievement: Achievement) => {
-    saveAchievements([achievement, ...achievements]);
+    const updated = [achievement, ...achievements];
+    setAchievements(updated);
+    localStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(updated));
   };
 
-  const updateAchievement = (id: string, updated: Partial<Achievement>) => {
-    saveAchievements(
-      achievements.map((a) => (a.id === id ? { ...a, ...updated } : a))
-    );
+  const updateAchievement = (id: string, updatedFields: Partial<Achievement>) => {
+    const updated = achievements.map((a) => (a.id === id ? { ...a, ...updatedFields } : a));
+    setAchievements(updated);
+    localStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(updated));
   };
 
   const deleteAchievement = (id: string) => {
-    saveAchievements(achievements.filter((a) => a.id !== id));
+    const updated = achievements.filter((a) => a.id !== id);
+    setAchievements(updated);
+    localStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(updated));
   };
 
   const toggleAchievementVisibility = (id: string) => {
-    saveAchievements(
-      achievements.map((a) =>
-        a.id === id ? { ...a, isHidden: !a.isHidden, isDraft: !a.isDraft } : a
-      )
-    );
+    const updated = achievements.map((a) => (a.id === id ? { ...a, isHidden: !a.isHidden } : a));
+    setAchievements(updated);
+    localStorage.setItem(STORAGE_KEYS.ACHIEVEMENTS, JSON.stringify(updated));
   };
 
-  // Filtered public view
-  const visibleAchievements = achievements.filter((a) => !a.isHidden && !a.isDraft);
-
-  // Static reference lists
-  const aiCounterparts = initialAICounterparts;
-  const skills = initialSkillsData;
+  // AI Counterparts & Skills (Read-only managed domain objects)
+  const [aiCounterparts] = useState<readonly AICounterpart[]>(initialAICounterparts);
+  const [skills] = useState<readonly SkillCategory[]>(initialSkillsData);
 
   const resetToDefaults = () => {
     localStorage.removeItem(STORAGE_KEYS.PROFILE);
@@ -188,12 +154,13 @@ export const PortfolioContentProvider: React.FC<{ children: React.ReactNode }> =
     setAchievements(initialAchievementsData);
   };
 
-  const exportDataAsJSON = () => {
+  const exportDataAsJSON = (): string => {
     return JSON.stringify(
       {
         profile,
         projects,
         achievements,
+        exportedAt: new Date().toISOString(),
       },
       null,
       2
@@ -205,9 +172,6 @@ export const PortfolioContentProvider: React.FC<{ children: React.ReactNode }> =
       value={{
         theme,
         toggleTheme,
-        isAdminAuthenticated,
-        authenticateAdmin,
-        logoutAdmin,
         profile,
         updateProfile,
         projects,

@@ -6,6 +6,7 @@
 // - Foldable/Collapsible into a sleek compact capsule with smooth spring transitions
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Home,
@@ -22,6 +23,7 @@ import {
   ChevronUp,
   Compass,
   FileText,
+  BookOpen,
 } from 'lucide-react';
 import { usePortfolioContent } from '../../context/PortfolioContentContext';
 import { sounds } from '../../utils/soundEffects';
@@ -66,9 +68,12 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({ onOpenContact }) => 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navigate = useNavigate();
+
   const dockItems = [
     { id: 'home', label: 'Home', icon: Home, href: '#' },
     { id: 'projects', label: 'Projects', icon: Layers, href: '#projects' },
+    { id: 'blog', label: 'Blog', icon: BookOpen, href: '/blog' },
     { id: 'journey', label: 'Journey', icon: Award, href: '#experience' },
     { id: 'education', label: 'Education', icon: GraduationCap, href: '#education' },
     { id: 'skills', label: 'Skills', icon: Wrench, href: '#skills' },
@@ -82,6 +87,10 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({ onOpenContact }) => 
     sounds.playClick(700);
     if (typeof window !== 'undefined' && window.innerWidth < 640) {
       setIsFolded(true);
+    }
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
     }
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -2,6 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/vitest';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { HeroSection } from '../components/hero/HeroSection';
 import { FloatingDock } from '../components/common/FloatingDock';
 import { SkillsSection } from '../components/skills/SkillsSection';
@@ -10,7 +11,11 @@ import { CertificationsSection } from '../components/certifications/Certificatio
 import { PortfolioContentProvider } from '../context/PortfolioContentContext';
 
 const renderWithContext = (ui: React.ReactElement) => {
-  return render(<PortfolioContentProvider>{ui}</PortfolioContentProvider>);
+  return render(
+    <MemoryRouter>
+      <PortfolioContentProvider>{ui}</PortfolioContentProvider>
+    </MemoryRouter>
+  );
 };
 
 describe('Core Component Rendering & Interaction', () => {

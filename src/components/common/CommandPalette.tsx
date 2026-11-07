@@ -7,11 +7,12 @@
 // - Audio cues and smooth keyboard shortcuts
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, ArrowRight, Shield, Cpu, Layers, ExternalLink, X } from 'lucide-react';
+import { Search, ArrowRight, Cpu, Layers, ExternalLink, X, BookOpen } from 'lucide-react';
 import { usePortfolioContent } from '../../context/PortfolioContentContext';
 import { useNavigate } from 'react-router-dom';
 import { sounds } from '../../utils/soundEffects';
 import { DEFAULT_INSTAGRAM, DEFAULT_RESUME_URL } from '../../data/profileData';
+import { getAllBlogPosts } from '../../utils/blogLoader';
 
 import { useModalDismiss } from '../../hooks/useModalDismiss';
 
@@ -79,12 +80,23 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     id: string;
     title: string;
     subtitle: string;
-    category: 'Projects' | 'Navigation' | 'External' | 'Admin';
+    category: 'Projects' | 'Blog' | 'Navigation' | 'External';
     action: () => void;
   }
 
   const items: CommandItem[] = [
     // Navigation
+    {
+      id: 'nav-blog',
+      title: 'Engineering Blog & Technical Writings',
+      subtitle: 'System architecture teardowns, applied AI, and AppSec notes',
+      category: 'Navigation',
+      action: () => {
+        sounds.playClick();
+        onClose();
+        navigate('/blog');
+      },
+    },
     {
       id: 'nav-projects',
       title: 'View All Architecture Blueprints',
@@ -138,6 +150,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         onClose();
         if (onSelectProject) onSelectProject(p.id);
         else navigateToSection('projects');
+      },
+    })),
+    // Blog Articles
+    ...getAllBlogPosts().map((b) => ({
+      id: `blog-${b.slug}`,
+      title: b.title,
+      subtitle: `${b.publishedAt} · ${b.readTime} · ${b.summary.slice(0, 70)}...`,
+      category: 'Blog' as const,
+      action: () => {
+        sounds.playClick();
+        onClose();
+        navigate(`/blog/${b.slug}`);
       },
     })),
     // External
@@ -264,7 +288,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                       }`}
                     >
                       {item.category === 'Projects' && <Layers className="w-3.5 h-3.5" />}
-                      {item.category === 'Admin' && <Shield className="w-3.5 h-3.5" />}
+                      {item.category === 'Blog' && <BookOpen className="w-3.5 h-3.5" />}
                       {item.category === 'Navigation' && <Cpu className="w-3.5 h-3.5" />}
                       {item.category === 'External' && <ExternalLink className="w-3.5 h-3.5" />}
                     </div>

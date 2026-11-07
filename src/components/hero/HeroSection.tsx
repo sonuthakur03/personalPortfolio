@@ -8,6 +8,7 @@
 // - Accent palette color switcher: Yellow (#FFE14D), Mint (#7DFFA6), Pink (#FF6FB5), Blue (#7C9BFF), Peach (#FFB38A)
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, Shuffle, FileText } from 'lucide-react';
 import { STANDARD_RESUME_URL } from '../../data/profileData';
@@ -169,6 +170,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenC
               {link.label}
             </a>
           ))}
+
+          {/* Blog Pill */}
+          <Link
+            to="/blog"
+            className="pop-pill text-xs sm:text-sm px-3 sm:px-3.5 py-1 sm:py-1.5 hidden sm:inline-flex items-center gap-1.5 bg-[#FF6FB5] hover:bg-[#FF55A5] text-[#111111] transition-colors"
+          >
+            <span>Blog</span>
+          </Link>
 
           {/* CV Direct Download Pill */}
           <a
